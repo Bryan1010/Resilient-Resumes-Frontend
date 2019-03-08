@@ -65,6 +65,7 @@
                     <h4 class="fs-subtitle">List your educational instituitions</h4>
                     <h4 class="fs-subtitle">Start with your most recent school</h4>
                     <div id="education-container">
+                    <h3>Education 1:</h3>
                     <input type="text" name="school[1][Name]" placeholder="Instituition Name" />
                     <input type="text" name="school[1][Address]" placeholder="Street Address" />
                     <input type="text" name="school[1][City]" placeholder="City" />
@@ -83,11 +84,36 @@
                         </select>
                     </div>
 
-                    <input type="text" name="school[1][Major]" placeholder="Major" />
-                    <input type="text" name="school[1][Minor]" placeholder="Minor" />
-                    <input type="number" name="school[1][Gpa]" placeholder="GPA" />
+                    <input type="text" name="school[2][Major]" placeholder="Major" />
+                    <input type="text" name="school[2][Minor]" placeholder="Minor" />
+                    <input type="number" name="school[2][Gpa]" placeholder="GPA" />
                     <h3 class="fs-subtitle">Graduation or Expected Date:</h3>
-                    <input type="date" name="school[1][Graduation]" placeholder="Graduation or expected date" /> 
+                    <input type="date" name="school[2][Graduation]" placeholder="Graduation or expected date" />
+                    
+                    <h3>Education 2:</h3>
+                    <input type="text" name="school[2][Name]" placeholder="Instituition Name" />
+                    <input type="text" name="school[2][Address]" placeholder="Street Address" />
+                    <input type="text" name="school[2][City]" placeholder="City" />
+                    <input type="text" name="school[2][State]" placeholder="State" />
+                    <input type="text" name="school[2][Zip]" placeholder="Zipcode" />
+                    <input type="text" name="school[2][Country]" placeholder="Country" />
+                    
+                    <div class="form-group">
+                        <h3 class="fs-subtitle">Select your degree</h3>
+                        <select class="form-control" id="degree">
+                          <option></option>
+                          <option name="school[2][Diploma]">Diploma</option>
+                          <option name="school[2][Associates]">Associates</option>
+                          <option name="school[2][Bachelors]">Bachelors</option>
+                          <option name="school[2][Certificate]">Certificate</option>
+                        </select>
+                    </div>
+
+                    <input type="text" name="school[2][Major]" placeholder="Major" />
+                    <input type="text" name="school[2][Minor]" placeholder="Minor" />
+                    <input type="number" name="school[2][Gpa]" placeholder="GPA" />
+                    <h3 class="fs-subtitle">Graduation or Expected Date:</h3>
+                    <input type="date" name="school[2][Graduation]" placeholder="Graduation or expected date" /> 
 
                 </div>
                     
@@ -114,21 +140,37 @@
      let i = 3;
                         document.getElementById('add-new-ed').onclick = function () {
                             let template = `
-                                <h3>Person ${i}:</h3>
-                                <p>
-                                    <label>First name</label><br>
-                                    <input name="people[${i}][first_name]">
-                                </p>
+                                <h3>Education ${i}:</h3>
+                                    
+                                    <input type="text" name="school[${i}][Name]" placeholder="Instituition Name" />
+                                    <input type="text" name="school[${i}][Address]" placeholder="Street Address" />
+                                    <input type="text" name="school[${i}][City]" placeholder="City" />
+                                    <input type="text" name="school[${i}][State]" placeholder="State" />
+                                    <input type="text" name="school[${i}][Zip]" placeholder="Zipcode" />
+                                    <input type="text" name="school[${i}][Country]" placeholder="Country" />
+
+                                    <div class="form-group">
+                                    <h3 class="fs-subtitle">Select your degree</h3>
+                                    <select class="form-control" id="degree">
+                                    <option></option>
+                                    <option name="school[${i}][Diploma]">Diploma</option>
+                                    <option name="school[${i}][Associates]">Associates</option>
+                                    <option name="school[${i}][Bachelors]">Bachelors</option>
+                                    <option name="school[${i}][Certificate]">Certificate</option>
+                                    </select>
+                                    </div>
+
+                                    <input type="text" name="school[${i}][Major]" placeholder="Major" />
+                                    <input type="text" name="school[${i}][Minor]" placeholder="Minor" />
+                                    <input type="number" name="school[${i}][Gpa]" placeholder="GPA" />
+                                    <h3 class="fs-subtitle">Graduation or Expected Date:</h3>
+                                    <input type="date" name="school[${i}][Graduation]" placeholder="Graduation or expected date" />
+
                         
-                                <p>
-                                    <label>Last name</label><br>
-                                    <input name="people[${i}][last_name]">
-                                </p>
-                        
-                                <p>
-                                    <label>Email</label><br>
-                                    <input name="people[${i}][email]">
-                                </p>`;
+                               
+                               
+                               
+                                    `;
                         
                             let container = document.getElementById('education-container');
                             let div = document.createElement('div');
