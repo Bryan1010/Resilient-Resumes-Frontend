@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap.css" />
     <link rel="stylesheet" href="./css/forms.css">
+    <script src=".js/app.js"></script>
 </head>
 
 <body>
@@ -61,42 +62,82 @@
                 </fieldset>
                 <fieldset>
                     <h2 class="fs-title">Education</h2>
-                    <h3 class="fs-subtitle">List your educational instituitions</h3>
+                    <h4 class="fs-subtitle">List your educational instituitions</h4>
                     <h4 class="fs-subtitle">Start with your most recent school</h4>
-                   
-                    <input type="text" name="school[1][name]" placeholder="Instituition Name" />
-                    <input type="text" name="school[1][address]" placeholder="Street Address" />
+                    <div id="education-container">
+                    <input type="text" name="school[1][Name]" placeholder="Instituition Name" />
+                    <input type="text" name="school[1][Address]" placeholder="Street Address" />
                     <input type="text" name="school[1][City]" placeholder="City" />
                     <input type="text" name="school[1][State]" placeholder="State" />
                     <input type="text" name="school[1][Zip]" placeholder="Zipcode" />
                     <input type="text" name="school[1][Country]" placeholder="Country" />
                     
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Select your degree</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <h3 class="fs-subtitle">Select your degree</h3>
+                        <select class="form-control" id="degree">
                           <option></option>
-                          <option name="school[1][diploma]">Diploma</option>
-                          <option name="school[1][associates]">Associates</option>
-                          <option name="school[1][bachelors]">Bachelors</option>
-                          <option name="school[1][certificate">Certificate</option>
+                          <option name="school[1][Diploma]">Diploma</option>
+                          <option name="school[1][Associates]">Associates</option>
+                          <option name="school[1][Bachelors]">Bachelors</option>
+                          <option name="school[1][Certificate]">Certificate</option>
                         </select>
                     </div>
 
+                    <input type="text" name="school[1][Major]" placeholder="Major" />
+                    <input type="text" name="school[1][Minor]" placeholder="Minor" />
+                    <input type="number" name="school[1][Gpa]" placeholder="GPA" />
+                    <h3 class="fs-subtitle">Graduation or Expected Date:</h3>
+                    <input type="date" name="school[1][Graduation]" placeholder="Graduation or expected date" /> 
+
+                </div>
                     
+                   <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" />-->
                     
-                    
-                    
-                       
                         
-
-
+                
+                    <input type="button"  onclick="javascript:;" id="add-new-ed" value="Add Education"></a>
                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    <input type="submit" name="submit" class="submit action-button" value="Submit" />
-                </fieldset> 
+                    <input type="button" name="next" class="next action-button" value="Next" /> 
+                </fieldset>
+                
+           
+                    
+                   
+                    
+               
+             
             </form>
 
         </div>
     </div>
+    <script>
+     let i = 3;
+                        document.getElementById('add-new-ed').onclick = function () {
+                            let template = `
+                                <h3>Person ${i}:</h3>
+                                <p>
+                                    <label>First name</label><br>
+                                    <input name="people[${i}][first_name]">
+                                </p>
+                        
+                                <p>
+                                    <label>Last name</label><br>
+                                    <input name="people[${i}][last_name]">
+                                </p>
+                        
+                                <p>
+                                    <label>Email</label><br>
+                                    <input name="people[${i}][email]">
+                                </p>`;
+                        
+                            let container = document.getElementById('education-container');
+                            let div = document.createElement('div');
+                            div.innerHTML = template;
+                            container.appendChild(div);
+                        
+                            i++;
+                        }
+    </script>
     <script src="./js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="./js/bootstrap.js"></script>
