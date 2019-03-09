@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap.css" />
     <link rel="stylesheet" href="./css/forms.css">
-    <script src=".js/app.js"></script>
+    
+    
 </head>
 
 <body>
@@ -19,19 +20,23 @@
                     <li class="active">Personal Details</li>
                     <li>Resume Purpose</li>
                     <li>Websites and Other Links</li>
-                    <li>Education   </li>
-                    <li>Address Information</li>
+                    <li>Education</li>
+                    <li>Courses</li>
+                    <li>Experience</li>
+                    <li>Skills</li>
+                    <li>Honors and Achievements</li>
+                    <li>Activities</li>
                 </ul>
                 <!-- fieldsets -->
                 <fieldset>
                     <h2 class="fs-title">Personal Details</h2>
-                    <h3 class="fs-subtitle">Tell us something more about you</h3>
+                    <h3 class="fs-subtitle">List your contact information</h3>
                     <input type="text" name="Name[FName]" placeholder="First Name" />
                     <input type="text" name="Name[LName]" placeholder="Last Name" />
                     <input type="text" name="Name[Suffix]" placeholder="Last Name" />
                     <input type="number" name="ContactInfo[Phone]" placeholder="Phone" />
                     <input type="email" name="ContactInfo[Email]" placeholder="Email">
-                    <h2>Address</h2>
+                    <h2 class="fs-title">Address</h2>
                     <input type="text" name="Address[AddressLine1]" placeholder="address line 1" />
                     <input type="text" name="Address[AddressLine2]" placeholder="address line 2" />
                     <input type="text" name="Address[City]" placeholder="City" />
@@ -41,93 +46,115 @@
                     <input type="button" name="next" class="next action-button" value="Next" />
                 </fieldset>
                 <fieldset>
-                    <h2 class="fs-title">Resume Purpose</h2>
-                    <h3 class="fs-subtitle">Subtitle here</h3>
+                    <h2 class="fs-title">Objective</h2>
+                    <h3 class="fs-subtitle">List your position and resume objective</h3>
                     <input type="text" name="PositionApplyingFor" placeholder="Position applying for" />
                     <textarea type="text" name="ObjectiveStatement" placeholder="Resume ObjectiveStatement" cols="40"
                         rows="5"></textarea>
-                    <!-- TODO: Add button that adds another input for Website obj -->
+                    
                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     <input type="button" name="next" class="next action-button" value="Next" />
                 </fieldset>
                 <fieldset>
                     <h2 class="fs-title">Social Profiles</h2>
-                    <h3 class="fs-subtitle">Your presence on the social network</h3>
+                    <h3 class="fs-subtitle">List your personal sites</h3>
                     <input type="text" name="Websites[LinkedIn]" placeholder="Linked In" />
                     <input type="text" name="Websites[GitHub]" placeholder="GitHub User" />
                     <input type="text" name="Websites[PersonalWebsite]" placeholder="Personal Website Url" />
-                    <!-- TODO: Add button that adds another input for Website obj -->
+                   
                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     <input type="button" name="next" class="next action-button" value="Next" /> 
                 </fieldset>
                 <fieldset>
                     <h2 class="fs-title">Education</h2>
-                    <h4 class="fs-subtitle">List your educational instituitions</h4>
-                    <h4 class="fs-subtitle">Start with your most recent school</h4>
+                    <h5 >List your educational institutions</h5>
+                    <h5 class="fs-subtitle">Start with your most recent school</h5>
                     <div id="education-container">
-                    <h3>Education 1:</h3>
-                    <input type="text" name="school[1][Name]" placeholder="Instituition Name" />
-                    <input type="text" name="school[1][Address]" placeholder="Street Address" />
-                    <input type="text" name="school[1][City]" placeholder="City" />
-                    <input type="text" name="school[1][State]" placeholder="State" />
-                    <input type="text" name="school[1][Zip]" placeholder="Zipcode" />
-                    <input type="text" name="school[1][Country]" placeholder="Country" />
+                    <h3 class="fs-title">Education 1:</h3>
+                    <input type="text" name="School[1][Name]" placeholder="Institution Name" />
+                    <input type="text" name="School[1][Address]" placeholder="Street Address" />
+                    <input type="text" name="School[1][City]" placeholder="City" />
+                    <input type="text" name="School[1][State]" placeholder="State" />
+                    <input type="text" name="School[1][Zip]" placeholder="Zipcode" />
+                    <input type="text" name="School[1][Country]" placeholder="Country" />
                     
                     <div class="form-group">
                         <h3 class="fs-subtitle">Select your degree</h3>
                         <select class="form-control" id="degree">
                           <option></option>
-                          <option name="school[1][Diploma]">Diploma</option>
-                          <option name="school[1][Associates]">Associates</option>
-                          <option name="school[1][Bachelors]">Bachelors</option>
-                          <option name="school[1][Certificate]">Certificate</option>
+                          <option name="School[1][Diploma]">Diploma</option>
+                          <option name="School[1][Associates]">Associates</option>
+                          <option name="School[1][Bachelors]">Bachelors</option>
+                          <option name="School[1][Certificate]">Certificate</option>
                         </select>
                     </div>
 
-                    <input type="text" name="school[2][Major]" placeholder="Major" />
-                    <input type="text" name="school[2][Minor]" placeholder="Minor" />
-                    <input type="number" name="school[2][Gpa]" placeholder="GPA" />
+                    <input type="text" name="School[1][Major]" placeholder="Major" />
+                    <input type="text" name="School[1][Minor]" placeholder="Minor" />
+                    <input type="number" name="School[1][Gpa]" placeholder="GPA" />
                     <h3 class="fs-subtitle">Graduation or Expected Date:</h3>
-                    <input type="date" name="school[2][Graduation]" placeholder="Graduation or expected date" />
-                    
-                    <h3>Education 2:</h3>
-                    <input type="text" name="school[2][Name]" placeholder="Instituition Name" />
-                    <input type="text" name="school[2][Address]" placeholder="Street Address" />
-                    <input type="text" name="school[2][City]" placeholder="City" />
-                    <input type="text" name="school[2][State]" placeholder="State" />
-                    <input type="text" name="school[2][Zip]" placeholder="Zipcode" />
-                    <input type="text" name="school[2][Country]" placeholder="Country" />
-                    
-                    <div class="form-group">
-                        <h3 class="fs-subtitle">Select your degree</h3>
-                        <select class="form-control" id="degree">
-                          <option></option>
-                          <option name="school[2][Diploma]">Diploma</option>
-                          <option name="school[2][Associates]">Associates</option>
-                          <option name="school[2][Bachelors]">Bachelors</option>
-                          <option name="school[2][Certificate]">Certificate</option>
-                        </select>
-                    </div>
-
-                    <input type="text" name="school[2][Major]" placeholder="Major" />
-                    <input type="text" name="school[2][Minor]" placeholder="Minor" />
-                    <input type="number" name="school[2][Gpa]" placeholder="GPA" />
-                    <h3 class="fs-subtitle">Graduation or Expected Date:</h3>
-                    <input type="date" name="school[2][Graduation]" placeholder="Graduation or expected date" /> 
-
-                </div>
-                    
+                    <input type="date" name="School[1][Graduation]" placeholder="Graduation or expected date" />
+                                     
+                   
                    <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" />-->
                     
-                        
-                
-                    <input type="button"  onclick="javascript:;" id="add-new-ed" value="Add Education"></a>
+                </div>
+                  
+                    <input type="button"  onclick="addnewed()" id="add-new-ed" value="Add Education"></a>
                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     <input type="button" name="next" class="next action-button" value="Next" /> 
                 </fieldset>
-                
-           
-                    
+          
+                <fieldset>
+                        <h2 class="fs-title"> Relevant Courses</h2>
+                        <h3 class="fs-subtitle">List your relevant coursework to your position</h3>
+                        <div id="course-container">
+                        <h3 class="fs-title">Course 1:</h3>
+                        <input type="text" name="CourseName[1]" placeholder="Course Name" />
+                        <textarea type="text" name="CourseDesc[1]" placeholder="Course Description" cols="40"
+                            rows="3"></textarea>
+                        </div>
+                        <input type="button"  onclick="addnewcourse()" id="add-new-course" value="Add Course"></a>
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="button" name="next" class="next action-button" value="Next" />
+                </fieldset>
+
+                <fieldset>
+                        <h2 class="fs-title">Experience</h2>
+                        <h3 class="fs-subtitle">List your most recent experience</h3>
+                        <h3 class="fs-title">Experience 1:</h3>
+                        <div class="form-group">
+                                <h3 class="fs-subtitle">Type of Experience</h3>
+                                    <select class="form-control" id="type">
+                                      <option></option>
+                                      <option name="Experience[1][Academic]">Academic</option>
+                                      <option name="Experience[1][Work]">Professional</option>
+                                      <option name="Experience[1][Work]">Other Work</option>
+                                      <option name="Experience[1][Personal]">Personal</option>
+                                      <option name="Experience[1][Other]">Other</option>
+                                    </select>
+                                </div>
+                        <input type="text" name="Experience[1][Name]" placeholder="Experience Organization Name" />
+                        <input type="text" name="Experience[1][Position]" placeholder="Experience Position Name" />
+                        Location:
+                        <input type="text" name="Experience[1][Address]" placeholder="Street Address" />
+                        <input type="text" name="Experience[1][City]" placeholder="City" />
+                        <input type="text" name="Experience[1][State]" placeholder="State" />
+                        <input type="text" name="Experience[1][Zip]" placeholder="Zipcode" />
+                        <input type="text" name="Experience[1][Country]" placeholder="Country" />
+                        <textarea type="text" name="Experience[1][Description]" placeholder="Experience Description" cols="40"
+                            rows="3"></textarea>
+                        
+                        <h3 class="fs-subtitle">Start Date:</h3>
+                        <input type="date"  name="Experience[1][StartDate]" placeholder="Start Date" />
+                        <h3 class="fs-subtitle">End Date:</h3>
+                        <input type="date"  name="Experience[1][EndDate]" placeholder="End Date" />
+                        <input type="radio" name="Experience[1][Present]" placeholder="Presently Doing" />
+                        
+
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="button" name="next" class="next action-button" value="Next" /> 
+                </fieldset>
                    
                     
                
@@ -137,49 +164,75 @@
         </div>
     </div>
     <script>
-     let i = 3;
-                        document.getElementById('add-new-ed').onclick = function () {
-                            let template = `
-                                <h3>Education ${i}:</h3>
-                                    
-                                    <input type="text" name="school[${i}][Name]" placeholder="Instituition Name" />
-                                    <input type="text" name="school[${i}][Address]" placeholder="Street Address" />
-                                    <input type="text" name="school[${i}][City]" placeholder="City" />
-                                    <input type="text" name="school[${i}][State]" placeholder="State" />
-                                    <input type="text" name="school[${i}][Zip]" placeholder="Zipcode" />
-                                    <input type="text" name="school[${i}][Country]" placeholder="Country" />
-
-                                    <div class="form-group">
-                                    <h3 class="fs-subtitle">Select your degree</h3>
-                                    <select class="form-control" id="degree">
-                                    <option></option>
-                                    <option name="school[${i}][Diploma]">Diploma</option>
-                                    <option name="school[${i}][Associates]">Associates</option>
-                                    <option name="school[${i}][Bachelors]">Bachelors</option>
-                                    <option name="school[${i}][Certificate]">Certificate</option>
-                                    </select>
-                                    </div>
-
-                                    <input type="text" name="school[${i}][Major]" placeholder="Major" />
-                                    <input type="text" name="school[${i}][Minor]" placeholder="Minor" />
-                                    <input type="number" name="school[${i}][Gpa]" placeholder="GPA" />
-                                    <h3 class="fs-subtitle">Graduation or Expected Date:</h3>
-                                    <input type="date" name="school[${i}][Graduation]" placeholder="Graduation or expected date" />
-
-                        
-                               
-                               
-                               
-                                    `;
-                        
-                            let container = document.getElementById('education-container');
-                            let div = document.createElement('div');
-                            div.innerHTML = template;
-                            container.appendChild(div);
-                        
+            let i = 1;
                             i++;
-                        }
+                           document.getElementById('add-new-ed').onclick = function addnewed() {
+                           
+                               let template = `
+                                   <h3 class="fs-title">Education ${i}:</h3>
+                                       
+                                       <input type="text" name="school[${i}][Name]" placeholder="Institution Name" />
+                                       <input type="text" name="school[${i}][Address]" placeholder="Street Address" />
+                                       <input type="text" name="school[${i}][City]" placeholder="City" />
+                                       <input type="text" name="school[${i}][State]" placeholder="State" />
+                                       <input type="text" name="school[${i}][Zip]" placeholder="Zipcode" />
+                                       <input type="text" name="school[${i}][Country]" placeholder="Country" />
+   
+                                       <div class="form-group">
+                                       <h3 class="fs-subtitle">Select your degree</h3>
+                                       <select class="form-control" id="degree">
+                                       <option></option>
+                                       <option name="school[${i}][Diploma]">Diploma</option>
+                                       <option name="school[${i}][Associates]">Associates</option>
+                                       <option name="school[${i}][Bachelors]">Bachelors</option>
+                                       <option name="school[${i}][Certificate]">Certificate</option>
+                                       </select>
+                                       </div>
+   
+                                       <input type="text" name="school[${i}][Major]" placeholder="Major" />
+                                       <input type="text" name="school[${i}][Minor]" placeholder="Minor" />
+                                       <input type="number" name="school[${i}][Gpa]" placeholder="GPA" />
+                                       <h3 class="fs-subtitle">Graduation or Expected Date:</h3>
+                                       <input type="date" name="school[${i}][Graduation]" placeholder="Graduation or expected date" />
+
+                                       `;
+                           
+                               let container = document.getElementById('education-container');
+                               let div = document.createElement('div');
+                               div.innerHTML = template;
+                               container.appendChild(div);
+                               
+                               i++;
+                              
+                           }
+   
     </script>
+
+<script>
+        let c = 1;
+                        c++;
+                       document.getElementById('add-new-course').onclick = function addnewcourse() {
+                       
+                           let template = `
+                               <h3 class="fs-title">Course ${c}:</h3>
+                               <input type="text" name="CourseName[${c}]" placeholder="Course Name" />
+                               <textarea type="text" name="CourseDesc[${c}]" placeholder="Course Description" cols="40"
+                               rows="3"></textarea> 
+                               
+
+                                   `;
+                       
+                           let container = document.getElementById('course-container');
+                           let div = document.createElement('div');
+                           div.innerHTML = template;
+                           container.appendChild(div);
+                           
+                           c++;
+                          
+                       }
+
+</script>
+
     <script src="./js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="./js/bootstrap.js"></script>
