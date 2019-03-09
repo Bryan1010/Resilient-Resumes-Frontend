@@ -17,7 +17,8 @@
             <form id="msform">
                 <!-- progressbar -->
                 <ul id="progressbar">
-                    <li class="active">Personal Details</li>
+                    <li class="active">Welcome</li>
+                    <li>Personal Details</li>
                     <li>Resume Purpose</li>
                     <li>Websites and Other Links</li>
                     <li>Education</li>
@@ -28,6 +29,13 @@
                     <li>Activities</li>
                 </ul>
                 <!-- fieldsets -->
+                <fieldset>
+                        <h2 class="fs-title">Welcome to Resilient Resumes</h2>
+                        <h3 class="fs-subtitle">We are here to help you better your resume and your future!</h3>
+                        
+                       
+                        <input type="button" name="start" class="next btn action-button" value="Start" />
+                    </fieldset>
                 <fieldset>
                     <h2 class="fs-title">Personal Details</h2>
                     <h3 class="fs-subtitle">List your contact information</h3>
@@ -96,7 +104,7 @@
                     <input type="month" name="School[1][Graduation]" placeholder="Graduation or expected date" />
                                      
                    
-                   <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" />-->
+                   <!-- -->
                     
                 </div>
                   
@@ -157,14 +165,65 @@
                         <select class="form-control" id="type">
                             <option name="Experience[1][PresentDate]">Present</option>
                         </select>
+                        <br>
                     </div>
                         <input type="button"  onclick="addnewexp()" id="add-new-experience" value="Add Experience"></a>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="button" name="next" class="next action-button" value="Next" /> 
                 </fieldset>
                    
-                    
+                <fieldset>
+                        <h2 class="fs-title"> Skills</h2>
+                        <h3 class="fs-subtitle">Select your skills and level of mastery</h3>
+                        <select class="form-control" id="skills">
+                                <option></option>
+                                <option name="Skills[1][Programming]">Programming</option>
+                                        <select class="form-control" id="type">
+                                        <option></option>
+                                        <option name="Experience[1][Academic]">Academic</option>
+                                        <option name="Experience[1][Work]">Professional</option>
+                                        <option name="Experience[1][Work]">Other Work</option>
+                                        <option name="Experience[1][Personal]">Personal</option>
+                                        <option name="Experience[1][Other]">Other</option>
+                                      </select>
+                                    
+                                <option name="Experience[1][Work]">Professional</option>
+                                <option name="Experience[1][Work]">Other Work</option>
+                                <option name="Experience[1][Personal]">Personal</option>
+                                <option name="Experience[1][Other]">Other</option>
+                              </select>
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="button" name="next" class="next action-button" value="Next" />
+                </fieldset>
                
+                <fieldset>
+                        <h2 class="fs-title"> Honors and Achievements</h2>
+                        <h3 class="fs-subtitle">List your relevant coursework to your position</h3>
+                        <div id="course-container">
+                        <h3 class="fs-title">Course 1:</h3>
+                        <input type="text" name="CourseName[1]" placeholder="Course Name" />
+                        <textarea type="text" name="CourseDesc[1]" placeholder="Course Description" cols="40"
+                            rows="3"></textarea>
+                        </div>
+                        <input type="button"  onclick="addnewcourse()" id="add-new-course" value="Add Course"></a>
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="button" name="next" class="next action-button" value="Next" />
+                </fieldset>
+
+                <fieldset>
+                        <h2 class="fs-title"> Activities</h2>
+                        <h3 class="fs-subtitle">List your relevant coursework to your position</h3>
+                        <div id="course-container">
+                        <h3 class="fs-title">Course 1:</h3>
+                        <input type="text" name="CourseName[1]" placeholder="Course Name" />
+                        <textarea type="text" name="CourseDesc[1]" placeholder="Course Description" cols="40"
+                            rows="3"></textarea>
+                        </div>
+                        <input type="button"  onclick="addnewcourse()" id="add-new-course" value="Add Course"></a>
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="button" name="next" class="next action-button" value="Next" />
+                        <input type="submit" name="submit" class="submit action-button" value="Submit" />
+                </fieldset>
              
             </form>
 
@@ -280,6 +339,7 @@
                         <select class="form-control" id="type">
                             <option name="Experience[${e}][PresentDate]">Present</option>
                         </select>
+                        <br>
                                
 
                                    `;
@@ -289,7 +349,7 @@
                            div.innerHTML = template;
                            container.appendChild(div);
                            
-                           c++;
+                           e++;
                           
                        }
 
