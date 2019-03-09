@@ -93,7 +93,7 @@
                     <input type="text" name="School[1][Minor]" placeholder="Minor" />
                     <input type="number" name="School[1][Gpa]" placeholder="GPA" />
                     <h3 class="fs-subtitle">Graduation or Expected Date:</h3>
-                    <input type="date" name="School[1][Graduation]" placeholder="Graduation or expected date" />
+                    <input type="month" name="School[1][Graduation]" placeholder="Graduation or expected date" />
                                      
                    
                    <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" />-->
@@ -122,6 +122,7 @@
                 <fieldset>
                         <h2 class="fs-title">Experience</h2>
                         <h3 class="fs-subtitle">List your most recent experience</h3>
+                    <div id="experience-container">
                         <h3 class="fs-title">Experience 1:</h3>
                         <div class="form-group">
                                 <h3 class="fs-subtitle">Type of Experience</h3>
@@ -143,15 +144,21 @@
                         <input type="text" name="Experience[1][Zip]" placeholder="Zipcode" />
                         <input type="text" name="Experience[1][Country]" placeholder="Country" />
                         <textarea type="text" name="Experience[1][Description]" placeholder="Experience Description" cols="40"
-                            rows="3"></textarea>
+                         rows="5"></textarea>
+                         <input type="text" name="Experience[1][Project]" placeholder="Project Title" />
+                         <textarea type="text" name="Experience[1][ProjectDescription]" placeholder="Project Description" cols="40"
+                         rows="3"></textarea>
+                        <input type="text" name="Experience[1][ProjectOutcome]" placeholder="Project Outcome" />
                         
                         <h3 class="fs-subtitle">Start Date:</h3>
-                        <input type="date"  name="Experience[1][StartDate]" placeholder="Start Date" />
-                        <h3 class="fs-subtitle">End Date:</h3>
-                        <input type="date"  name="Experience[1][EndDate]" placeholder="End Date" />
-                        <input type="radio" name="Experience[1][Present]" placeholder="Presently Doing" />
-                        
-
+                        <input type="month"  name="Experience[1][StartDate]" placeholder="Start Date" />
+                        <h3 class="fs-subtitle">End Date or select present:</h3>
+                        <input type="month"  name="Experience[1][EndDate]" placeholder="End Date" />
+                        <select class="form-control" id="type">
+                            <option name="Experience[1][PresentDate]">Present</option>
+                        </select>
+                    </div>
+                        <input type="button"  onclick="addnewexp()" id="add-new-experience" value="Add Experience"></a>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="button" name="next" class="next action-button" value="Next" /> 
                 </fieldset>
@@ -193,7 +200,7 @@
                                        <input type="text" name="school[${i}][Minor]" placeholder="Minor" />
                                        <input type="number" name="school[${i}][Gpa]" placeholder="GPA" />
                                        <h3 class="fs-subtitle">Graduation or Expected Date:</h3>
-                                       <input type="date" name="school[${i}][Graduation]" placeholder="Graduation or expected date" />
+                                       <input type="month" name="school[${i}][Graduation]" placeholder="Graduation or expected date" />
 
                                        `;
                            
@@ -223,6 +230,61 @@
                                    `;
                        
                            let container = document.getElementById('course-container');
+                           let div = document.createElement('div');
+                           div.innerHTML = template;
+                           container.appendChild(div);
+                           
+                           c++;
+                          
+                       }
+
+</script>
+
+<script>
+        let e = 1;
+                        e++;
+                       document.getElementById('add-new-experience').onclick = function addnewexp() {
+                       
+                           let template = `
+                           <h3 class="fs-title">Experience ${e}:</h3>
+                        <div class="form-group">
+                                <h3 class="fs-subtitle">Type of Experience</h3>
+                                    <select class="form-control" id="type">
+                                      <option></option>
+                                      <option name="Experience[${e}][Academic]">Academic</option>
+                                      <option name="Experience[${e}][Work]">Professional</option>
+                                      <option name="Experience[${e}][Work]">Other Work</option>
+                                      <option name="Experience[${e}][Personal]">Personal</option>
+                                      <option name="Experience[${e}][Other]">Other</option>
+                                    </select>
+                                </div>
+                        <input type="text" name="Experience[${e}][Name]" placeholder="Experience Organization Name" />
+                        <input type="text" name="Experience[${e}][Position]" placeholder="Experience Position Name" />
+                        Location:
+                        <input type="text" name="Experience[${e}][Address]" placeholder="Street Address" />
+                        <input type="text" name="Experience[${e}][City]" placeholder="City" />
+                        <input type="text" name="Experience[${e}][State]" placeholder="State" />
+                        <input type="text" name="Experience[${e}][Zip]" placeholder="Zipcode" />
+                        <input type="text" name="Experience[${e}][Country]" placeholder="Country" />
+                        <textarea type="text" name="Experience[${e}][Description]" placeholder="Experience Description" cols="40"
+                         rows="5"></textarea>
+                         <input type="text" name="Experience[${e}][Project]" placeholder="Project Title" />
+                         <textarea type="text" name="Experience[${e}][ProjectDescription]" placeholder="Project Description" cols="40"
+                         rows="3"></textarea>
+                        <input type="text" name="Experience[${e}][ProjectOutcome]" placeholder="Project Outcome" />
+                        
+                        <h3 class="fs-subtitle">Start Date:</h3>
+                        <input type="month"  name="Experience[${e}][StartDate]" placeholder="Start Date" />
+                        <h3 class="fs-subtitle">End Date or select present:</h3>
+                        <input type="month"  name="Experience[${e}][EndDate]" placeholder="End Date" />
+                        <select class="form-control" id="type">
+                            <option name="Experience[${e}][PresentDate]">Present</option>
+                        </select>
+                               
+
+                                   `;
+                       
+                           let container = document.getElementById('experience-container');
                            let div = document.createElement('div');
                            div.innerHTML = template;
                            container.appendChild(div);
