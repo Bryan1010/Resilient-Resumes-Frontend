@@ -25,7 +25,7 @@ body {
     margin-top: 30px;
 }
 
-#msform fieldset {
+#msform fieldset, .container {
     background: white;
     border: 0 none;
     border-radius: 0px;
@@ -196,4 +196,44 @@ body {
 .dme_link a:hover, .dme_link a:focus {
     background: #C5C5F1;
     text-decoration: none;
+}
+
+[data-resume-score="0"]{
+    background-color: red;
+    padding: 20px;
+}
+
+[data-resume-score="1"]{
+    background-color: #ff3300;
+    padding: 20px;
+}
+
+[data-resume-score="2"]{
+    background-color: #ff5b00;
+    padding: 20px;
+}
+
+[data-resume-score="3"]{
+    background-color: #fa8500;
+    padding: 20px;
+}
+
+[data-resume-score="4"]{
+    background-color: #a08500;
+    padding: 20px;
+}
+
+[data-resume-score="5"]{
+    background-color: #a0ad00;
+    padding: 20px;
+}
+
+[data-resume-score="6"]{
+    background-color: #82cb00;
+    padding: 20px;
+}
+
+[data-resume-score="7"]{
+    background-color: #82cb00;
+    padding: 20px;
 }

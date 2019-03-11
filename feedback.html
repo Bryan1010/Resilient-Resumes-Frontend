@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Resilient Resumes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/forms.css">
+</head>
+
+<body>
+
+    <div class="row">
+
+        <div class="col-md-8 col-md-offset-2">
+            <div class="container">
+                <h1 class="text-center">Feedback</h1>
+                <h2>Name </h2>
+                <p>Bryan Cruz</p>
+
+                <h2>Address</h2>
+                <p data-resume-score="0" title="Did not provide Address. Recomended feedback"
+                    data-toggle="feedback-hover">N/A</p>
+
+                <h2>Objective statement</h2>
+                <p data-resume-score="1" title="Did not provide Address. Recomended feedback"
+                    data-toggle="feedback-hover">N/A</p>
+
+                <h2>Category1</h2>
+                <p data-resume-score="1" title="FEEDBACK 1" data-toggle="feedback-hover">N/A1</p>
+                <h2>Category2</h2>
+                <p data-resume-score="2" title="FEEDBACK 2" data-toggle="feedback-hover">N/A2</p>
+                <h2>Category3</h2>
+                <p data-resume-score="3" title="FEEDBACK 3" data-toggle="feedback-hover">N/A3</p>
+                <h2>Category4</h2>
+                <p data-resume-score="4" title="FEEDBACK 4" data-toggle="feedback-hover">N/A4</p>
+                <h2>Category5</h2>
+                <p data-resume-score="5" title="FEEDBACK 5" data-toggle="feedback-hover">N/A5</p>
+                <h2>Category6</h2>
+                <p data-resume-score="6" title="FEEDBACK 6" data-toggle="feedback-hover">N/A6</p>
+                <h2>Category7</h2>
+                <p data-resume-score="7" title="FEEDBACK 7" data-toggle="feedback-hover">N/A7</p>
+                <h2>Category8</h2>
+                <p data-resume-score="8" title="FEEDBACK 8" data-toggle="feedback-hover">N/A8</p>
+                <h2>Category9</h2>
+                <p data-resume-score="9" title="FEEDBACK 9" data-toggle="feedback-hover">N/A9</p>
+                <h2>Category10</h2>
+                <p data-resume-score="10" title="FEEDBACK 10" data-toggle="feedback-hover">N/A10</p>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="feedback-hover"]').tooltip();
+        });
+    </script>
+</body>
+
+</html>
