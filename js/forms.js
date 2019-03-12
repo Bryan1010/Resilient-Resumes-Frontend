@@ -77,5 +77,16 @@ $(".previous").click(function () {
     });
 });
 
+$(function(){
+    
+     
+    
+      $("select").dashboardCodeBsMultiSelect();
+    
+     
+    
+    });
+    
+
 
 
