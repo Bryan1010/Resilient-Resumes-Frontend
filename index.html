@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./css/forms.css">
     
     
+    
+    
 </head>
 
 <body>
@@ -25,8 +27,8 @@
                     <li>Courses</li>
                     <li>Experience</li>
                     <li>Skills</li>
-                    <li>Honors and Achievements</li>
-                    <li>Activities</li>
+                    <li>Honors</li>
+                    <li>Memberships</li>
                 </ul>
                 <!-- fieldsets -->
                 <fieldset>
@@ -203,18 +205,18 @@
                 </fieldset>
                
                 <fieldset>
-                        <h2 class="fs-title">Achievements</h2>
-                        <h3 class="fs-subtitle">Celebrate your Accomplishments and Honors</h3>
-                        <h3 class="fs-subtitle">List your Achievements</h3>
+                        <h2 class="fs-title">Honors</h2>
+                        <h3 class="fs-subtitle">Celebrate your Honors and Achivements</h3>
+                        <h3 class="fs-subtitle">List your Honors or Achievements</h3>
                         <div id="honor-container">
-                        <h3 class="fs-title">Achievement 1:</h3>
-                        <input type="text" name="Achievement[1][Name]" placeholder="Achievement Name" />
-                        <textarea type="text" name="Achievement[1][Desc]" placeholder="Achievement Description" cols="40"
+                        <h3 class="fs-title">Honor or Achievement 1:</h3>
+                        <input type="text" name="Achievement[1][Name]" placeholder="Honor or Achievement Name" />
+                        <textarea type="text" name="Achievement[1][Desc]" placeholder="Honor or Achievement Description" cols="40"
                             rows="3"></textarea>
-                        <h3 class="fs-subtitle">Date of Achievement:</h3>
+                        <h3 class="fs-subtitle">Date of Honor or Achievement:</h3>
                         <input type="month" name="Achievement[1][Date]" placeholder="Date of Achievement" />
                         </div>
-                        <input type="button"  onclick="addnewhonor()" id="add-new-honor" value="Add Achievemnt"></a>
+                        <input type="button"  onclick="addnewhonor()" id="add-new-honor" value="Add Honor or Achievement"></a>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="button" name="next" class="next action-button" value="Next" />
                 </fieldset>
@@ -222,15 +224,15 @@
                 <fieldset>
                         <h2 class="fs-title">Membership</h2>
                         <h3 class="fs-subtitle">List your Membership Associations</h3>
-                        <div id="course-container">
+                        <div id="membership-container">
                         <h3 class="fs-title">Membership 1:</h3>
                         <input type="text" name="Membership[1][Name]" placeholder="Membership Association Name" />
                         <textarea type="text" name="Membership[1][Description]" placeholder="Membership Association Description" cols="40"
                             rows="3"></textarea>
-                        Did you serve in a leadership role?
-                        <input type="radio"
+                        <input type="text" name="Membership[1][LeaderName]" placeholder="Membership Leadership Title" />
+                    
                         </div>
-                        <input type="button"  onclick="addnewcourse()" id="add-new-course" value="Add Course"></a>
+                        <input type="button"  onclick="addnewmembership()" id="add-new-membership" value="Add Membership"></a>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         <input type="button" name="next" class="next action-button" value="Next" />
                         <input type="submit" name="submit" class="submit action-button" value="Submit" />
@@ -410,12 +412,12 @@
                        document.getElementById('add-new-honor').onclick = function addnewhonor() {
                        
                            let template = `
-                            <h3 class="fs-title">Achievement ${a}:</h3>
-                            <input type="text" name="Achievement[${a}][Name]" placeholder="Achievement Name" />
-                            <textarea type="text" name="Achievement[${a}][Desc]" placeholder="Achievement Description" cols="40"
+                            <h3 class="fs-title">Honor or Achievement ${a}:</h3>
+                            <input type="text" name="Achievement[${a}][Name]" placeholder="Honor or Achievement Name" />
+                            <textarea type="text" name="Achievement[${a}][Desc]" placeholder="Honor or Achievement Description" cols="40"
                             rows="3"></textarea>
-                            <h3 class="fs-subtitle">Date of Achievement:</h3>
-                            <input type="month" name="Achievement[${a}][Date]" placeholder="Date of Achievement" />
+                            <h3 class="fs-subtitle">Date of Honor or Achievement:</h3>
+                            <input type="month" name="Achievement[${a}][Date]" placeholder="Date of Honor or Achievement" />
 
                                    `;
                        
@@ -425,6 +427,31 @@
                            container.appendChild(div);
                            
                            a++;
+                          
+                       }
+
+</script>
+
+<script>
+        let m = 1;
+                        m++;
+                       document.getElementById('add-new-membership').onclick = function addnewmembership() {
+                       
+                           let template = `
+                           <h3 class="fs-title">Membership ${m}:</h3>
+                        <input type="text" name="Membership[${m}][Name]" placeholder="Membership Association Name" />
+                        <textarea type="text" name="Membership[${m}][Description]" placeholder="Membership Association Description" cols="40"
+                            rows="3"></textarea>
+                        <input type="text" name="Membership[${m}][LeaderName]" placeholder="Membership Leadership Title" />
+
+                                   `;
+                       
+                           let container = document.getElementById('membership-container');
+                           let div = document.createElement('div');
+                           div.innerHTML = template;
+                           container.appendChild(div);
+                           
+                           m++;
                           
                        }
 
