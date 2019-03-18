@@ -13,8 +13,8 @@
 
 <body>
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <form id="msform">
+        <div id="content" class="col-md-6 col-md-offset-3">
+            <form id="msform" method="POST" action="/resume/resilient.php" novalidate>
                 <!-- progressbar -->
                 <ul id="progressbar">
                     <li class="active">Welcome</li>
@@ -185,14 +185,15 @@
                 <fieldset>
                     <h2 class="fs-title"> Skills</h2>
                     <h3 class="fs-subtitle">Select your skills and level of mastery</h3>
-                    <select class="form-control" id="skills">
-                        <option name="Skills[0][Programming]">Programming</option>
+                    <input type="text" name="Experience[0][Type]" list="SkillType" placeholder="Type of Skill" />
+                    <datalist id="SkillType">
+                        <option name="Skill[0][Type]" value="Programming">Programming</option>
+                        <option name="Skill[0][Type]" value="Software">Software</option>
+                        <option name="Skill[0][Type]" value="Other">Other</option>
+                    </datalist>
 
-                        <option name="Experience[0][Work]">Professional</option>
-                        <option name="Experience[0][Work]">Other Work</option>
-                        <option name="Experience[0][Personal]">Personal</option>
-                        <option name="Experience[0][Other]">Other</option>
-                    </select>
+                    <input name="Skill[0][Name]" type="text" placeholder="Enter your skill sumarized in a few words" />
+
                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     <input type="button" name="next" class="next action-button" value="Next" />
                 </fieldset>
@@ -240,29 +241,29 @@
             let template = `
                                    <h3 class="fs-title">Education ${i}:</h3>
                                        
-                                       <input type="text" name="school[${i}][Name]" placeholder="Institution Name" />
-                                       <input type="text" name="school[${i}][Address]" placeholder="Street Address" />
-                                       <input type="text" name="school[${i}][City]" placeholder="City" />
-                                       <input type="text" name="school[${i}][State]" placeholder="State" />
-                                       <input type="text" name="school[${i}][Zip]" placeholder="Zipcode" />
-                                       <input type="text" name="school[${i}][Country]" placeholder="Country" />
+                                       <input type="text" name="school[${i - 1}][Name]" placeholder="Institution Name" />
+                                       <input type="text" name="school[${i - 1}][Address]" placeholder="Street Address" />
+                                       <input type="text" name="school[${i - 1}][City]" placeholder="City" />
+                                       <input type="text" name="school[${i - 1}][State]" placeholder="State" />
+                                       <input type="text" name="school[${i - 1}][Zip]" placeholder="Zipcode" />
+                                       <input type="text" name="school[${i - 1}][Country]" placeholder="Country" />
    
                                        <div class="form-group">
                                        <h3 class="fs-subtitle">Select your degree</h3>
                                        <select class="form-control" id="degree">
                                        <option></option>
-                                       <option name="school[${i}][Diploma]">Diploma</option>
-                                       <option name="school[${i}][Associates]">Associates</option>
-                                       <option name="school[${i}][Bachelors]">Bachelors</option>
-                                       <option name="school[${i}][Certificate]">Certificate</option>
+                                       <option name="school[${i - 1}][Diploma]">Diploma</option>
+                                       <option name="school[${i - 1}][Associates]">Associates</option>
+                                       <option name="school[${i - 1}][Bachelors]">Bachelors</option>
+                                       <option name="school[${i - 1}][Certificate]">Certificate</option>
                                        </select>
                                        </div>
    
-                                       <input type="text" name="school[${i}][Major]" placeholder="Major" />
-                                       <input type="text" name="school[${i}][Minor]" placeholder="Minor" />
-                                       <input type="number" name="school[${i}][Gpa]" placeholder="GPA" />
+                                       <input type="text" name="school[${i - 1}][Major]" placeholder="Major" />
+                                       <input type="text" name="school[${i - 1}][Minor]" placeholder="Minor" />
+                                       <input type="number" name="school[${i - 1}][Gpa]" placeholder="GPA" />
                                        <h3 class="fs-subtitle">Graduation or Expected Date:</h3>
-                                       <input type="month" name="school[${i}][Graduation]" placeholder="Graduation or expected date" />
+                                       <input type="month" name="school[${i - 1}][Graduation]" placeholder="Graduation or expected date" />
 
                                        `;
 
@@ -284,8 +285,8 @@
 
             let template = `
                                <h3 class="fs-title">Course ${c}:</h3>
-                               <input type="text" name="CourseName[${c}]" placeholder="Course Name" />
-                               <textarea type="text" name="CourseDesc[${c}]" placeholder="Course Description" cols="40"
+                               <input type="text" name="RelevantCourse[${c - 1}][Name]" placeholder="Course Name" />
+                               <textarea type="text" name="RelevantCourse[${c - 1}][Description]" placeholder="Course Description" cols="40"
                                rows="3"></textarea> 
                                
 
@@ -313,34 +314,34 @@
                                 <h3 class="fs-subtitle">Type of Experience</h3>
                                     <select class="form-control" id="type">
                                       <option></option>
-                                      <option name="Experience[${e}][Academic]">Academic</option>
-                                      <option name="Experience[${e}][Work]">Professional</option>
-                                      <option name="Experience[${e}][Work]">Other Work</option>
-                                      <option name="Experience[${e}][Personal]">Personal</option>
-                                      <option name="Experience[${e}][Other]">Other</option>
+                                      <option name="Experience[${e - 1}][Academic]">Academic</option>
+                                      <option name="Experience[${e - 1}][Work]">Professional</option>
+                                      <option name="Experience[${e - 1}][Work]">Other Work</option>
+                                      <option name="Experience[${e - 1}][Personal]">Personal</option>
+                                      <option name="Experience[${e - 1}][Other]">Other</option>
                                     </select>
                                 </div>
-                        <input type="text" name="Experience[${e}][Name]" placeholder="Experience Organization Name" />
-                        <input type="text" name="Experience[${e}][Position]" placeholder="Experience Position Name" />
+                        <input type="text" name="Experience[${e - 1}][Name]" placeholder="Experience Organization Name" />
+                        <input type="text" name="Experience[${e - 1}][Position]" placeholder="Experience Position Name" />
                         Location:
-                        <input type="text" name="Experience[${e}][Address]" placeholder="Street Address" />
-                        <input type="text" name="Experience[${e}][City]" placeholder="City" />
-                        <input type="text" name="Experience[${e}][State]" placeholder="State" />
-                        <input type="text" name="Experience[${e}][Zip]" placeholder="Zipcode" />
-                        <input type="text" name="Experience[${e}][Country]" placeholder="Country" />
-                        <textarea type="text" name="Experience[${e}][Description]" placeholder="Experience Description" cols="40"
+                        <input type="text" name="Experience[${e - 1}][Address]" placeholder="Street Address" />
+                        <input type="text" name="Experience[${e - 1}][City]" placeholder="City" />
+                        <input type="text" name="Experience[${e - 1}][State]" placeholder="State" />
+                        <input type="text" name="Experience[${e - 1}][Zip]" placeholder="Zipcode" />
+                        <input type="text" name="Experience[${e - 1}][Country]" placeholder="Country" />
+                        <textarea type="text" name="Experience[${e - 1}][Description]" placeholder="Experience Description" cols="40"
                          rows="5"></textarea>
-                         <input type="text" name="Experience[${e}][Project]" placeholder="Project Title" />
-                         <textarea type="text" name="Experience[${e}][ProjectDescription]" placeholder="Project Description" cols="40"
+                         <input type="text" name="Experience[${e - 1}][Project]" placeholder="Project Title" />
+                         <textarea type="text" name="Experience[${e - 1}][ProjectDescription]" placeholder="Project Description" cols="40"
                          rows="3"></textarea>
-                        <input type="text" name="Experience[${e}][ProjectOutcome]" placeholder="Project Outcome" />
+                        <input type="text" name="Experience[${e - 1}][ProjectOutcome]" placeholder="Project Outcome" />
                         
                         <h3 class="fs-subtitle">Start Date:</h3>
-                        <input type="month"  name="Experience[${e}][StartDate]" placeholder="Start Date" />
+                        <input type="month"  name="Experience[${e - 1}][StartDate]" placeholder="Start Date" />
                         <h3 class="fs-subtitle">End Date or select present:</h3>
-                        <input type="month"  name="Experience[${e}][EndDate]" placeholder="End Date" />
+                        <input type="month"  name="Experience[${e - 1}][EndDate]" placeholder="End Date" />
                         <select class="form-control" id="type">
-                            <option name="Experience[${e}][PresentDate]">Present</option>
+                            <option name="Experience[${e - 1}][PresentDate]">Present</option>
                         </select>
                         <br>
                                

@@ -6,11 +6,11 @@ document.querySelector("#msform").addEventListener("submit", function (e) {
 
     let data = JSON.stringify($('form').serializeObject());
 
-    console.log(data);
+    // console.log(data);
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:3000/getResumeScore",
+        "url": "/resume/resilient.php",
         "method": "POST",
         "headers": {
             "Content-Type": "application/json",
@@ -22,7 +22,9 @@ document.querySelector("#msform").addEventListener("submit", function (e) {
     }
 
     $.ajax(settings).done(function (response) {
-        localStorage.setItem('Resume', JSON.stringify(response));
+        // localStorage.setItem('Resume', JSON.stringify(response));
         console.log(response);
+        $('#content').html(response);
+        alert('done');
     });
 });
