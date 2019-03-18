@@ -33,6 +33,8 @@
                     <h2 class="fs-title">Welcome to Resilient Resumes</h2>
                     <h3 class="fs-subtitle">We are here to help you better your resume and your future!</h3>
 
+                    <input type="text" placeholder="Email" />
+                    <input type="text" placeholder="Password" />
 
                     <input type="button" name="start" class="next btn action-button" value="Start" />
                 </fieldset>
@@ -192,7 +194,10 @@
                         <option name="Skill[0][Type]" value="Other">Other</option>
                     </datalist>
 
-                    <input name="Skill[0][Name]" type="text" placeholder="Enter your skill sumarized in a few words" />
+                    <input name="user[pets][]" type="checkbox" value="cat" checked>
+
+
+                    <input name="Skill[0][]" type="text" placeholder="Enter your skill sumarized in a few words" />
 
                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     <input type="button" name="next" class="next action-button" value="Next" />
@@ -203,7 +208,7 @@
                     <h2 class="fs-title"> Honors and Achievements</h2>
                     <h3 class="fs-subtitle">List your relevant coursework to your position</h3>
                     <div id="course-container">
-                        <h3 class="fs-title">Course 1:</h3>
+                        <h3 class="fs-title">Achievement 1:</h3>
                         <input type="text" name="Achievements[0][Name]" placeholder="Achievement/Honor Name" />
                         <textarea type="text" name="Achievements[0][Description]" placeholder="Description" cols="40"
                             rows="3"></textarea>
