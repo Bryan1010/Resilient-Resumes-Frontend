@@ -16,8 +16,9 @@ app.use(cors({
     origin: 'http://localhost:8000'
 }));
 
-app.listen(3000, () => {
-    console.log("Server running on port 3000");
+var server = app.listen(process.env.PORT || 8080, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
 });
 
 app.post('/getResumeScore', function (req, res) {
