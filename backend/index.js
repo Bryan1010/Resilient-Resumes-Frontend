@@ -25,6 +25,7 @@ app.post('/getResumeScore', function (req, res) {
     var resume = req.body;
     res.type('application/json');
 
-    res.send(JSON.stringify(helpers.AddRanking(resume)));
+    res.status(200).json(helpers.AddRanking(resume));
+    // res.send(JSON.stringify(helpers.AddRanking(resume)));
 
 });
