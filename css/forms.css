@@ -25,7 +25,7 @@ body {
     margin-top: 30px;
 }
 
-#msform fieldset {
+#msform fieldset, .feedback {
     background: white;
     border: 0 none;
     border-radius: 0px;
@@ -196,4 +196,52 @@ body {
 .dme_link a:hover, .dme_link a:focus {
     background: #C5C5F1;
     text-decoration: none;
+}
+
+.feedback-section{
+    padding: 40px;
+}
+
+.feedback-section[data-value="0"]{
+    background-color: #E50000;
+}
+
+.feedback-section[data-value="1"]{
+    background-color: #CF1703;
+}
+
+.feedback-section[data-value="2"]{
+    background-color: #BA2E06;
+}
+
+.feedback-section[data-value="3"]{
+    background-color: #A54609;
+}
+
+.feedback-section[data-value="4"]{
+    background-color: #8F5D0C;
+}
+
+.feedback-section[data-value="5"]{
+    background-color: #7A7510;
+}
+
+.feedback-section[data-value="6"]{
+    background-color: #658C13;
+}
+
+.feedback-section[data-value="7"]{
+    background-color: #4FA316;
+}
+
+.feedback-section[data-value="8"]{
+    background-color: #3ABB19;
+}
+
+.feedback-section[data-value="9"]{
+    background-color: #25D21C;
+}
+
+.feedback-section[data-value="10"]{
+    background-color: #10EA20;
 }
