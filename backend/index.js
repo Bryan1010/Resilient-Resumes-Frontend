@@ -23,7 +23,7 @@ app.listen(3000, () => {
 app.post('/getResumeScore', function (req, res) {
     var resume = req.body;
     res.type('application/json');
-    console.log(req.body);
+
     res.send(JSON.stringify(helpers.AddRanking(resume)));
 
 });
