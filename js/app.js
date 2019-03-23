@@ -102,7 +102,7 @@ function addNewExperience() {
                    <h3 class="fs-title">Experience ${c + 1}:</h3>
                 <div class="form-group">
                         <h3 class="fs-subtitle">Type of Experience</h3>
-                            <select class="form-control" id="type">
+                            <select class="form-control">
                               <option></option>
                               <option name="Experience[${c}][Academic]">Academic</option>
                               <option name="Experience[${c}][Work]">Professional</option>
