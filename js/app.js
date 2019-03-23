@@ -12,7 +12,7 @@ let url = "http://localhost:3000/getResumeScore";
 document.querySelector("#msform").addEventListener("submit", function (e) {
     e.preventDefault();    //stop form from submitting
 
-    let data = JSON.stringify($('form').serializeObject());
+    let data = JSON.stringify($('form').serializeJSON());
 
     // console.log(data);
     var settings = {
@@ -139,6 +139,39 @@ function addNewExperience() {
                            `;
 
     let container = document.getElementById('experience-container');
+    let div = document.createElement('div');
+    div.innerHTML = template;
+    container.appendChild(div);
+}
+
+function addNewAchievement() {
+    arrayIdx.Achievements += 1;
+    let c = arrayIdx.Achievements;
+
+    let template = `
+        <h3 class="fs-title">Achievement ${c + 1}:</h3>
+        <input type="text" name="Achievements[${c}][Name]" placeholder="Achievement/Honor Name" />
+        <textarea type="text" name="Achievements[${c}][Description]" placeholder="Description" cols="40"
+        rows="3"></textarea>`;
+
+    let container = document.getElementById('achievement-container');
+    let div = document.createElement('div');
+    div.innerHTML = template;
+    container.appendChild(div);
+}
+
+function addNewActivity() {
+    arrayIdx.Activities += 1;
+    let c = arrayIdx.Activities;
+
+    let template = `
+        <h3 class="fs-title">Activity ${c + 1}:</h3>
+        <input type="text" name="Activities[${c}][Name]" placeholder="Course Name" />
+        <textarea type="text" name="Activities[${c}][Description]" placeholder="Course Description"
+            cols="40" rows="3"></textarea>
+    `;
+
+    let container = document.getElementById('activities-container');
     let div = document.createElement('div');
     div.innerHTML = template;
     container.appendChild(div);

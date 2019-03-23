@@ -173,7 +173,7 @@
                         <input type="month" name="Experience[][StartDate]" placeholder="Start Date" />
                         <h3 class="fs-subtitle">End Date or select present:</h3>
                         <input type="month" name="Experience[][EndDate]" placeholder="End Date" />
-                        <select class="form-control" id="type">
+                        <select class="form-control">
                             <option name="Experience[][PresentDate]">Present</option>
                         </select>
                         <br>
@@ -209,13 +209,14 @@
                     <br />
                     <input type="radio" name="Skill[Languages][][Python]" value="Advanced"> Advanced<br />
 
-                    <br>
+                    <br />
                     <input type="checkbox" value="Javascript"> Javascript <br />
                     <input type="radio" name="Skill[Languages][][Javascript]" value="Beginner"> Beginner <br />
                     <input type="radio" name="Skill[Languages][][Javascript]" value="Intermediate"> Intermediate
                     <br />
                     <input type="radio" name="Skill[Languages][][Javascript]" value="Advanced"> Advanced<br />
                     <br>
+
                     <input type="checkbox" value="Java"> Java <br />
                     <input type="radio" name="Skill[Languages][][Java]" value="Beginner"> Beginner <br />
                     <input type="radio" name="Skill[Languages][][Java]" value="Intermediate"> Intermediate
@@ -225,38 +226,59 @@
                     <br><br>
                     <h4 class="fs-title">Frameworks</h4>
                     <br>
+
                     <input type="checkbox" value="dotNet"> .Net (dot Net Framework or
                     dot Net Core) <br />
                     <input type="radio" name="Skill[Frameworks][][dotNet]" value="Beginner"> Beginner <br />
                     <input type="radio" name="Skill[Frameworks][][dotNet]" value="Intermediate" checked>
                     Intermediate
                     <br />
+
                     <input type="radio" name="Skill[Frameworks][][dotNet]" value="Advanced"> Advanced<br />
                     <br>
+
                     <input type="checkbox" value="Flask"> Flask (Python) <br />
                     <input type="radio" name="Skill[Frameworks][][Flask]" value="Beginner"> Beginner <br />
                     <input type="radio" name="Skill[Frameworks][][Flask]" value="Intermediate"> Intermediate
                     <br />
                     <input type="radio" name="Skill[Frameworks][][Flask]" value="Advanced"> Advanced<br />
                     <br>
+
                     <input type="checkbox" value="JSF"> Java Server Faces <br />
                     <input type="radio" name="Skill[Frameworks][][JSF]" value="Beginner"> Beginner <br />
                     <input type="radio" name="Skill[Frameworks][][JSF]" value="Intermediate"> Intermediate
                     <br />
                     <input type="radio" name="Skill[Frameworks][][JSF]" value="Advanced"> Advanced<br />
                     <br>
+
                     <input type="checkbox" value="Node"> Node.js <br />
                     <input type="radio" name="Skill[Frameworks][][Node]" value="Beginner"> Beginner <br />
                     <input type="radio" name="Skill[Frameworks][][Node]" value="Intermediate"> Intermediate
                     <br />
                     <input type="radio" name="Skill[Frameworks][][Node]" value="Advanced"> Advanced<br />
 
+                    <br><br>
+                    <h4 class="fs-title">Operating Systems</h4>
+                    <br>
 
+                    <input type="checkbox" value="Windows"> Microsoft Windows <br />
+                    <input type="radio" name="Skill[OS][][Windows]" value="Beginner"> Beginner <br />
+                    <input type="radio" name="Skill[OS][][Windows]" value="Intermediate"> Intermediate
+                    <br />
+                    <input type="radio" name="Skill[OS][][Windows]" value="Advanced"> Advanced<br />
+                    <br />
+                    <input type="checkbox" value="Mac"> Mac OS <br />
+                    <input type="radio" name="Skill[OS][][Mac]" value="Beginner"> Beginner <br />
+                    <input type="radio" name="Skill[OS][][Mac]" value="Intermediate"> Intermediate
+                    <br />
+                    <input type="radio" name="Skill[OS][][Mac]" value="Advanced"> Advanced<br />
+                    <br />
+                    <input type="checkbox" value="Linux"> Linux <br />
+                    <input type="radio" name="Skill[OS][][Linux]" value="Beginner"> Beginner <br />
+                    <input type="radio" name="Skill[OS][][Linux]" value="Intermediate"> Intermediate
+                    <br />
+                    <input type="radio" name="Skill[OS][][Linux]" value="Advanced"> Advanced<br />
 
-
-
-
-                    <!-- <input name="Skill[0][]" type="text" placeholder="Enter your skill sumarized in a few words" /> -->
 
                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     <input type="button" name="next" class="next action-button" value="Next" />
@@ -266,13 +288,13 @@
                 <fieldset>
                     <h2 class="fs-title"> Honors and Achievements</h2>
                     <h3 class="fs-subtitle">List your relevant coursework to your position</h3>
-                    <div id="course-container">
+                    <div id="achievement-container">
                         <h3 class="fs-title">Achievement 1:</h3>
-                        <input type="text" name="Achievements[0][Name]" placeholder="Achievement/Honor Name" />
-                        <textarea type="text" name="Achievements[0][Description]" placeholder="Description" cols="40"
+                        <input type="text" name="Achievements[][Name]" placeholder="Achievement/Honor Name" />
+                        <textarea type="text" name="Achievements[][Description]" placeholder="Description" cols="40"
                             rows="3"></textarea>
                     </div>
-                    <input type="button" onclick="addnewcourse()" id="add-new-course" value="Add Course"></a>
+                    <input type="button" onclick="addNewAchievement()" id="add-new-course" value="Add Activity"></a>
                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     <input type="button" name="next" class="next action-button" value="Next" />
                 </fieldset>
@@ -281,13 +303,13 @@
                 <fieldset>
                     <h2 class="fs-title"> Activities</h2>
                     <h3 class="fs-subtitle">List Activities</h3>
-                    <div id="course-container">
-                        <h3 class="fs-title">Course 1:</h3>
-                        <input type="text" name="Activities[0][Name]" placeholder="Course Name" />
-                        <textarea type="text" name="Activities[0][Description]" placeholder="Course Description"
+                    <div id="activities-container">
+                        <h3 class="fs-title">Activity 1:</h3>
+                        <input type="text" name="Activities[][Name]" placeholder="Course Name" />
+                        <textarea type="text" name="Activities[][Description]" placeholder="Course Description"
                             cols="40" rows="3"></textarea>
                     </div>
-                    <input type="button" onclick="addnewcourse()" id="add-new-course" value="Add Course"></a>
+                    <input type="button" onclick="addNewActivity()" id="add-new-course" value="Add Activity"></a>
                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     <input type="button" name="next" class="next action-button" value="Next" />
                     <input type="submit" name="submit" class="submit action-button" value="Submit" />
