@@ -34,7 +34,7 @@
                     <h3 class="fs-subtitle">We are here to help you better your resume and your future!</h3>
 
                     <input type="text" placeholder="Email" />
-                    <input type="text" placeholder="Password" />
+                    <input type="password" placeholder="Password" />
 
                     <input type="button" name="start" class="next btn action-button" value="Start" />
                 </fieldset>
@@ -187,17 +187,75 @@
                 <fieldset>
                     <h2 class="fs-title"> Skills</h2>
                     <h3 class="fs-subtitle">Select your skills and level of mastery</h3>
-                    <input type="text" name="Experience[0][Type]" list="SkillType" placeholder="Type of Skill" />
+                    <!-- <input type="text" name="Experience[0][Type]" list="SkillType" placeholder="Type of Skill" />
                     <datalist id="SkillType">
                         <option name="Skill[0][Type]" value="Programming">Programming</option>
                         <option name="Skill[0][Type]" value="Software">Software</option>
                         <option name="Skill[0][Type]" value="Other">Other</option>
-                    </datalist>
+                    </datalist> -->
 
-                    <input name="user[pets][]" type="checkbox" value="cat" checked>
+                    <h4 class="fs-title">Programming Languages</h4>
+
+                    <input type="checkbox" value="C-Sharp"> C# <br />
+                    <input type="radio" name="Skill[Languages][][C-Sharp]" value="Beginner"> Beginner <br />
+                    <input type="radio" name="Skill[Languages][][C-Sharp]" value="Intermediate"> Intermediate
+                    <br />
+                    <input type="radio" name="Skill[Languages][][C-Sharp]" value="Advanced"> Advanced<br />
+                    <br>
+                    <input type="checkbox" value="Python"> Python <br />
+                    <input type="radio" name="Skill[Languages][][Python]" value="Beginner" checked> Beginner <br />
+                    <input type="radio" name="Skill[Languages][][Python]" value="Intermediate"> Intermediate
+                    <br />
+                    <input type="radio" name="Skill[Languages][][Python]" value="Advanced"> Advanced<br />
+
+                    <br>
+                    <input type="checkbox" value="Javascript"> Javascript <br />
+                    <input type="radio" name="Skill[Languages][][Javascript]" value="Beginner"> Beginner <br />
+                    <input type="radio" name="Skill[Languages][][Javascript]" value="Intermediate"> Intermediate
+                    <br />
+                    <input type="radio" name="Skill[Languages][][Javascript]" value="Advanced"> Advanced<br />
+                    <br>
+                    <input type="checkbox" value="Java"> Java <br />
+                    <input type="radio" name="Skill[Languages][][Java]" value="Beginner"> Beginner <br />
+                    <input type="radio" name="Skill[Languages][][Java]" value="Intermediate"> Intermediate
+                    <br />
+                    <input type="radio" name="Skill[Languages][][Java]" value="Advanced"> Advanced<br />
+
+                    <br><br>
+                    <h4 class="fs-title">Frameworks</h4>
+                    <br>
+                    <input type="checkbox" value="dotNet"> .Net (dot Net Framework or
+                    dot Net Core) <br />
+                    <input type="radio" name="Skill[Frameworks][][dotNet]" value="Beginner"> Beginner <br />
+                    <input type="radio" name="Skill[Frameworks][][dotNet]" value="Intermediate" checked>
+                    Intermediate
+                    <br />
+                    <input type="radio" name="Skill[Frameworks][][dotNet]" value="Advanced"> Advanced<br />
+                    <br>
+                    <input type="checkbox" value="Flask"> Flask (Python) <br />
+                    <input type="radio" name="Skill[Frameworks][][Flask]" value="Beginner"> Beginner <br />
+                    <input type="radio" name="Skill[Frameworks][][Flask]" value="Intermediate"> Intermediate
+                    <br />
+                    <input type="radio" name="Skill[Frameworks][][Flask]" value="Advanced"> Advanced<br />
+                    <br>
+                    <input type="checkbox" value="JSF"> Java Server Faces <br />
+                    <input type="radio" name="Skill[Frameworks][][JSF]" value="Beginner"> Beginner <br />
+                    <input type="radio" name="Skill[Frameworks][][JSF]" value="Intermediate"> Intermediate
+                    <br />
+                    <input type="radio" name="Skill[Frameworks][][JSF]" value="Advanced"> Advanced<br />
+                    <br>
+                    <input type="checkbox" value="Node"> Node.js <br />
+                    <input type="radio" name="Skill[Frameworks][][Node]" value="Beginner"> Beginner <br />
+                    <input type="radio" name="Skill[Frameworks][][Node]" value="Intermediate"> Intermediate
+                    <br />
+                    <input type="radio" name="Skill[Frameworks][][Node]" value="Advanced"> Advanced<br />
 
 
-                    <input name="Skill[0][]" type="text" placeholder="Enter your skill sumarized in a few words" />
+
+
+
+
+                    <!-- <input name="Skill[0][]" type="text" placeholder="Enter your skill sumarized in a few words" /> -->
 
                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     <input type="button" name="next" class="next action-button" value="Next" />
@@ -369,7 +427,7 @@
     <script src="./js/bootstrap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="./js/forms.js"></script>
-    <script src="./js/jquery-serializer.js"></script>
+    <script src="./js/js-serialize.js"></script>
     <script src="./js/app.js"></script>
 </body>
 
