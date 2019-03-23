@@ -129,11 +129,11 @@
                     <h3 class="fs-subtitle">List your relevant coursework to your position</h3>
                     <div id="course-container">
                         <h3 class="fs-title">Course 1:</h3>
-                        <input type="text" name="RelevantCourses[0][Name]" placeholder="Course Name" />
-                        <textarea type="text" name="RelevantCourses[0][Description]" placeholder="Course Description"
+                        <input type="text" name="RelevantCourse[0][Name]" placeholder="Course Name" />
+                        <textarea type="text" name="RelevantCourse[0][Description]" placeholder="Course Description"
                             cols="40" rows="3"></textarea>
                     </div>
-                    <input type="button" onclick="addnewcourse()" id="add-new-course" value="Add Course"></a>
+                    <input type="button" onclick="addNewCourse()" id="add-new-course" value="Add Course"></a>
                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     <input type="button" name="next" class="next action-button" value="Next" />
                 </fieldset>
@@ -341,30 +341,6 @@
 
     </script>
 
-    <script>
-        let c = 1;
-        c++;
-        document.getElementById('add-new-course').onclick = function addnewcourse() {
-
-            let template = `
-                               <h3 class="fs-title">Course ${c}:</h3>
-                               <input type="text" name="RelevantCourse[${c - 1}][Name]" placeholder="Course Name" />
-                               <textarea type="text" name="RelevantCourse[${c - 1}][Description]" placeholder="Course Description" cols="40"
-                               rows="3"></textarea> 
-                               
-
-                                   `;
-
-            let container = document.getElementById('course-container');
-            let div = document.createElement('div');
-            div.innerHTML = template;
-            container.appendChild(div);
-
-            c++;
-
-        }
-
-    </script>
 
     <script>
         let e = 1;
