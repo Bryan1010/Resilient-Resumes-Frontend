@@ -10,13 +10,13 @@
     </div>
 
     <h2>Contact Information</h2>
-    <div class="feedback-section" data-value="5">
+    <div class="feedback-section" data-value="5" title="Excellent">
         <p>Phone Number: <?php echo $data[ContactInfo][Phone] ?></p>
         <p>Email: <?php echo $data[ContactInfo][Email] ?></p>
     </div>
 
     <h2>Address</h2>
-    <div class="feedback-section" data-value="5">
+    <div class="feedback-section" data-value="5" title="Excellent">
         <p>Address Line 1: <?php echo $data[Address][AddressLine1]?></p>
         <?php if(strlen($data[Address][AddressLine2]) > 0) {?>
             <p>Address Line 2: <?php echo $data[Address][AddressLine2]?></p>
@@ -28,12 +28,12 @@
     </div>
 
     <h2>Position Applying For</h2>
-    <div class="feedback-section" data-value="5">
+    <div class="feedback-section" data-value="5" title="Excellent">
         <p><?php echo $data[PositionApplyingFor][PositionName] ?></p>
     </div>
 
     <h2>Objective Statement</h2>
-    <div class="feedback-section" data-value="1" title="Try coming up with an Objective statement. They are usually tailored to the job you are trying to get and are usually 1 to 2 sentences long">
+    <div class="feedback-section" data-value="1" title="Needs Improvement. Try coming up with an Objective statement. They are usually tailored to the job you are trying to get and are usually 1 to 2 sentences long">
         <?php if(strlen($data[Objective][Statement]) == 0) {
             echo "<p>No Objective Statement listed</p>";
         } else {?>
@@ -42,7 +42,7 @@
     </div>
 
     <h2>Websites</h2>
-    <div class="feedback-section" data-value="3" title="Usually Developers would have a github account with projects they work on on their free time, try creating a personal website on github.">
+    <div class="feedback-section" data-value="3" title="Average. Usually Developers would have a github account with projects they work on on their free time, try creating a personal website on github.">
         <p>LinkedIn: 
             <a href="<?php echo $data[Websites][LinkedIn] ?>">
                 <?php echo $data[Websites][LinkedIn] ?>
@@ -53,7 +53,7 @@
     </div>
 
     <h2>Schools Attended</h2>
-    <div class="feedback-section" data-value="5">
+    <div class="feedback-section" data-value="5" title="Excellent">
         <?php $ctr = 1; foreach($data[School] as $school ) {
             echo "<p>School #$ctr </p>";
             echo "<p>Name: $school[Name]</p>";
@@ -66,12 +66,12 @@
     </div>
 
     <h2>Relevant Courses</h2>
-    <div class="feedback-section" data-value="1" title="It is useful to have courses listed that are related with the position you plan on applying.">
+    <div class="feedback-section" data-value="1" title="Needs Improvement. It is useful to have courses listed that are related with the position you plan on applying.">
         <p>No Course Listed</p>
     </div>
 
     <h2>Experience</h2>
-    <div class="feedback-section" data-value="3" title="While it's good that you have some professional experience, employers like to see organizations that you were part of, leadership positions that you have held, etc">
+    <div class="feedback-section" data-value="3" title="Average. While it's good that you have some professional experience, employers like to see organizations that you were part of, leadership positions that you have held, etc">
         <?php foreach($data[Experience] as $exp) {
             echo "<p>Experience Type: $exp[Type]</p>";
             echo "<p>Organization Name: $exp[Name]</p>";
@@ -86,7 +86,7 @@
     </div>
 
     <h2>Skills</h2>
-    <div class="feedback-section" data-value="5">
+    <div class="feedback-section" data-value="5" title="Excellent">
         <?php 
             echo "<h3>Languages</h3>";
             foreach($data[Skill][Languages] as $lan => $val){
@@ -114,12 +114,12 @@
     </div>
 
     <h2>Achievements</h2>
-    <div class="feedback-section" data-value="1" title="It's good to show your future employer any merit that you have earned, think if you were on a Dean's List, any scholarships you have earned, etc.">
+    <div class="feedback-section" data-value="1" title="Needs Improvement. It's good to show your future employer any merit that you have earned, think if you were on a Dean's List, any scholarships you have earned, etc.">
         <p>No Achievements listed</p>
     </div>
 
     <h2>Activities</h2>
-    <div class="feedback-section" data-value="1" title="Try thinking of any extracurricular activities you do. Sports, groups you're part of, etc">
+    <div class="feedback-section" data-value="1" title="Needs Improvement. Try thinking of any extracurricular activities you do. Sports, groups you're part of, etc">
         <p>No Activities listed</p>
     </div>
 
