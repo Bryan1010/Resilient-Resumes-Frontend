@@ -18,18 +18,17 @@ $(document).ready(function () {
 
 
 
-let url = "http://localhost:3000/getResumeScore";
+let url = "/resume/resilient.php";
 
 document.querySelector("#msform").addEventListener("submit", function (e) {
     e.preventDefault();    //stop form from submitting
 
     let data = JSON.stringify($('form').serializeJSON());
-
     // console.log(data);
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "/resume/resilient.php",
+        "url": url,
         "method": "POST",
         "headers": {
             "Content-Type": "application/json",
@@ -44,6 +43,8 @@ document.querySelector("#msform").addEventListener("submit", function (e) {
         // localStorage.setItem('Resume', JSON.stringify(response));
         console.log(response);
         $('#content').html(response);
+
+        $('.feedback-section').tooltip()
         // alert('done');
     });
 });
@@ -72,10 +73,9 @@ function addNewEd() {
                            <h3 class="fs-title">Education ${c + 1}:</h3>
                                
                                <input type="text" name="School[${c}][Name]" placeholder="Institution Name" />
-                               <input type="text" name="School[${c}][Address]" placeholder="Street Address" />
+                            
                                <input type="text" name="School[${c}][City]" placeholder="City" />
                                <input type="text" name="School[${c}][State]" placeholder="State" />
-                               <input type="text" name="School[${c}][Zip]" placeholder="Zipcode" />
                                <input type="text" name="School[${c}][Country]" placeholder="Country" />
 
                                <div class="form-group">
@@ -125,10 +125,8 @@ function addNewExperience() {
                 <input type="text" name="Experience[${c}][Name]" placeholder="Experience Organization Name" />
                 <input type="text" name="Experience[${c}][Position]" placeholder="Experience Position Name" />
                 Location:
-                <input type="text" name="Experience[${c}][Address]" placeholder="Street Address" />
                 <input type="text" name="Experience[${c}][City]" placeholder="City" />
                 <input type="text" name="Experience[${c}][State]" placeholder="State" />
-                <input type="text" name="Experience[${c}][Zip]" placeholder="Zipcode" />
                 <input type="text" name="Experience[${c}][Country]" placeholder="Country" />
                 <textarea type="text" name="Experience[${c}][Description]" placeholder="Experience Description" cols="40"
                  rows="5"></textarea>
@@ -186,4 +184,117 @@ function addNewActivity() {
     let div = document.createElement('div');
     div.innerHTML = template;
     container.appendChild(div);
+}
+
+var sampleData = {
+    "Name": {
+        "FName": "Bryan",
+        "LName": "Cruz",
+        "Suffix": ""
+    },
+    "ContactInfo": {
+        "Phone": "4848189596",
+        "Email": "bryanughs@outlook.com"
+    },
+    "Address": {
+        "AddressLine1": "1059 Fredrick Boulevard",
+        "AddressLine2": "",
+        "City": "Reading",
+        "State": "PA",
+        "Zip": "19605",
+        "Country": "United States"
+    },
+    "PositionApplyingFor": {
+        "PositionName": "Junior Developer"
+    },
+    "Objective": {
+        "Statement": ""
+    },
+    "Websites": {
+        "LinkedIn": "https://www.linkedin.com/in/bryan-cruz/",
+        "GitHub": "",
+        "PersonalWebsite": ""
+    },
+    "School": [
+        {
+            "Name": "UPR",
+            "City": "Bayamon",
+            "State": "PR",
+            "Country": "United States",
+            "Major": "Computer Science",
+            "Minor": "",
+            "Gpa": "3.8",
+            "Graduation": "2016-03"
+        },
+        {
+            "Name": "Reading Area Community College",
+            "City": "Reading",
+            "State": "PA",
+            "Country": "United States",
+            "Major": "Web Development",
+            "Minor": "",
+            "Gpa": "3.5",
+            "Graduation": "2018-05"
+        }
+    ],
+    "RelevantCourse": [
+        {
+            "Name": "",
+            "Description": ""
+        }
+    ],
+    "Experience": [
+        {
+            "Type": "Professional",
+            "Name": "Yiftee",
+            "Position": "Web Development Intern",
+            "City": "Menlo Park",
+            "State": "CA",
+            "Country": "United States",
+            "Description": "",
+            "Project": "Responsive Website",
+            "ProjectDescription": "",
+            "ProjectOutcome": "",
+            "StartDate": "2014-06",
+            "EndDate": "2014-07"
+        }
+    ],
+    "Skill": {
+        "Languages": {
+            "0": {
+                "C-Sharp": "Intermediate"
+            },
+            "2": {
+                "Javascript": "Intermediate"
+            }
+        },
+        "Frameworks": {
+            "0": {
+                "dotNet": "Intermediate"
+            }
+        },
+        "OS": {
+            "0": {
+                "Windows": "Advanced"
+            },
+            "1": {
+                "Mac": "Advanced"
+            },
+            "2": {
+                "Linux": "Intermediate"
+            }
+        }
+    },
+    "Achievements": [
+        {
+            "Name": "",
+            "Description": ""
+        }
+    ],
+    "Activities": [
+        {
+            "Name": "",
+            "Description": ""
+        }
+    ]
 }
