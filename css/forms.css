@@ -202,49 +202,27 @@ body {
     padding: 40px;
 }
 
-.feedback-section[data-value="0"]{
-    background-color: #E50000;
-}
-
 .feedback-section[data-value="1"]{
-    background-color: #CF1703;
+    background-color: #fddfdf;
 }
 
 .feedback-section[data-value="2"]{
-    background-color: #BA2E06;
+    background-color: #fcf7de;
 }
 
 .feedback-section[data-value="3"]{
-    background-color: #A54609;
+    background-color: #f0defd;
 }
 
 .feedback-section[data-value="4"]{
-    background-color: #8F5D0C;
+    background-color: #defde0;
 }
 
 .feedback-section[data-value="5"]{
-    background-color: #7A7510;
+    background-color: #def3fd;
 }
 
-.feedback-section[data-value="6"]{
-    background-color: #658C13;
-}
 
-.feedback-section[data-value="7"]{
-    background-color: #4FA316;
-}
-
-.feedback-section[data-value="8"]{
-    background-color: #3ABB19;
-}
-
-.feedback-section[data-value="9"]{
-    background-color: #25D21C;
-}
-
-.feedback-section[data-value="10"]{
-    background-color: #10EA20;
-}
 
 /* checkboxes and radiobuttons width */
 #msform input[type="checkbox"],#msform input[type="radio"]{
