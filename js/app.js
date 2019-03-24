@@ -220,11 +220,11 @@ var sampleData = {
         "Suffix": ""
     },
     "ContactInfo": {
-        "Phone": "4848189596",
-        "Email": "bryanughs@outlook.com"
+        "Phone": "123-456-9988",
+        "Email": "Student@resilientresumes.com"
     },
     "Address": {
-        "AddressLine1": "1059 Fredrick Boulevard",
+        "AddressLine1": "123 Main St",
         "AddressLine2": "",
         "City": "Reading",
         "State": "PA",
