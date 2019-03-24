@@ -7,6 +7,17 @@ let arrayIdx = {
     Education: 0,
 }
 
+$(document).ready(function () {
+    $('.skill-container input[type="checkbox"]').click(function () {
+        if ($(this).is(':checked'))
+            $(this).siblings().css("display", "block");
+        else
+            $(this).siblings().css("display", "none");
+    });
+});
+
+
+
 let url = "http://localhost:3000/getResumeScore";
 
 document.querySelector("#msform").addEventListener("submit", function (e) {

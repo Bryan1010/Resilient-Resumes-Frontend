@@ -245,3 +245,9 @@ body {
 .feedback-section[data-value="10"]{
     background-color: #10EA20;
 }
+
+/* checkboxes and radiobuttons width */
+#msform input[type="checkbox"],#msform input[type="radio"]{
+    width: 20px;
+}
+.skill-level-container{display:none;}
