@@ -33,8 +33,12 @@
     </div>
 
     <h2>Objective Statement</h2>
-    <div class="feedback-section" data-value="1">
+    <div class="feedback-section" data-value="1" title="Try coming up with an Objective statement. They are usually tailored to the job you are trying to get and are usually 1 to 2 sentences long">
+        <?php if(strlen($data[Objective][Statement]) == 0) {
+            echo "<p>No Objective Statement listed</p>";
+        } else {?>
         <p><?php echo $data[Objective][Statement] ?></p>
+        <?php } ?>
     </div>
 
     <h2>Websites</h2>
