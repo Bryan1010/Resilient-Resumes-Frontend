@@ -4,6 +4,24 @@
 <div class="feedback">
     <h1 class="text-center">Feedback</h1>
 
+    <div class="legend">
+        <p class="legend-title text-center">Legend</p>
+        <ul>
+            <li> 
+                <span class="score-1"></span>Needs Improvement
+            </li>
+            <li> 
+                <span class="score-2"></span> Average
+            </li>
+            <li>
+                <span class="score-3"></span>Above Average </li>
+            <li> 
+                <span class="score-4"></span>Excellent
+            </li>
+        </ul>
+  </div>
+
+
     <h2>Name</h2>
     <div class="feedback-section">
         <p><?php echo $data[Name][FName] . ' ' . $data[Name][LName] ?></p>

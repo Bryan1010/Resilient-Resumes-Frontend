@@ -230,3 +230,30 @@ body {
 }
 .skill-level-container{display:none;}
 .logo{width: 150px;}
+
+.legend{    
+    background: #dadefb;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.legend .legend-title{
+    font-size: 20px
+}
+
+.legend ul{list-style:none}
+.legend ul li{display:inline;}
+
+.legend ul li{padding: 20px}
+
+.legend span[class*="score"]{
+  height: 15px; width: 15px;
+  display:inline-block; 
+  margin-right: 5px;
+}
+
+.legend span.score-1{background: #fddfdf;}
+
+.legend span.score-2{background: #f0defd;}
+.legend span.score-3{background: #defde0;}
+.legend span.score-4{background: #def3fd}
