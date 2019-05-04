@@ -1,0 +1,32 @@
+{
+  "name": "rr-express",
+  "version": "1.0.0",
+  "description": "Resilient Resumes Exprees App",
+  "private": true,
+  "main": "app.js",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "fs": "0.0.1-security",
+    "moment": "^2.24.0",
+    "mongoose": "^5.5.5",
+    "nodemon": "^1.19.0",
+    "passport": "^0.4.0",
+    "promisify": "0.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "watch": "nodemon ./start.js",
+    "start": "npm run watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bryan1010/Resilient-Resumes-Frontend.git"
+  },
+  "author": "Bryan Cruz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bryan1010/Resilient-Resumes-Frontend/issues"
+  },
+  "homepage": "https://github.com/Bryan1010/Resilient-Resumes-Frontend#readme"
+}
