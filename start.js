@@ -1,13 +1,18 @@
-const mongoose = require('mongoose');
+var mongoose = require("mongoose");
 
 // import env variables from our variables.env file
 require('dotenv').config({ path: 'variables.env' });
 
+// console.log(`💥💥 ${process.env.DATABASE}`);
 // Connect to DB and handle bad connections
-mongoose.connect(process.env.DATABASE);
+// mongoClient.connect("mongodb://dev-resilient-resumes:VlizGl78drmrrDW66C4Qv6vx6tnUyEiVLzy1Hhu7PxcNtRgLMg0W4NiU5HkbwgGknnpF6VQgrkIwN9euvGkz8A%3D%3D@dev-resilient-resumes.documents.azure.com:10255/ResilientResumes?ssl=true", { useNewUrlParser: true }, function (err, client) {
+//     console.error(err.message);
+//     client.close();
+// });
+mongoose.connect(process.env.DATABASE, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 mongoose.connection.on('error', (err) => {
-    console.error(`💥💥💥💥💥💥 ➡️ ${err.message}`);
+    console.error(`DB Connection Error🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
 });
 
 // Start app
