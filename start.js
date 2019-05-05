@@ -1,4 +1,5 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
+const consola = require('consola');
 
 // import env variables from our variables.env file
 require('dotenv').config({ path: 'variables.env' });
@@ -19,5 +20,10 @@ mongoose.connection.on('error', (err) => {
 const app = require('./app');
 app.set('port', process.env.PORT || 7777);
 const server = app.listen(app.get('port'), () => {
+    consola.ready({
+        message: `Server listening on 
+        http://${server.address().host}:${server.address().port}`,
+        badge: true
+    })
     console.log(`Express running ➡️ PORT ${server.address().port}`)
 });
