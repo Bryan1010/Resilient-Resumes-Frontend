@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .inner
+    form.form(action="/register" method="POST")
+      h2 Register
+      label(for="Fname") First Name
+      input(type="text" name="Fname")
+      label(for="Lname") Last Name
+      input(type="text" name="Lname")
+      label(for="Suffix") Suffix
+      input(type="text" name="Suffix")
+      label(for="email") Email
+      input(type="email" name="email")
+      label(for="Phone") Phone
+      input(type="phone" name="Phone")
+      label(for="password") Password
+      input(type="password" name="password")
+      label(for="password-confirm") Confirm Password
+      input(type="password" name="password-confirm")
+      input.button(type="submit" value="Register →")
