@@ -12,7 +12,19 @@
       <v-btn flat>Create Profile</v-btn>
     </v-toolbar-items>
   </v-toolbar>
-
+<v-app id="inspire">
+    <v-parallax
+      dark
+      src=""
+    >
+      <v-layout
+        align-center
+        column
+        justify-center
+      >
+        <h1 class="display-2 font-weight-thin mb-3">Vuetify.js</h1>
+        <h4 class="subheading">Build your application today!</h4>
+      </v-layout>
     <v-content>
       <v-container fluid fill-height>
       
