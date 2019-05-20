@@ -1,0 +1,403 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Resilient Resumes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/forms.css">
+
+
+</head>
+
+<body>
+    <div class="row">
+        <div id="content" class="col-md-6 col-md-offset-3">
+            <form id="msform" method="POST" action="/resume/resilient.php" novalidate>
+                <!-- progressbar -->
+                <ul id="progressbar">
+                    <li class="active">Welcome</li>
+                    <li>Personal Details</li>
+                    <li>Resume Purpose</li>
+                    <li>Websites and Other Links</li>
+                    <li>Education</li>
+                    <li>Courses</li>
+                    <li>Experience</li>
+                    <li>Skills</li>
+                    <li>Honors and Achievements</li>
+                    <li>Activities</li>
+                </ul>
+                <!-- fieldsets -->
+                <fieldset>
+                    <img src="./img/logo.png" class="logo img-responsive center-block">
+                    <h2 class="fs-title">Welcome to Resilient Resumes</h2>
+                    <h3 class="fs-subtitle">We are here to help you better your resume and your future!</h3>
+                    <h3 class="fs-subtitle">Please enter your email and password</h3>
+
+                    <input type="text" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+
+                    <input type="button" name="start" class="next btn action-button" value="Login" />
+                </fieldset>
+
+                <!-- Personal Details -->
+                <fieldset>
+                    <h2 class="fs-title">Personal Details</h2>
+                    <h3 class="fs-subtitle">List your contact information</h3>
+                    <input type="text" name="Name[FName]" placeholder="First Name" />
+                    <input type="text" name="Name[LName]" placeholder="Last Name" />
+                    <input type="text" name="Name[Suffix]" placeholder="Suffix" />
+                    <input type="number" name="ContactInfo[Phone]" placeholder="Phone" />
+                    <input type="email" name="ContactInfo[Email]" placeholder="Email">
+                    <h2 class="fs-title">Address</h2>
+                    <input type="text" name="Address[AddressLine1]" placeholder="address line 1" />
+                    <input type="text" name="Address[AddressLine2]" placeholder="address line 2" />
+                    <input type="text" name="Address[City]" placeholder="City" />
+                    <input type="text" name="Address[State]" placeholder="State" />
+                    <input type="text" name="Address[Zip]" placeholder="Zipcode" />
+                    <input type="text" name="Address[Country]" placeholder="Country" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                </fieldset>
+
+                <!-- Objetives -->
+                <fieldset>
+                    <h2 class="fs-title">Objective</h2>
+                    <h3 class="fs-subtitle">List your position and resume objective</h3>
+                    <input type="text" name="PositionApplyingFor" placeholder="Position applying for" />
+                    <textarea type="text" name="ObjectiveStatement" placeholder="Resume Objective Statement" cols="40"
+                        rows="5"></textarea>
+
+                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                </fieldset>
+
+                <!-- Social Profiles -->
+                <fieldset>
+                    <h2 class="fs-title">Social Profiles</h2>
+                    <h3 class="fs-subtitle">List your personal sites</h3>
+                    <input type="text" name="Websites[LinkedIn]" placeholder="Linked In" />
+                    <input type="text" name="Websites[GitHub]" placeholder="GitHub User" />
+                    <input type="text" name="Websites[PersonalWebsite]" placeholder="Personal Website Url" />
+
+                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                </fieldset>
+
+                <!-- Education -->
+                <fieldset>
+                    <h2 class="fs-title">Education</h2>
+                    <h5>List your educational institutions</h5>
+                    <h5 class="fs-subtitle">Start with your most recent school</h5>
+                    <div id="education-container">
+                        <h3 class="fs-title">Education 1:</h3>
+                        <input type="text" name="School[][Name]" placeholder="Institution Name" />
+                        <input type="text" name="School[][City]" placeholder="City" />
+                        <input type="text" name="School[][State]" placeholder="State" />
+                        <input type="text" name="School[][Country]" placeholder="Country" />
+
+                        <div class="form-group">
+                            <h3 class="fs-subtitle">Select your degree</h3>
+                            <select class="form-control" id="degree">
+                                <option></option>
+                                <option name="School[][Diploma]">Diploma</option>
+                                <option name="School[][Associates]">Associates</option>
+                                <option name="School[][Bachelors]">Bachelors</option>
+                                <option name="School[][Certificate]">Certificate</option>
+                            </select>
+                        </div>
+
+                        <input type="text" name="School[][Major]" placeholder="Major" />
+                        <input type="text" name="School[][Minor]" placeholder="Minor" />
+                        <input type="number" name="School[][Gpa]" placeholder="GPA" />
+                        <h3 class="fs-subtitle">Graduation or Expected Date:</h3>
+                        <input type="month" name="School[][Graduation]" placeholder="Graduation or expected date" />
+
+
+                        <!-- -->
+
+                    </div>
+
+                    <input type="button" onclick="addNewEd()" id="add-new-ed" value="Add Education"></a>
+                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                </fieldset>
+
+                <!-- Relevant Courses -->
+                <fieldset>
+                    <h2 class="fs-title"> Relevant Courses</h2>
+                    <h3 class="fs-subtitle">List your relevant coursework to your position</h3>
+                    <div id="course-container">
+                        <h3 class="fs-title">Course 1:</h3>
+                        <input type="text" name="RelevantCourse[][Name]" placeholder="Course Name" />
+                        <textarea type="text" name="RelevantCourse[][Description]" placeholder="Course Description"
+                            cols="40" rows="3"></textarea>
+                    </div>
+                    <input type="button" onclick="addNewCourse()" value=" Add Course"></a>
+                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                </fieldset>
+
+                <!-- Experiences -->
+                <fieldset>
+                    <h2 class="fs-title">Experience</h2>
+                    <h3 class="fs-subtitle">List your most recent experience</h3>
+                    <div id="experience-container">
+                        <h3 class="fs-title">Experience 1:</h3>
+                        <div class="form-group">
+                            <input type="text" name="Experience[][Type]" list="experienceType"
+                                placeholder="Type of Experience" />
+                            <datalist id="experienceType">
+                                <option name="Experience[][Type]" value="Academic">Academic</option>
+                                <option name="Experience[][Type]" value="Professional">Professional</option>
+                                <option name="Experience[][Type]" value="Personal">Personal</option>
+                                <option name="Experience[][Type]" value="Other">Other</option>
+                            </datalist>
+                        </div>
+                        <input type="text" name="Experience[][Name]" placeholder="Experience Organization Name" />
+                        <input type="text" name="Experience[][Position]" placeholder="Experience Position Name" />
+                        Location:
+                        <input type="text" name="Experience[][City]" placeholder="City" />
+                        <input type="text" name="Experience[][State]" placeholder="State" />
+                        <input type="text" name="Experience[][Country]" placeholder="Country" />
+                        <textarea type="text" name="Experience[][Description]" placeholder="Experience Description"
+                            cols="40" rows="5"></textarea>
+                        <input type="text" name="Experience[][Project]" placeholder="Project Title" />
+                        <textarea type="text" name="Experience[][ProjectDescription]" placeholder="Project Description"
+                            cols="40" rows="3"></textarea>
+                        <input type="text" name="Experience[][ProjectOutcome]" placeholder="Project Outcome" />
+
+                        <h3 class="fs-subtitle">Start Date:</h3>
+                        <input type="month" name="Experience[][StartDate]" placeholder="Start Date" />
+                        <h3 class="fs-subtitle">End Date or select present:</h3>
+                        <input type="month" name="Experience[][EndDate]" placeholder="End Date" />
+                        <select class="form-control">
+                            <option name="Experience[][PresentDate]">Present</option>
+                        </select>
+                        <br>
+                    </div>
+                    <input type="button" onclick="addNewExperience()" id="add-new-experience"
+                        value="Add Experience"></a>
+                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                </fieldset>
+
+                <!-- Skills -->
+                <fieldset>
+                    <h2 class="fs-title"> Skills</h2>
+                    <h3 class="fs-subtitle">Select your skills and level of mastery</h3>
+
+                    <h4 class="fs-title">Programming Languages</h4>
+
+                    <div class="skill-container">
+                        <input type="checkbox" value="C-Sharp"> C# <br />
+                        <div class="skill-level-container">
+                            <input type="radio" name="Skill[Languages][0][C-Sharp]" value="Beginner"> Beginner <br />
+                            <input type="radio" name="Skill[Languages][0][C-Sharp]" value="Intermediate"> Intermediate
+                            <br />
+                            <input type="radio" name="Skill[Languages][0][C-Sharp]" value="Advanced"> Advanced<br />
+                        </div>
+                    </div>
+                    <br>
+                    <div class="skill-container">
+                        <input type="checkbox" value="Python"> Python <br />
+                        <div class="skill-level-container">
+                            <input type="radio" name="Skill[Languages][1][Python]" value="Beginner"> Beginner
+                            <br />
+                            <input type="radio" name="Skill[Languages][1][Python]" value="Intermediate"> Intermediate
+                            <br />
+                            <input type="radio" name="Skill[Languages][1][Python]" value="Advanced"> Advanced<br />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="skill-container">
+                        <input type="checkbox" value="Javascript"> Javascript <br />
+                        <div class="skill-level-container">
+                            <input type="radio" name="Skill[Languages][2][Javascript]" value="Beginner"> Beginner <br />
+                            <input type="radio" name="Skill[Languages][2][Javascript]" value="Intermediate">
+                            Intermediate
+                            <br />
+                            <input type="radio" name="Skill[Languages][2][Javascript]" value="Advanced"> Advanced<br />
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="skill-container">
+                        <input type="checkbox" value="Java"> Java <br />
+                        <div class="skill-level-container">
+                            <input type="radio" name="Skill[Languages][3[Java]" value="Beginner"> Beginner <br />
+                            <input type="radio" name="Skill[Languages][3][Java]" value="Intermediate"> Intermediate
+                            <br />
+                            <input type="radio" name="Skill[Languages][3][Java]" value="Advanced"> Advanced<br />
+                        </div>
+                    </div>
+                    <br><br>
+                    <h4 class="fs-title">Frameworks</h4>
+                    <br>
+
+                    <div class="skill-container">
+                        <input type="checkbox" value="dotNet"> .Net (dot Net Framework or
+                        dot Net Core) <br />
+                        <div class="skill-level-container">
+                            <input type="radio" name="Skill[Frameworks][0][dotNet]" value="Beginner"> Beginner <br />
+                            <input type="radio" name="Skill[Frameworks][0][dotNet]" value="Intermediate" checked>
+                            Intermediate
+                            <br />
+                            <input type="radio" name="Skill[Frameworks][0][dotNet]" value="Advanced"> Advanced<br />
+                            <br>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="skill-container">
+                        <input type="checkbox" value="Flask"> Flask (Python) <br />
+                        <div class="skill-level-container">
+                            <input type="radio" name="Skill[Frameworks][1][Flask]" value="Beginner"> Beginner <br />
+                            <input type="radio" name="Skill[Frameworks][1][Flask]" value="Intermediate"> Intermediate
+                            <br />
+                            <input type="radio" name="Skill[Frameworks][1][Flask]" value="Advanced"> Advanced<br />
+                            <br>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="skill-container">
+                        <input type="checkbox" value="JSF"> Java Server Faces <br />
+                        <div class="skill-level-container">
+                            <input type="radio" name="Skill[Frameworks][2][JSF]" value="Beginner"> Beginner <br />
+                            <input type="radio" name="Skill[Frameworks][2][JSF]" value="Intermediate"> Intermediate
+                            <br />
+                            <input type="radio" name="Skill[Frameworks][2][JSF]" value="Advanced"> Advanced<br />
+                            <br>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="skill-container">
+                        <input type="checkbox" value="Node"> Node.js <br />
+                        <div class="skill-level-container">
+                            <input type="radio" name="Skill[Frameworks][3][Node]" value="Beginner"> Beginner <br />
+                            <input type="radio" name="Skill[Frameworks][3][Node]" value="Intermediate"> Intermediate
+                            <br />
+                            <input type="radio" name="Skill[Frameworks][3][Node]" value="Advanced"> Advanced<br />
+                        </div>
+                    </div>
+
+                    <br><br>
+                    <h4 class="fs-title">Operating Systems</h4>
+                    <br>
+
+                    <div class="skill-container">
+                        <input type="checkbox" value="Windows"> Microsoft Windows <br />
+                        <div class="skill-level-container">
+                            <input type="radio" name="Skill[OS][0][Windows]" value="Beginner"> Beginner <br />
+                            <input type="radio" name="Skill[OS][0][Windows]" value="Intermediate"> Intermediate
+                            <br />
+                            <input type="radio" name="Skill[OS][0][Windows]" value="Advanced"> Advanced<br />
+                            <br />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="skill-container">
+                        <input type="checkbox" value="Mac"> Mac OS <br />
+                        <div class="skill-level-container">
+                            <input type="radio" name="Skill[OS][1][Mac]" value="Beginner"> Beginner <br />
+                            <input type="radio" name="Skill[OS][1][Mac]" value="Intermediate"> Intermediate
+                            <br />
+                            <input type="radio" name="Skill[OS][1][Mac]" value="Advanced"> Advanced<br />
+                            <br />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="skill-container">
+                        <input type="checkbox" value="Linux"> Linux <br />
+                        <div class="skill-level-container">
+                            <input type="radio" name="Skill[OS][2][Linux]" value="Beginner"> Beginner <br />
+                            <input type="radio" name="Skill[OS][2][Linux]" value="Intermediate"> Intermediate
+                            <br />
+                            <input type="radio" name="Skill[OS][2][Linux]" value="Advanced"> Advanced<br />
+                        </div>
+                    </div>
+                    <br />
+                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                </fieldset>
+
+                <!-- Honors and Achievements -->
+                <fieldset>
+                    <h2 class="fs-title"> Honors and Achievements</h2>
+                    <h3 class="fs-subtitle">List your relevant coursework to your position</h3>
+                    <div id="achievement-container">
+                        <h3 class="fs-title">Achievement 1:</h3>
+                        <input type="text" name="Achievements[][Name]" placeholder="Achievement/Honor Name" />
+                        <textarea type="text" name="Achievements[][Description]" placeholder="Description" cols="40"
+                            rows="3"></textarea>
+                    </div>
+                    <input type="button" onclick="addNewAchievement()" value=" Add Activity"></a>
+                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                </fieldset>
+
+                <!-- Activities -->
+                <fieldset>
+                    <h2 class="fs-title"> Activities</h2>
+                    <h3 class="fs-subtitle">List Activities</h3>
+                    <div id="activities-container">
+                        <h3 class="fs-title">Activity 1:</h3>
+                        <input type="text" name="Activities[][Name]" placeholder="Course Name" />
+                        <textarea type="text" name="Activities[][Description]" placeholder="Course Description"
+                            cols="40" rows="3"></textarea>
+                    </div>
+                    <input type="button" onclick="addNewActivity()" value=" Add Activity"></a>
+                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                    <input type="button" name="getJSON" class="action-button btn-modal-JSON" value="Get JSON"/>
+                    <input type="submit" name="submit" class="submit action-button" value="Submit" />
+                </fieldset>
+
+            </form>
+
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Some text in the modal.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="./js/forms.js"></script>
+    <script src="./js/js-serialize.js"></script>
+    <script src="./js/app.js"></script>
+    <script>
+        $('.btn-modal-JSON').on('click', function(e){
+            e.preventDefault();
+            var resumeJSON = JSON.stringify($('form').serializeJSON());
+            $('.modal-body > p').html(resumeJSON);
+            console.log(resumeJSON);
+            $('#myModal').modal('show');
+            copyStringToClipboard(resumeJSON);
+
+        })
+    </script>
+</body>
+
+</html>
