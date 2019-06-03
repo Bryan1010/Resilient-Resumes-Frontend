@@ -9,7 +9,7 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const crypto = require('crypto');
 
 const userSchema = new Schema({
-  email: {
+  Email: {
     type: String,
     unique: true,
     lowercase: true,
@@ -29,8 +29,8 @@ const userSchema = new Schema({
   },
   Suffix: { type: String, trim: true },
   Phone: { type: String, trim: true },
-  resetPasswordToken: String,
-  resetPasswordExpires: Date
+  ResetPasswordToken: String,
+  ResetPasswordExpires: Date
 });
 
 userSchema.virtual('gravatar').get(function() {
