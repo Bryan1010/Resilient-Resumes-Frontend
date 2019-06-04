@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const router = require('express').Router();
 const auth = require('../../controllers/authController');
-const User = mongoose.model('User');
+const user = mongoose.model('User');
 
 //POST new user route (optional, everyone has access)
 router.post('/', auth.optional, (req, res, next) => {
