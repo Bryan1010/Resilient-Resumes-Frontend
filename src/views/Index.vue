@@ -19,12 +19,13 @@
          <br />
          Click start to begin.
        </p>
-       <v-btn large outline color="secondary">Start</v-btn>
+     <Profile/>
      </v-flex>
     </v-layout>
      
     
     </v-container>
+    
   </div>
 </template>
 
@@ -32,8 +33,9 @@
 
 <script>
 import Navbar from "../components/Navbar"
+import Profile from "../components/Profile"
 export default {
-  components: { Navbar },
+  components: { Navbar, Profile },
   data() {
     return {
       

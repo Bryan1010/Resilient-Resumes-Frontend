@@ -4,26 +4,14 @@
       <img class="mt-5" src="..\.\assets\ResilientResumes.png" height="85">
      
       <v-spacer></v-spacer>
-
-    <v-text-field class="white--text"
-        v-model="value"
-      
-        label="User-Email"
-       
-              >
-        <template v-slot:progress>
-          <v-progress-linear
-            v-if="custom"
-            :value="progress"
-            :color="colors"
-            height="7"
-          ></v-progress-linear>
-        </template>
-      </v-text-field>
+<v-layout align-center justify-right column>
+  <v-flex class="mt-4 mb-3">
+            <Login/>
+        </v-flex>
   
-            
+</v-layout>   
           
-           <v-btn large outline color="secondary"><span>Log In</span></v-btn>
+          
       
       
       
@@ -34,9 +22,9 @@
 </template>
 
 <script>
-
+import Login from "./Login"
 export default {
-  components: {  },
+  components: { Login },
   data() {
     return {
       drawer: false,
@@ -48,7 +36,7 @@ export default {
 };
 </script>
 <style>
-#email > v-text-field{
+.v-text-field {
     color:white;
 
  }
