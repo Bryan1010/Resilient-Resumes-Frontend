@@ -28,10 +28,8 @@ export default {
   components: { Login },
   data() {
     return {
-      drawer: false,
-      links: [
-        { }
-      ]
+      
+    
     };
   }
 };

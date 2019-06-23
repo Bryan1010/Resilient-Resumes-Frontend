@@ -1,7 +1,9 @@
 <template>
   <v-app>
+    <Index/>
        <v-content>
-      <Index/>
+      
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
@@ -16,7 +18,7 @@ export default {
   },
   data () {
     return {
-      //
+      
     }
   }
 }
