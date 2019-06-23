@@ -4,8 +4,9 @@
       <img class="mt-5" src="..\.\assets\ResilientResumes.png" height="85">
      
       <v-spacer></v-spacer>
-<v-layout align-center justify-right column>
-  <v-flex class="mt-4 mb-3">
+<v-layout align-end justify-start column fill-height>
+  <v-flex class="mt-3" >
+
             <Login/>
         </v-flex>
   

@@ -1,6 +1,9 @@
 <template>
+
   <v-dialog max-width="600px">
-     <v-btn large outline color="secondary" slot="activator"><span>Log In</span></v-btn>
+
+     <v-btn  large outline color="secondary" slot="activator"><span>Login</span></v-btn>
+     
     <v-card>
       <v-card-title>
         <h2>Enter your Login Information</h2>
