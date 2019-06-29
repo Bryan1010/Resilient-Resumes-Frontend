@@ -1,21 +1,25 @@
 <template>
   <v-app>
-    <Index/>
-      <Welcome/>
+    
+  
        <v-content>
       
-      <router-view></router-view>
+      <router-view>
+        <Index/>
+        <Welcome/>
+      </router-view>
     </v-content>
   </v-app>
 </template>
 
 <script>
 import Index from './views/Index'
- 
+import Welcome from './views/Welcome'
 export default {
   name: 'App',
   components: {
-    Index
+    Index,
+    Welcome
   },
   data () {
     return {

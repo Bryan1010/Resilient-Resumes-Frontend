@@ -18,7 +18,7 @@
 
               <v-spacer></v-spacer>
 
-              <v-btn flat class="primary mx-0 mt-3" v-for="link in links" :key="link.text" router :to="link.route">Submit</v-btn>
+              <v-btn flat class="primary mx-0 mt-3" router to='/welcome'>Submit</v-btn>
             </v-form>
           </v-card-text>
         </v-card>

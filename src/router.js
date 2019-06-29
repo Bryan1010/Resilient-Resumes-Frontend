@@ -8,7 +8,7 @@ import Welcome from './views/Welcome.vue'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  history: false,
   base: process.env.BASE_URL,
   routes: [
     {
