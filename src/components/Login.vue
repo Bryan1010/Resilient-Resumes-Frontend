@@ -18,7 +18,7 @@
 
               <v-spacer></v-spacer>
 
-              <v-btn clat class="primary mx-0 mt-3" @click="submit">Submit</v-btn>
+              <v-btn flat class="primary mx-0 mt-3" v-for="link in links" :key="link.text" router :to="link.route">Submit</v-btn>
             </v-form>
           </v-card-text>
         </v-card>
@@ -27,14 +27,19 @@
  
 </template>
 <script>
+
 export default {
+
   data() {
     return {
       email: "",
       password: "",
 
       inputRules: [v => v.length >= 3 || "Minimum Length is 3 characters"],
-      loading: false
+      loading: false,
+      links: [
+        { text:"Welcome", route: "/welcome" },
+        ]
     };
   },
   methods: {}

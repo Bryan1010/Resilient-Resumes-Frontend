@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <Index/>
+      <Welcome/>
        <v-content>
       
       <router-view></router-view>
@@ -10,7 +11,7 @@
 
 <script>
 import Index from './views/Index'
-
+ 
 export default {
   name: 'App',
   components: {
