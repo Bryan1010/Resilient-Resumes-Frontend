@@ -2,13 +2,19 @@
 <template>
 
   <div class="white--text pt-4 px-4">
-     <h1 class="display-4 ">Let's Begin</h1>
-     <v-card>
+    <Lognavbar />
+    <v-spacer>
+      
+     <h1 class="display-3 ">Hi, Let's Begin</h1>
+    
+    
+       </v-spacer>
+     <v-card class="my-4">
     <v-container>
-  <v-spacer></v-spacer>
+
    
-    <p class="display-1 pt-4"> To start building your Resilient Resume, you will need the following information:</p>
-    <ul class="disp">
+    <p class="primary--text display-1 pt-4"> To start building your Resilient Resume, you will need the following information:</p>
+    <ul class="subheading">
      
       <li>Objective Statement</li>
     <ul> <li>What are you looking to accomplish with this resume? </li></ul>
@@ -69,7 +75,9 @@
 </template>
 
 <script>
+import Lognavbar from "../components/Lognavbar"
 export default {
+  components: { Lognavbar },
   data() {
     return {
       

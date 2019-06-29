@@ -71,7 +71,7 @@
          </v-layout>
             <v-spacer></v-spacer>
 
-            <v-btn clat class="primary mx-0 mt-3" @click="submit">Create Profile</v-btn>
+            <v-btn clat class="primary mx-0 mt-3"  router to='/welcome'>Create Profile</v-btn>
           </v-form>
         </v-card-text>
       </v-layout>
