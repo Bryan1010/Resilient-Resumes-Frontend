@@ -37,9 +37,7 @@ export default {
 
       inputRules: [v => v.length >= 3 || "Minimum Length is 3 characters"],
       loading: false,
-      links: [
-        { text:"Welcome", route: "/welcome" },
-        ]
+      
     };
   },
   methods: {}

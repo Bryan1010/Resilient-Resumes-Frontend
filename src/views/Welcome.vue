@@ -1,32 +1,35 @@
 
 <template>
 
-  <div class="white--text pt-4 px-4">
+  <div class="white--text pt-4 px-5">
+    <v-container>
     <Lognavbar />
     <v-spacer>
-      
-     <h1 class="display-3 ">Hi, Let's Begin</h1>
-    
-    
+      <v-layout  >
+     <h1 align-start justify-start column fill-height class="display-3 ">Hi, {{fname}} Let's Begin</h1>
+     
+           <Objective />
+      </v-layout>
+     
+  
        </v-spacer>
-     <v-card class="my-4">
+     <v-card align-center justify-space-around class="my-4" >
     <v-container>
 
    
-    <p class="primary--text display-1 pt-4"> To start building your Resilient Resume, you will need the following information:</p>
+    <h2 class="primary--text pt-4"> To start building your Resilient Resume, you will need to be able to answer the following questions:</h2>
     <ul class="subheading">
-     
+     <h3 class="red--text">Amie will come back and fix the style on this page It's not finalized and it's ugly</h3>
       <li>Objective Statement</li>
     <ul> <li>What are you looking to accomplish with this resume? </li></ul>
     <li>Position applying for</li>
        <ul> <li>What is the position you are applying for? </li></ul>
       <li>Education Information: 
         <ul>
-          <li>College or University name</li>
-          <li>Major</li>
-          <li>Minor</li>
-          <li>GPA</li>
-          <li>Expected graduation date</li></ul> </li>
+          <li>What is the name of your school?</li>
+          <li>What is your degree program?</li>
+          <li>What is your Cumalitive GPA?</li>
+          <li>When do you expect to graduate?</li></ul> </li>
 
         <li>Relevant Coursework: 
         <ul>
@@ -71,13 +74,16 @@
   
     </v-container>
       </v-card>
+    </v-container>   
     </div>
+  
 </template>
 
 <script>
-import Lognavbar from "../components/Lognavbar"
+import Lognavbar from "../components/Lognavbar";
+import Objective from "../components/Objective"
 export default {
-  components: { Lognavbar },
+  components: { Lognavbar, Objective },
   data() {
     return {
       

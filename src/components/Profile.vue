@@ -27,13 +27,15 @@
              <v-layout  align-start justify-start row fill-height>
             <v-text-field
               label="First Name"
-              v-model="name"
+              name="fname"
+              v-model="fname"
               prepend-icon="person_pin"
               :rules="inputRules"
             ></v-text-field>
             <v-text-field
               label="Last Name"
-              v-model="name"
+              name="lname"
+              v-model="lname"
               prepend-icon="person_pin"
               :rules="inputRules"
             ></v-text-field>
@@ -41,20 +43,21 @@
             <v-text-field label="Email" v-model="email" prepend-icon="email"></v-text-field>
             <v-text-field
               label="Street Address"
+              name="address"
               v-model="address"
               prepend-icon="home"
               :rules="inputRules"
             ></v-text-field>
-            <v-text-field label="City" v-model="city" prepend-icon="home" :rules="inputRules"></v-text-field>
+            <v-text-field label="City" name="city" v-model="city" prepend-icon="home" :rules="inputRules"></v-text-field>
             <v-layout  align-start justify-start row fill-height>
-            <v-text-field label="State" v-model="state" prepend-icon="home"></v-text-field>
-            <v-text-field label="Zip" v-model="zip" prepend-icon="home" :rules="inputRules"></v-text-field>
+            <v-text-field label="State" name="state" v-model="state" prepend-icon="home"></v-text-field>
+            <v-text-field label="Zip" name="zip" v-model="zip" prepend-icon="home" :rules="inputRules"></v-text-field>
             </v-layout>
-            <v-text-field label="Phone" v-model="phone" prepend-icon="phone" :rules="inputRules"></v-text-field>
+            <v-text-field label="Phone" name="phone" v-model="phone" prepend-icon="phone" :rules="inputRules"></v-text-field>
          
-             <v-text-field label="www.personalwebsite.com" v-model="content" prepend-icon="link"></v-text-field>
-            <v-text-field label="www.personalwebsite.com" v-model="content" prepend-icon="link"></v-text-field>
-            <v-text-field label="www.personalwebsite.com" v-model="content" prepend-icon="link"></v-text-field>
+             <v-text-field label="www.personalwebsite.com" name="website1" v-model="content" prepend-icon="link"></v-text-field>
+            <v-text-field label="www.personalwebsite.com" name="website2" v-model="content" prepend-icon="link"></v-text-field>
+            <v-text-field label="www.personalwebsite.com" name="website3" v-model="content" prepend-icon="link"></v-text-field>
          <v-layout  align-start justify-start row fill-height>
             <v-text-field
               label="Set Password"
@@ -71,7 +74,7 @@
          </v-layout>
             <v-spacer></v-spacer>
 
-            <v-btn clat class="primary mx-0 mt-3"  router to='/welcome'>Create Profile</v-btn>
+            <v-btn flat class="primary mx-0 mt-3"  router to='/welcome'>Create Profile</v-btn>
           </v-form>
         </v-card-text>
       </v-layout>
