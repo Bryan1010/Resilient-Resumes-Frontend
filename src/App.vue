@@ -7,6 +7,7 @@
       <router-view>
         <Index/>
         <Welcome/>
+        <Resume/>
       </router-view>
     </v-content>
   </v-app>
@@ -15,11 +16,13 @@
 <script>
 import Index from './views/Index'
 import Welcome from './views/Welcome'
+import Resume from './views/Resume'
 export default {
   name: 'App',
   components: {
     Index,
-    Welcome
+    Welcome,
+    Resume
   },
   data () {
     return {

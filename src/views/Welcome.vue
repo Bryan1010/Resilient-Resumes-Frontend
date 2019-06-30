@@ -8,10 +8,10 @@
       <v-layout  >
      <h1 align-start justify-start column fill-height class="display-3 ">Hi, {{fname}} Let's Begin</h1>
      
-           <Objective />
+           
       </v-layout>
      
-  
+  <v-btn large outline color="secondary" router to='/resume'>Build your Resume</v-btn>
        </v-spacer>
      <v-card align-center justify-space-around class="my-4" >
     <v-container>
@@ -81,9 +81,9 @@
 
 <script>
 import Lognavbar from "../components/Lognavbar";
-import Objective from "../components/Objective"
+
 export default {
-  components: { Lognavbar, Objective },
+  components: { Lognavbar },
   data() {
     return {
       
