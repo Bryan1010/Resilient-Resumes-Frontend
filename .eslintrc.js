@@ -8,16 +8,11 @@ module.exports = {
     parser: 'babel-eslint'
   },
   extends: [
-    'prettier',
-    'prettier/vue',
-    'plugin:prettier/recommended',
     '@nuxtjs',
     'plugin:nuxt/recommended'
   ],
-  plugins: ['prettier'],
   // add your custom rules here
   rules: {
-    'nuxt/no-cjs-in-config': 'off',
-    'space-before-function-paren': 'off'
+    'nuxt/no-cjs-in-config': 'off'
   }
 }

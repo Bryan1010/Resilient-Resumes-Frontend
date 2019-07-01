@@ -1,6 +1,6 @@
-# resilient-resumes
+# nuvu
 
-> Resilient Resumes Web App
+> My solid Nuxt.js project
 
 ## Build Setup
 

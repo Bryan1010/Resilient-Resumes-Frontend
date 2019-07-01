@@ -1,75 +1,51 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6>
-      <div class="text-xs-center">
-        <logo />
-        <vuetify-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>
-            Vuetify is a progressive Material Design component framework for
-            Vue.js. It was designed to empower developers to create amazing
-            applications.
-          </p>
-          <p>
-            For more information on Vuetify, check out the
-            <a href="https://vuetifyjs.com" target="_blank"> documentation </a>.
-          </p>
-          <p>
-            If you have questions, please join the official
-            <a href="https://chat.vuetifyjs.com/" target="_blank" title="chat">
-              discord </a
-            >.
-          </p>
-          <p>
-            Find a bug? Report it on the github
-            <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              title="contribute"
-            >
-              issue board </a
-            >.
-          </p>
-          <p>
-            Thank you for developing with Vuetify and I look forward to bringing
-            more exciting features in the future.
-          </p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3" />
-          <a href="https://nuxtjs.org/" target="_blank">
-            Nuxt Documentation
-          </a>
-          <br />
-          <a href="https://github.com/nuxt/nuxt.js" target="_blank">
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="primary" flat nuxt to="/inspire">
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-  </v-layout>
+  <v-container>
+    <Navbar />
+    <v-layout align-start justify-start column fill-height>
+      <v-flex x12 md6>
+        <h1 class="display-4 mt-5 pt-5 ml-5 pl-5 font-weight-thin white--text">
+          Welcome
+        </h1>
+        <br>
+      </v-flex>
+    </v-layout>
+    <v-spacer />
+    <v-spacer />
+    <v-layout align-center justify-center column>
+      <v-spacer />
+      <v-flex>
+        <p class="headline white--text font-weight-thin ">
+          <br>
+          Resilient Resumes is an application designed to help you create your resume.
+          <br>
+          You will receive customize feedback based on your input.
+          <br>
+          With this feedback you can refine your information for the most Resilient Resume possible.
+          <br>
+          Click start to begin.
+        </p>
+        <Profile />
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-
+import Navbar from '../components/Navbar'
+import Profile from '../components/Profile'
 export default {
-  components: {
-    Logo,
-    VuetifyLogo
+  components: { Navbar, Profile },
+  data() {
+    return {
+
+    }
   }
+
 }
 </script>
+
+<style>
+#app > div{
+    background-color: #093162;
+ }
+</style>
