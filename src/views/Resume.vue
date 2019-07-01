@@ -61,7 +61,7 @@ import Lognavbar from "../components/Lognavbar";
 import Objective from "../components/Objective";
 import Education from "../components/Education";
 export default {
-  components: { Lognavbar, Objective },
+  components: { Lognavbar, Objective, Education },
   data() {
     return {
       e6:1

@@ -27,7 +27,7 @@
         <v-card-text>
           <v-form  ref="form" id="form">
 
-        
+        <!-- TODO: Dynamic entry of num schools to output school form inputs -->
               <v-text-field
               label="How many schools would you like on your resume?"
               name="schoolnum"

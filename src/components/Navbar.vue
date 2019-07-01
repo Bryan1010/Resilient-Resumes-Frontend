@@ -1,7 +1,7 @@
 <template>
   <nav >
     <v-toolbar extended flat class="transparent" app>
-      <img class="mt-5" src="..\.\assets\ResilientResumes.png" height="85">
+      <img class="mt-5" src="..\assets\ResilientResumes.png" height="85">
      
       <v-spacer></v-spacer>
 <v-layout align-end justify-start column fill-height>
