@@ -7,15 +7,17 @@
     <v-card>
       <v-card-title>
         <h1 class="display-2 primary--text">Let's Start</h1>
+     
       </v-card-title>
       <v-layout  align-start justify-start row reverse >
         <v-card-text>
           <p class="display-1 font-weight-thin tertiary--text my-5">
             A resume is a snapshot of who you are and what you can bring to the table.
             <br />
+            AND NOW THIS FORM IS UGLY AND WILL NEED SOME REWORKING BUT THE COMPONENTS SHOULD BE CLOSE
             <br />Let's Start by completing a profile with your information.
             <br />
-            <br />Be sure to list your LinkedIn Profile or any other personal websites you would like to make available on your resume.
+            <br />
           </p>
          
         </v-card-text>
@@ -36,7 +38,7 @@
               label="Last Name"
               name="lname"
               v-model="lname"
-              prepend-icon="person_pin"
+              
               :rules="inputRules"
             ></v-text-field>
              </v-layout>
@@ -48,26 +50,44 @@
               prepend-icon="home"
               :rules="inputRules"
             ></v-text-field>
-            <v-text-field label="City" name="city" v-model="city" prepend-icon="home" :rules="inputRules"></v-text-field>
+            <v-text-field label="City" name="city" v-model="city"  :rules="inputRules"></v-text-field>
             <v-layout  align-start justify-start row fill-height>
-            <v-text-field label="State" name="state" v-model="state" prepend-icon="home"></v-text-field>
-            <v-text-field label="Zip" name="zip" v-model="zip" prepend-icon="home" :rules="inputRules"></v-text-field>
+            <v-text-field label="State" name="state" v-model="state" ></v-text-field>
+            <v-text-field label="Zip" name="zip" v-model="zip"  :rules="inputRules"></v-text-field>
             </v-layout>
             <v-text-field label="Phone" name="phone" v-model="phone" prepend-icon="phone" :rules="inputRules"></v-text-field>
-         
-             <v-text-field label="www.personalwebsite.com" name="website1" v-model="content" prepend-icon="link"></v-text-field>
-            <v-text-field label="www.personalwebsite.com" name="website2" v-model="content" prepend-icon="link"></v-text-field>
-            <v-text-field label="www.personalwebsite.com" name="website3" v-model="content" prepend-icon="link"></v-text-field>
+            <v-tooltip top>
+        <template v-slot:activator="{ on }">
+        
+             <v-text-field label="LinkedIn Profile" name="website1" v-model="site1"  v-on="on"></v-text-field>
+             </template>
+        <span>It is highly recommended to include a LinkedIn Profile or personal professional websites.</span>
+      </v-tooltip>
+            <v-text-field label="Portfolio Site" name="website2" v-model="site2"></v-text-field>
+            <v-text-field label="Project Site" name="website3" v-model="site3" ></v-text-field>
          <v-layout  align-start justify-start row fill-height>
+            <!--Possible way to set passord
+              
+              label="Enter your password"
+ hint="At least 8 characters"
+ min="8"
+ :append-icon="value ? 'visibility' : 'visibility_off'"
+ :append-icon-cb="() => (value = !value)"
+ value="Password"
+ :rules="[() => ('The email and password you entered don\'t match')]"
+ error
+ :type="value ? 'password' : 'text'"
+ >-->
+            
             <v-text-field
               label="Set Password"
-              v-model="phone"
+              v-model="password"
               prepend-icon="lock_open"
               :rules="inputRules"
             ></v-text-field>
             <v-text-field
               label="Confirm Password"
-              v-model="phone"
+              v-model="password1"
               prepend-icon="lock"
               :rules="inputRules"
             ></v-text-field>
@@ -88,6 +108,17 @@ export default {
     return {
       title: "",
       content: "",
+      address: "",
+      email:"",
+      phone:"",
+      site1:"",
+      site2:"",
+      site3:"",
+      password:"",
+      password1:"",
+      city:"",
+      state:"",
+      zip:"",
       due: null,
       inputRules: [v => v.length >= 3 || "Minimum Length is 3 characters"],
       loading: false

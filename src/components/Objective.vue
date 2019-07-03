@@ -25,19 +25,20 @@
         <v-text-field
               label="Enter your objective statement."
               name="objective"
-              v-model="content"
+              placeholder="Highly-motivated Information Science and Technology undergraduate with a 3.9 GPA looking to fill a position as a Database Intern at Google."
+              v-model="objective"
               prepend-icon="work"
               :rules="inputRules"
               v-on="on"
             ></v-text-field>
             </template>
-        <span>A great example of an objective statement is: Highly-motivated Information Science and Technology undergraduate with a 3.9 GPA looking to fill a position as a Database Intern at Google.</span>
+        <span>It is highly recommended to include an objective statement.</span>
       </v-tooltip>
             
         <v-text-field
               label="Enter the title of the position you are applying for"
               name="position"
-              v-model="content"
+              v-model="job"
               prepend-icon="work"
               :rules="inputRules"
             ></v-text-field>
@@ -55,12 +56,13 @@
 </template>
 
 <script>
-   import Education from "./Education"
+   
 export default {
-    components:{ Education },
+    components:{  },
   data() {
     return {
-        
+        objective:"",
+      job:""
      };
   },
   methods: {
