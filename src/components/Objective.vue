@@ -1,29 +1,33 @@
 <template>
 
    
-      <v-card>
+     
+        <v-container fluid>
+     
+        <h2 class="tertiary--text">An objective statement is a statement that describes 
+      you are looking for or to achieve with your resume.</h2>
+        <br />
+        <h2 class="primary--text">Objective Tips:</h2>
+        <ul class="primary--text subheading">
+        <li>Start with your best professional skill you can offer.</li><ul><li><b><i> A driven personality..</i></b></li></ul>
+        <br />
+        <li> State the position and the company your applying for.</li><ul><li> <b><i>An intern at Penn State..</i></b></li></ul>
+        <br />
+        <li> If putting out mass resumes simply state the position your looking for and what you hope to gain.</li><ul><li> <b><i>An intern position to further my development skills..</i></b></li></ul>
 
-      <v-card-text>
-        <h3 class="primary--text">An objective statement is a short statement which describes precisely what you are looking for or what you want.</h3>
+        </ul>
+                
         
-       <br />
-        <h5>Objective Tips:</h5>
-        
-        Start with the best part you can offer.<b><i> For example, you have a driven personality.</i></b><br />
-        State the position and the company your applying for. <b><i> For example, an intern at Penn State.</i></b><br />
-        If putting out mass resumes simply state the position your looking to get.
-        Say how your education will help you perform well for the job.
-
-      </v-card-text>
-         
+       
+         <br />
   
-    <v-card-text>
-          <v-form  ref="form" id="form">
+    
+          <v-form  ref="form" id="form" class="px-5">
           
-       <v-tooltip top>
+       <v-tooltip right>
         <template v-slot:activator="{ on }">
         <v-text-field
-              label="Enter your objective statement."
+              label="What is your objective statement?"
               name="objective"
               placeholder="Highly-motivated Information Science and Technology undergraduate with a 3.9 GPA looking to fill a position as a Database Intern at Google."
               v-model="objective"
@@ -36,8 +40,10 @@
       </v-tooltip>
             
         <v-text-field
-              label="Enter the title of the position you are applying for"
+        class="px-5"
+              label="What position are you applying for?"
               name="position"
+              placeholder="IST Summer Internship"
               v-model="job"
               prepend-icon="work"
               :rules="inputRules"
@@ -46,12 +52,7 @@
    
           
 </v-form>
-      </v-card-text> 
-  
-      
-        
-   
-    </v-card>
+        </v-container>
 
 </template>
 

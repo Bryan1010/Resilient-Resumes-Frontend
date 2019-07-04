@@ -1,31 +1,26 @@
 <template>
-  <v-dialog max-width="800px">
+  <v-dialog class="pt-2" max-width="800" persistent>
+    
     <v-btn large outline color="secondary" slot="activator">
       <span>Start</span>
     </v-btn>
 
     <v-card>
-      <v-card-title>
-        <h1 class="display-2 primary--text">Let's Start</h1>
+  <v-container>
+      <v-layout align-start justify-end column fill-height>
      
-      </v-card-title>
-      <v-layout  align-start justify-start row reverse >
-        <v-card-text>
-          <p class="display-1 font-weight-thin tertiary--text my-5">
-            A resume is a snapshot of who you are and what you can bring to the table.
-            <br />
-            AND NOW THIS FORM IS UGLY AND WILL NEED SOME REWORKING BUT THE COMPONENTS SHOULD BE CLOSE
-            <br />Let's Start by completing a profile with your information.
-            <br />
-            <br />
-          </p>
-         
-        </v-card-text>
+       
+       <h1 class="px-5 primary--text">Let's Start</h1>
+        <h4 class=" px-5 primary--text">A resume is a snapshot of who you are and what you can bring to the table.</H4>
+        <h4 class="px-5 tertiary--text">Start by completing a profile with your information.</h4>
+     
+   
+    </v-layout>
       
 
      
         <v-card-text>
-          <v-form  ref="form" id="form">
+          <v-form  ref="form" id="form" class="px-5">
              <v-layout  align-start justify-start row fill-height>
             <v-text-field
               label="First Name"
@@ -95,10 +90,12 @@
             <v-spacer></v-spacer>
 
             <v-btn flat class="primary mx-0 mt-3"  router to='/welcome'>Create Profile</v-btn>
+              
           </v-form>
         </v-card-text>
-      </v-layout>
+     </v-container>
     </v-card>
+   
   </v-dialog>
 </template>
 
@@ -119,7 +116,7 @@ export default {
       city:"",
       state:"",
       zip:"",
-      due: null,
+      
       inputRules: [v => v.length >= 3 || "Minimum Length is 3 characters"],
       loading: false
     };

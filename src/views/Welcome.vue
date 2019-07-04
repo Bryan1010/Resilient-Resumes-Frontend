@@ -19,7 +19,7 @@
    
     <h2 class="primary--text pt-4"> To start building your Resilient Resume, you will need to be able to answer the following questions:</h2>
     <ul class="subheading">
-     <h3 class="red--text">Amie will come back and fix the style on this page It's not finalized and it's ugly</h3>
+     
       <li>Objective Statement</li>
     <ul> <li>What are you looking to accomplish with this resume? </li></ul>
     <li>Position applying for</li>

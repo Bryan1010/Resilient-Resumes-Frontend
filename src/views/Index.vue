@@ -1,11 +1,11 @@
 
 <template>
-<div id="app">
+<div>
    <v-container>
       <Navbar />
       <v-layout align-start justify-start column fill-height>
-     <v-flex x12 md6>
-       <h1 class="display-4 mt-5 pt-5 ml-5 pl-5 font-weight-thin white--text">Welcome</h1>
+     <v-flex lg12 md8 xs5>
+       <h1 class="display-4 font-weight-thin white--text">Welcome</h1>
        <br />
      </v-flex>
     </v-layout>
@@ -13,9 +13,9 @@
       <v-spacer></v-spacer>
     <v-layout align-center justify-center column>
      <v-spacer></v-spacer>
-     <v-flex>
+     <v-flex lg12 md8 xs5>
 
-       <p class="headline white--text font-weight-thin ">
+       <p class="headline white--text  ">
          <br />
          Resilient Resumes is an application designed to help you create your resume.
          <br />
@@ -25,14 +25,15 @@
          <br />
          Click start to begin.
        </p>
-     <Profile/>
+    <Profile/>
      </v-flex>
+      
     </v-layout>
      
     
     </v-container>
-    
-  </div>
+    </div>
+
 </template>
 
 

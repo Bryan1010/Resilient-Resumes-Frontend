@@ -1,7 +1,7 @@
 <template>
 
     
-      <v-dialog max-width="600px">
+      <v-dialog max-width="600px" persistent inset>
      
           <v-btn large outline color="secondary" slot="activator">
             <span>Login</span>
