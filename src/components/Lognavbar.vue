@@ -5,13 +5,24 @@
       <a class="transparent"  href='/'><img class="mt-5" src="../assets/ResilientResumes.png" height="85"></a>
      
       <v-spacer></v-spacer>
-
+ </v-toolbar>
      <v-navigation-drawer v-model="drawer" app class="primary">     
-          
+        <v-layout column align-center>
+        <v-flex class="mt-5">
+          <v-card height="auto" width="auto">
+         <h1 class="display-1 primary--text">
+          Profile Name
+          Saved resume
+          Output Button goes here
+          </h1>
+          </v-card>
+        </v-flex>
+      </v-layout>
+         
       </v-navigation-drawer>
            
-      
-    </v-toolbar>
+       
+   
     
   </nav>
 </template>
