@@ -1,10 +1,9 @@
 <template>
   <nav >
-    <v-toolbar prominent flat class="transparent" app>
+   
+    <v-toolbar prominent flat extended color="primary" app>
     <v-toolbar-side-icon class="white--text" @click="drawer=!drawer"></v-toolbar-side-icon>
-      <a class="transparent"  href='/'><img class="mt-5" src="../assets/ResilientResumes.png" height="85"></a>
-     
-      <v-spacer></v-spacer>
+ <a class="transparent"  href='/#/welcome'><img class="mt-5" src="../assets/ResilientResumes.png" height="85"></a>
  </v-toolbar>
      <v-navigation-drawer v-model="drawer" app class="primary">     
         <v-layout column align-center>
@@ -33,12 +32,16 @@ export default {
 
   data() {
     return {
-    drawer: false  
+    drawer: false ,
+    tile: false 
     
     };
   }
 };
 </script>
 <style>
+#logo{
+  z-index: 1500;
 
+}
  </style>

@@ -4,50 +4,55 @@
      
         <v-container fluid>
      
-        <h2 class="tertiary--text">An objective statement is a statement that describes 
-      you are looking for or to achieve with your resume.</h2>
-        <br />
-        <h2 class="primary--text">Objective Tips:</h2>
-        <ul class="primary--text subheading">
-        <li>Start with your best professional skill you can offer.</li><ul><li><b><i> A driven personality..</i></b></li></ul>
-        <br />
-        <li> State the position and the company your applying for.</li><ul><li> <b><i>An intern at Penn State..</i></b></li></ul>
-        <br />
-        <li> If putting out mass resumes simply state the position your looking for and what you hope to gain.</li><ul><li> <b><i>An intern position to further my development skills..</i></b></li></ul>
+        <h2 class="tertiary--text">Experience is important to showcase your strengths and what you have learned during your college career.</h2>
 
-        </ul>
-                
-        
+        <br />
+        <v-expansion-panel>
+         <v-expansion-panel-content class="primary--text">
+          <template v-slot:header><h2 class="primary--text">Experience Tips:</h2></template>
+          <v-card>
+            <v-card-text ><span class="primary--text" >Consider listing all experiences including group projects, personal projects or volunteer projects if they showcase skills gained.
+            <br />
+            <b><i>Created a website at Big Brothers Big Sisters. Coordinated volunteers at Opportunity House.</i></b></span>
+            </v-card-text>
+          </v-card>
+          <v-card>
+            <v-card-text class="primary--text"><span>Use action words in short, clearly writted phrases to describe experiences.</span></v-card-text>
+          </v-card>
+          <v-card>
+            <v-card-text class="primary--text"><span>Avoid <i>"I was responsible for"</i>, <i>"My duties included"</i> or any other introductory phrases that deter from the main point.</span></v-card-text>
+          </v-card>
+          <v-card>
+            <v-card-text class="primary--text"><span>List accomplishments whenever possible rather than just describe duties.</span></v-card-text>
+          </v-card>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+
        
          <br />
-  
+  <!--Need to dynamically populate the fields based on numExp -->
     
           <v-form  ref="form" id="form" class="px-5">
           
-       <v-tooltip right>
-        <template v-slot:activator="{ on }">
+         <v-text-field
+              label="How many experiences would you like to list?"
+              name="numExp"
+              v-model="numExp"
+              type="number"
+          ></v-text-field>
         <v-text-field
-              label="What is your objective statement?"
-              name="objective"
-              placeholder="Highly-motivated Information Science and Technology undergraduate with a 3.9 GPA looking to fill a position as a Database Intern."
-              v-model="objective"
-              prepend-icon="work"
-              :rules="inputRules"
-              v-on="on"
-            ></v-text-field>
-            </template>
-        <span>It is highly recommended to include an objective statement.</span>
-      </v-tooltip>
-            
+              label="What was the name of the organization of your experience?"
+              name="Expname"
+              v-model="Expname"
+              prepend-icon="work"             
+        ></v-text-field>
         <v-text-field
-        
-              label="What position are you applying for?"
-              name="position"
-              placeholder="IST Summer Internship"
-              v-model="job"
-              prepend-icon="work"
-              :rules="inputRules"
-            ></v-text-field>
+              label="What was city of your experience?"
+              name="Expcity"
+              v-model="Expcity"
+        ></v-text-field>
+      
+  
            
    
           
@@ -62,8 +67,10 @@ export default {
     components:{  },
   data() {
     return {
-        objective:"",
-      job:""
+        numExp:"",
+        Expname:"",
+
+      
      };
   },
   methods: {

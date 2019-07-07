@@ -4,52 +4,62 @@
      
         <v-container fluid>
      
-        <h2 class="tertiary--text">An objective statement is a statement that describes 
-      you are looking for or to achieve with your resume.</h2>
+        <h2 class="tertiary--text">Relevant Courses are the courses that contribute to the advancement of your career.</h2>
         <br />
-        <h2 class="primary--text">Objective Tips:</h2>
-        <ul class="primary--text subheading">
-        <li>Start with your best professional skill you can offer.</li><ul><li><b><i> A driven personality..</i></b></li></ul>
-        <br />
-        <li> State the position and the company your applying for.</li><ul><li> <b><i>An intern at Penn State..</i></b></li></ul>
-        <br />
-        <li> If putting out mass resumes simply state the position your looking for and what you hope to gain.</li><ul><li> <b><i>An intern position to further my development skills..</i></b></li></ul>
-
-        </ul>
-                
-        
-       
-         <br />
+        <v-expansion-panel>
+         <v-expansion-panel-content class="primary--text">
+          <template v-slot:header><h2 class="primary--text">Relevant Coursework Tips:</h2></template>
+          <v-card>
+            <v-card-text ><span class="primary--text" >Start with your strongest course, in an interview it will be the first one the interviewer sees.</span></v-card-text>
+          </v-card>
+          <v-card>
+            <v-card-text class="primary--text"><span>Give the course name not the course catalog number, it is more descriptive.</span><br/><b><i>Organization of Data versus IST210</i></b></v-card-text>
+          </v-card>
+          <v-card>
+            <v-card-text class="primary--text"><span>In the description, list the skills you learned from this course and any special projects completed.</span></v-card-text>
+          </v-card>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+       <br />
   
-    
-          <v-form  ref="form" id="form" class="px-5">
+    <!--Need to dynamically populate fields based on number input of numCourse-->
+          <v-form  ref="form" id="form">
           
        <v-tooltip right>
         <template v-slot:activator="{ on }">
         <v-text-field
-              label="What is your objective statement?"
-              name="objective"
-              placeholder="Highly-motivated Information Science and Technology undergraduate with a 3.9 GPA looking to fill a position as a Database Intern."
-              v-model="objective"
-              prepend-icon="work"
-              :rules="inputRules"
+              label="How many courses would you like to list?"
+              name="numCourse"
+              v-model="numCourse"
+              type="number"
+             
               v-on="on"
             ></v-text-field>
             </template>
-        <span>It is highly recommended to include an objective statement.</span>
+        <span>Only count career relevant courses, most interviewers will not care about basketweaving.</span>
       </v-tooltip>
             
         <v-text-field
         
-              label="What position are you applying for?"
-              name="position"
-              placeholder="IST Summer Internship"
-              v-model="job"
-              prepend-icon="work"
-              :rules="inputRules"
-            ></v-text-field>
+              label="What is the name of the course?"
+              name="courseName"
+              prepend-icon="book"
+              v-model="courseName"
+              
+             
+            >
+      </v-text-field>
            
-   
+   <v-textarea
+        
+              label="How would you describe the above course?"
+              name="courseDesc"
+              prepend-icon="book"
+              v-model="courseDesc"
+              
+             
+            >
+   </v-textarea>
           
 </v-form>
         </v-container>
@@ -62,8 +72,11 @@ export default {
     components:{  },
   data() {
     return {
-        objective:"",
-      job:""
+        numCourse:"",
+        courseName:"",
+        courseDesc:""
+
+
      };
   },
   methods: {

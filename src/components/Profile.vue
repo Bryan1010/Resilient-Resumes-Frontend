@@ -1,5 +1,6 @@
 <template>
-  <v-dialog class="pt-2" max-width="800" persistent>
+<div id="profile">
+  <v-dialog  class="pt-2" max-width="800" persistent inset>
     
     <v-btn large outline color="secondary" slot="activator">
       <span>Start</span>
@@ -97,8 +98,13 @@
     </v-card>
    
   </v-dialog>
+</div>
 </template>
-
+<style>
+template{
+  overflow: hidden !important;
+}
+</style>
 <script>
 export default {
   data() {

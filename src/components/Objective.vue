@@ -5,24 +5,30 @@
         <v-container fluid>
      
         <h2 class="tertiary--text">An objective statement is a statement that describes 
-      you are looking for or to achieve with your resume.</h2>
-        <br />
-        <h2 class="primary--text">Objective Tips:</h2>
-        <ul class="primary--text subheading">
-        <li>Start with your best professional skill you can offer.</li><ul><li><b><i> A driven personality..</i></b></li></ul>
-        <br />
-        <li> State the position and the company your applying for.</li><ul><li> <b><i>An intern at Penn State..</i></b></li></ul>
-        <br />
-        <li> If putting out mass resumes simply state the position your looking for and what you hope to gain.</li><ul><li> <b><i>An intern position to further my development skills..</i></b></li></ul>
-
-        </ul>
-                
+      what you are looking to achieve.</h2>
+    <br />
         
-       
+        <v-expansion-panel>
+         <v-expansion-panel-content>
+          <template v-slot:header><h2 class="primary--text">Objective Tips:</h2></template>
+          <v-card>
+            <v-card-text><span class="primary--text">Start with your best professional skill you can offer.<br/><b><i> A driven personality..</i></b></span></v-card-text>
+          </v-card>
+          <v-card>
+            <v-card-text><span class="primary--text">State the position and the company your applying for.<br /><b><i> An intern at Penn State..</i></b></span></v-card-text>
+          </v-card>
+          <v-card>
+            <v-card-text><span class="primary--text" >If putting out mass resumes simply state the position your looking for and what you hope to gain..<b><i><br /> An intern position to further my development skills..</i></b></span></v-card-text>
+          </v-card>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+        
+              
+              
          <br />
   
     
-          <v-form  ref="form" id="form" class="px-5">
+          <v-form  ref="form" id="form">
           
        <v-tooltip right>
         <template v-slot:activator="{ on }">

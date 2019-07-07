@@ -7,7 +7,7 @@ Vue.use(Vuetify, {
   theme:{
     primary: '#093162',
     secondary: '#FFFFFF',
-    tertiary: '#6BC1FF'
+    tertiary: '#007dff'
 
     
   }
