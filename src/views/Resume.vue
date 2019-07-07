@@ -77,7 +77,9 @@
 
       <v-stepper-step :complete="e6 > 6" step="6">Honors and Achievements</v-stepper-step>
       <v-stepper-content step="6">
-        <v-card color="grey lighten-1" class="mb-5" height="200px"></v-card>
+        <v-card color="white" height="auto"  class="px-5">
+          <Honors />
+        </v-card>
         <v-btn color="primary" router to='/welcome'>Home</v-btn>
         <v-btn color="secondary" class="primary--text" @click="e6 = 5">Previous</v-btn>
         <v-btn color="tertiary" class="white--text" @click="e6 = 7">Continue</v-btn>
@@ -87,7 +89,9 @@
 
       <v-stepper-step :complete="e6 > 7" step="7">Activities</v-stepper-step>
       <v-stepper-content step="7">
-        <v-card color="grey lighten-1" class="mb-5" height="200px"></v-card>
+       <v-card color="white" height="auto"  class="px-5">
+          <Honors />
+        </v-card>
         <v-btn color="primary" router to='/welcome'>Home</v-btn>
         <v-btn color="secondary" class="primary--text" @click="e6 = 6">Previous</v-btn>
         <v-btn color="tertiary">Submit for Feedback</v-btn>
