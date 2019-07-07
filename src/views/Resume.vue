@@ -5,7 +5,7 @@
 
     <v-stepper id="resume" vertical class="mt-5 py-5 px-5 mx-5" v-model="e6">
       
-      <h1 class="tertiary--text">Answer the questions in the following fields to start building your Resilient Resume.</h1><v-stepper-step :complete="e6 > 1" step="1">
+      <h1 class="tertiary--text">Answer following questions to build your Resilient Resume.</h1><v-stepper-step :complete="e6 > 1" step="1">
         Enter your Objective Statement
         
       </v-stepper-step>
@@ -94,7 +94,7 @@
         </v-card>
         
         <v-btn color="secondary" class="primary--text" @click="e6 = 6">Previous</v-btn>
-        <v-btn color="tertiary">Submit for Feedback</v-btn>
+        <v-btn color="tertiary" class="white--text">Submit for Feedback</v-btn>
     
         
       </v-stepper-content>

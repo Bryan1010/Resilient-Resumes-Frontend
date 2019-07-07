@@ -4,52 +4,57 @@
      
         <v-container fluid>
      
-        <h2 class="tertiary--text">An objective statement is a statement that describes 
-      you are looking for or to achieve with your resume.</h2>
+        <h2 class="tertiary--text">Activities showcase to an employer your ability to be a well-rounded potential employee.</h2>
         <br />
-        <h2 class="primary--text">Objective Tips:</h2>
-        <ul class="primary--text subheading">
-        <li>Start with your best professional skill you can offer.</li><ul><li><b><i> A driven personality..</i></b></li></ul>
-        <br />
-        <li> State the position and the company your applying for.</li><ul><li> <b><i>An intern at Penn State..</i></b></li></ul>
-        <br />
-        <li> If putting out mass resumes simply state the position your looking for and what you hope to gain.</li><ul><li> <b><i>An intern position to further my development skills..</i></b></li></ul>
+         <v-expansion-panel>
+         <v-expansion-panel-content class="primary--text">
+          <template v-slot:header><h2 class="primary--text">Activities Tips:</h2></template>
+          <v-card>
+            <v-card-text ><span class="primary--text" >All organizational memberships are important to highlight in this section.
+          </span>
+            </v-card-text>
+          </v-card>
+          <v-card>
+            <v-card-text class="primary--text"><span>Be sure to remember to include on and off campus activities.</span></v-card-text>
+          </v-card>
+          <v-card>
+            <v-card-text class="primary--text"><span>If you served at a leadership level, be sure to mention in the first sentence of your description.</span></v-card-text>
+          </v-card>
+         </v-expansion-panel-content>
+      </v-expansion-panel>
+      <br />
 
-        </ul>
-                
-        
-       
-         <br />
-  
-    
-          <v-form  ref="form" id="form" class="px-5">
+        <v-form  ref="form" id="form">
           
-       <v-tooltip right>
-        <template v-slot:activator="{ on }">
-        <v-text-field
-              label="What is your objective statement?"
-              name="objective"
-              placeholder="Highly-motivated Information Science and Technology undergraduate with a 3.9 GPA looking to fill a position as a Database Intern."
-              v-model="objective"
-              prepend-icon="work"
-              :rules="inputRules"
-              v-on="on"
+       <v-text-field
+              label="How many activities would you like to list?"
+              name="numActivities"
+              v-model="numActivities"
+              type="number"
+             
+              
             ></v-text-field>
-            </template>
-        <span>It is highly recommended to include an objective statement.</span>
-      </v-tooltip>
             
         <v-text-field
         
-              label="What position are you applying for?"
-              name="position"
-              placeholder="IST Summer Internship"
-              v-model="job"
-              prepend-icon="work"
-              :rules="inputRules"
+              label="What is the name of the activity"
+              name="activity"
+         
+              v-model="activity"
+                       
             ></v-text-field>
-           
-   
+ <v-tooltip top>
+            <template v-slot:activator="{ on }">  
+        <v-textarea
+              label="How would you describe this activity?"
+            
+              name="Actdesc"
+              v-model="Actdesc"
+              v-on="on"
+        ></v-textarea>
+          </template>
+ <span>Be sure to describe any leadership positions you served. Also, describe the impact this organization had on your community. </span>
+      </v-tooltip>
           
 </v-form>
         </v-container>
@@ -62,8 +67,10 @@ export default {
     components:{  },
   data() {
     return {
-        objective:"",
-      job:""
+        numActivities:"",
+      activity:"",
+      Actdesc:""
+
      };
   },
   methods: {

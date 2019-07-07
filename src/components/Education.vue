@@ -177,6 +177,7 @@ export default {
     schoolcity: "",
     schoolstate: "",
     schoolzip: "",
+    graddate: "",
 
     select: 'Degree Program',
       items: [

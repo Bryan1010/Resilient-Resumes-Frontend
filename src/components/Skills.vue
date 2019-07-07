@@ -4,18 +4,24 @@
      
         <v-container fluid>
      
-        <h2 class="tertiary--text">An objective statement is a statement that describes 
-      you are looking for or to achieve with your resume.</h2>
+        <h2 class="tertiary--text">Technical skills are vital to showcase what frameworks, languages and workflows you are familiar with. </h2>
         <br />
-        <h2 class="primary--text">Objective Tips:</h2>
-        <ul class="primary--text subheading">
-        <li>Start with your best professional skill you can offer.</li><ul><li><b><i> A driven personality..</i></b></li></ul>
-        <br />
-        <li> State the position and the company your applying for.</li><ul><li> <b><i>An intern at Penn State..</i></b></li></ul>
-        <br />
-        <li> If putting out mass resumes simply state the position your looking for and what you hope to gain.</li><ul><li> <b><i>An intern position to further my development skills..</i></b></li></ul>
+        <v-expansion-panel>
+         <v-expansion-panel-content class="primary--text">
+          <template v-slot:header><h2 class="primary--text">Technical Skills Tips:</h2></template>
+          <v-card>
+            <v-card-text ><span class="primary--text" >List the skills you have utilized not only in school but in the workplace or in a research capacity.</span>
+            </v-card-text>
+          </v-card>
+          <v-card>
+            <v-card-text class="primary--text"><span>The skills don't have to be the greatest ever, be honest and don't focus on latest technologies unless you are familiar with them</span></v-card-text>
+          </v-card>
+          <v-card>
+            <v-card-text class="primary--text"><span>Be sure to list your level of familiarity. </span></v-card-text>
+          </v-card>
+          </v-expansion-panel-content>
+      </v-expansion-panel>
 
-        </ul>
                 
         
        

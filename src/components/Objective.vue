@@ -35,7 +35,7 @@
         <v-text-field
               label="What is your objective statement?"
               name="objective"
-              placeholder="Highly-motivated Information Science and Technology undergraduate with a 3.9 GPA looking to fill a position as a Database Intern."
+              placeholder="Highly-motivated undergraduate with a 3.9 GPA looking to fill a position as a Database Intern."
               v-model="objective"
               prepend-icon="work"
               :rules="inputRules"

@@ -3,51 +3,57 @@
    
      
         <v-container fluid>
-     
-        <h2 class="tertiary--text">An objective statement is a statement that describes 
-      you are looking for or to achieve with your resume.</h2>
-        <br />
-        <h2 class="primary--text">Objective Tips:</h2>
-        <ul class="primary--text subheading">
-        <li>Start with your best professional skill you can offer.</li><ul><li><b><i> A driven personality..</i></b></li></ul>
-        <br />
-        <li> State the position and the company your applying for.</li><ul><li> <b><i>An intern at Penn State..</i></b></li></ul>
-        <br />
-        <li> If putting out mass resumes simply state the position your looking for and what you hope to gain.</li><ul><li> <b><i>An intern position to further my development skills..</i></b></li></ul>
+          <h2 class="tertiary--text">Honors and Achievements are important to show what you have earned during your college career.</h2>
+          <br />
+     <v-expansion-panel>
+         <v-expansion-panel-content class="primary--text">
+          <template v-slot:header><h2 class="primary--text">Honors and Achievement Tips:</h2></template>
+          <v-card>
+            <v-card-text ><span class="primary--text" >Before attempting to fill in your honors and achievement, look back to all your certificates you have earned thus far in college.
+          </span>
+            </v-card-text>
+          </v-card>
+          <v-card>
+            <v-card-text class="primary--text"><span>Have a short description ready for each honor and achievement, it's important for employers to understand the importance of the honor</span></v-card-text>
+          </v-card>
+          <v-card>
+            <v-card-text class="primary--text"><span>Do not forget about out of the classroom honors and achievements.<br /> Be sure to list any organizational or volunteer honors given.</span></v-card-text>
+          </v-card>
+         </v-expansion-panel-content>
+      </v-expansion-panel>
+      <br />
 
-        </ul>
-                
-        
-       
-         <br />
-  
-    
-          <v-form  ref="form" id="form" class="px-5">
+        <v-form  ref="form" id="form">
           
-       <v-tooltip right>
-        <template v-slot:activator="{ on }">
-        <v-text-field
-              label="What is your objective statement?"
-              name="objective"
-              placeholder="Highly-motivated Information Science and Technology undergraduate with a 3.9 GPA looking to fill a position as a Database Intern."
-              v-model="objective"
-              prepend-icon="work"
-              :rules="inputRules"
-              v-on="on"
+       <v-text-field
+              label="How many honors or achievements would you like to list?"
+              name="numHonors"
+              v-model="numHonors"
+              type="number"
+             
+              
             ></v-text-field>
-            </template>
-        <span>It is highly recommended to include an objective statement.</span>
-      </v-tooltip>
             
         <v-text-field
         
-              label="What position are you applying for?"
-              name="position"
-              placeholder="IST Summer Internship"
-              v-model="job"
-              prepend-icon="work"
-              :rules="inputRules"
+              label="What is the name of the honor or achievement?"
+              name="honor"
+         
+              v-model="honor"
+                       
             ></v-text-field>
+ <v-tooltip top>
+            <template v-slot:activator="{ on }">  
+        <v-textarea
+              label="How would you describe this honor or achievement?"
+            
+              name="Honordesc"
+              v-model="Honordesc"
+              v-on="on"
+        ></v-textarea>
+          </template>
+ <span>Be sure to be direct with each sentence. Share the parameters to earn this honor and why you earned it. </span>
+      </v-tooltip>
            
    
           
@@ -62,8 +68,10 @@ export default {
     components:{  },
   data() {
     return {
-        objective:"",
-      job:""
+        numHonors:"",
+        honor:"",
+        Honordesc:""
+
      };
   },
   methods: {
