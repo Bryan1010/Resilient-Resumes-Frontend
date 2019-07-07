@@ -16,9 +16,9 @@
      
 
 <h2  class="display-1 pt-5">Not sure where to start? </h2> <br /> 
-<h2 class="font-weight-thin"> Check out the questions below inspire you to start gathering the information you will need for your resume.</h2>
+<h2 class="font-weight-thin"> Check out the questions below to inspire you to start gathering the information you will need for your Resilient Resume.</h2>
   
-   <v-stepper class="my-3" v-model="e1" inset>
+   <v-stepper class="my-3" v-model="e1" id="welcome" inset>
     <v-stepper-header>
       <v-stepper-step :complete="e1 > 1" step="1">Objective Statement</v-stepper-step>
       
@@ -284,7 +284,12 @@
   </v-stepper>
   </div>
 </template>
+<style>
+#welcome{
+  max-width:70%;
 
+}
+</style>
 
     <!--
     <v-container>

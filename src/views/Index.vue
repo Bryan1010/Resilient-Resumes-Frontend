@@ -19,7 +19,9 @@
          <br />
          Resilient Resumes is an application designed to help you create your resume.
          <br />
-         You will receive customize feedback based on your input.
+         As you navigate through, you will receive ideas and inspiration to help you create a Resilient Resume.
+         <br />
+         Once input is complete, you will receive customize feedback based on your input upon submission.
          <br />
          With this feedback you can refine your information for the most Resilient Resume possible.
          <br />
