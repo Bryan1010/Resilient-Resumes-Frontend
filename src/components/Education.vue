@@ -13,7 +13,7 @@
             <v-card-text ><span class="primary--text" >Start filling in the information with the school you are currently attending.</span></v-card-text>
           </v-card>
           <v-card>
-            <v-card-text class="primary--text"><span>Include all schools attented up to high school.</span></v-card-text>
+            <v-card-text class="primary--text"><span>Include all higher education schools attented.</span></v-card-text>
           </v-card>
           <v-card>
             <v-card-text class="primary--text"><span>Do your best to fill out all of the information requested.</span></v-card-text>
