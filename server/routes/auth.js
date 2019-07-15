@@ -61,7 +61,7 @@ router.post('/login', async (req, res) => {
   }
 
   const token = jwt.sign({ _id: user._id }, 'WEAREPENNSTATE')
-  return res.header('auth-token', token).send(token)
+  return res.header('rr-a', token).send(token)
 })
 
 module.exports = router
