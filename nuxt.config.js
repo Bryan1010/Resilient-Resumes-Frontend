@@ -76,5 +76,10 @@ module.exports = {
     */
     extend(config, ctx) {
     }
+  },
+
+  db: {
+    connStr: 'mongodb://bryanc:mamass1@ds139037.mlab.com:39037/rr-vue'
   }
+
 }
