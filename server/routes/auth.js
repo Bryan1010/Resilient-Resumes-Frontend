@@ -57,6 +57,8 @@ router.post('/login', async (req, res) => {
   if (!validPass) {
     return res.status(400).send('Email or password is incorrect')
   }
+
+  return res.send({ user: user._id })
 })
 
 module.exports = router
