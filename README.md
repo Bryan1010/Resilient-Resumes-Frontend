@@ -1,4 +1,4 @@
-# nuvu
+# Resilient Resumes Web App
 
 > My solid Nuxt.js project
 
