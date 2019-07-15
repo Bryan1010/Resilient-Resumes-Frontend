@@ -1,6 +1,7 @@
 const express = require('express')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
+const mongoose = require('mongoose')
 const app = express()
 
 // Import and Set Nuxt.js options
@@ -20,6 +21,14 @@ async function start() {
   } else {
     await nuxt.ready()
   }
+
+  // Connect to DB
+  mongoose.connect(config.db.connStr, { useNewUrlParser: true })
+  mongoose.Promise = global.Promise
+  mongoose.connection.on('error', (err) => {
+    // eslint-disable-next-line no-console
+    console.error(`DB Connection Error 🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`)
+  })
 
   // Give nuxt middleware to express
   app.use(nuxt.render)
