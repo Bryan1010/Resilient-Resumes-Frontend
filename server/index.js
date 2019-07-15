@@ -8,6 +8,9 @@ const app = express()
 const config = require('../nuxt.config.js')
 config.dev = !(process.env.NODE_ENV === 'production')
 
+// Importing Routes
+const authRoute = require('./routes/auth')
+
 async function start() {
   // Init Nuxt.js
   const nuxt = new Nuxt(config)
@@ -30,11 +33,16 @@ async function start() {
     console.error(`DB Connection Error 🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`)
   })
 
+  // Express middleware
+  app.use(express.json())
+  // Route Middleware
+  app.use('/api/user', authRoute)
+
   // Give nuxt middleware to express
   app.use(nuxt.render)
 
   // Listen the server
-  app.listen(port, host)
+  app.listen(1212, host)
   consola.ready({
     message: `Server listening on http://${host}:${port}`,
     badge: true
