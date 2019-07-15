@@ -79,7 +79,7 @@ module.exports = {
   },
 
   db: {
-    connStr: 'mongodb://bryanc:mamass1@ds139037.mlab.com:39037/rr-vue'
+    connStr: 'mongodb://test:mamass1@ds139037.mlab.com:39037/rr-vue'
   }
 
 }
