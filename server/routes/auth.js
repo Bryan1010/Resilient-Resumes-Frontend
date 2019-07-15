@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 const { registerValidation, loginValidation } = require('../validation')
 
@@ -30,6 +31,7 @@ router.post('/register', async (req, res) => {
     Password: hashedPassword
   })
   try {
+    // eslint-disable-next-line no-unused-vars
     const savedUser = await user.save()
     res.send({ user: user._id })
   } catch (err) {
@@ -58,7 +60,8 @@ router.post('/login', async (req, res) => {
     return res.status(400).send('Email or password is incorrect')
   }
 
-  return res.send({ user: user._id })
+  const token = jwt.sign({ _id: user._id }, 'WEAREPENNSTATE')
+  return res.header('auth-token', token).send(token)
 })
 
 module.exports = router
