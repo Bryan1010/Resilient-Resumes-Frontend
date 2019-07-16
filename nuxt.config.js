@@ -51,6 +51,7 @@ module.exports = {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: 'http://localhost:1212'
   },
   /*
   ** vuetify module configuration
@@ -80,6 +81,10 @@ module.exports = {
 
   db: {
     connStr: 'mongodb://test:mamass1@ds139037.mlab.com:39037/rr-vue'
+  },
+
+  env: {
+    baseUrl: process.env.BASE_URL
   }
 
 }

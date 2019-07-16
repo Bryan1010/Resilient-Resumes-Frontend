@@ -1,22 +1,32 @@
-export const strict = false
-export const state = () => ({})
-export const mutations = {}
-export const getters = {}
+import Vuex from 'vuex'
 
-export const actions = {
-  nuxtServerInit({ commit }, { req, res }) {
-    if (req.headers.cookie) {
-      const cookieparser = require('cookieparser')
-      const parsed = cookieparser.parse(req.headers.cookie)
-      const details = {
-        access_token: parsed.mg_t,
-        user_id: parsed.mg_u,
-        name: parsed.mg_f,
-        email: parsed.mg_e,
-        role: parsed.mg_rl,
-        type: parsed.mg_tp
+const cookieparser = process.server ? require('cookieparser') : undefined
+
+const createStore = () => {
+  return new Vuex.Store({
+    state: () => ({
+      auth: null
+    }),
+    mutations: {
+      setAuth(state, auth) {
+        state.auth = auth
       }
-      commit('login/SET_AUTH_COOKIE_SSR', { details, res })
+    },
+    actions: {
+      nuxtServerInit({ commit }, { req }) {
+        let auth = null
+        if (req.headers.cookie) {
+          const parsed = cookieparser.parse(req.headers.cookie)
+          try {
+            auth = JSON.parse(parsed.auth)
+          } catch (err) {
+            // No valid cookie found
+          }
+        }
+        commit('setAuth', auth)
+      }
     }
-  }
+  })
 }
+
+export default createStore
