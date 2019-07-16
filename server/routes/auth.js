@@ -45,23 +45,23 @@ router.post('/login', async (req, res) => {
   const { error } = loginValidation(req.body)
 
   if (error) {
-    return res.status(400).send(error.details[0].message)
+    return res.status(400).send({ Status: 'Failed', Message: error.details[0].message })
   }
 
   // Check if the user exists
   const user = await User.findOne({ Email: req.body.Email })
   if (!user) {
-    return res.status(400).send('Email or password is incorrect')
+    return res.status(400).send({ Status: 'failed', Message: 'Email or password is incorrect' })
   }
 
   // check if password is correct
   const validPass = await bcrypt.compare(req.body.Password, user.Password)
   if (!validPass) {
-    return res.status(400).send('Email or password is incorrect')
+    return res.status(400).send({ Status: 'failed', Message: 'Email or password is incorrect' })
   }
 
   const token = jwt.sign({ _id: user._id }, 'WEAREPENNSTATE')
-  return res.header('rr-a', token).send(token)
+  return res.header('rr-a', token).send({ status: 'success', userId: token })
 })
 
 module.exports = router
