@@ -41,33 +41,38 @@ router.post('/register', async (req, res) => {
 
 // Login
 router.post('/login', async (req, res) => {
+  try {
   // Validating data before trying to log in the user
-  const { error } = loginValidation(req.body)
+    const { error } = loginValidation(req.body)
 
-  if (error) {
-    return res.status(400).send({ Status: 'Failed', Message: error.details[0].message })
+    if (error) {
+      return res.status(200).send({ Status: process.env.statusCodes.failed, Message: error.details[0].message })
+    }
+
+    // Check if the user exists
+    const user = await User.findOne({ Email: req.body.Email })
+    if (!user) {
+      return res.status(400).send({ Status: process.env.statusCodes.failed, Message: 'Email or password is incorrect' })
+    }
+
+    // check if password is correct
+    const validPass = await bcrypt.compare(req.body.Password, user.Password)
+    if (!validPass) {
+      return res.status(400).send({ Status: process.env.statusCodes.failed, Message: 'Email or password is incorrect' })
+    }
+
+    const token = jwt.sign({ _id: user._id }, 'WEAREPENNSTATE')
+    return res.header('rr-a', token).send({
+      status: 'success',
+      userId: token,
+      FName: user.FName,
+      LName: user.LName,
+      name: `${user.FName} ${user.LName}`
+    })
+  } catch (ex) {
+    this.$sentry.captureException(new Error(ex))
+    return res.status(500).send({ Status: process.env.statusCodes.error, Message: 'Server Error. Please retry later' })
   }
-
-  // Check if the user exists
-  const user = await User.findOne({ Email: req.body.Email })
-  if (!user) {
-    return res.status(400).send({ Status: 'failed', Message: 'Email or password is incorrect' })
-  }
-
-  // check if password is correct
-  const validPass = await bcrypt.compare(req.body.Password, user.Password)
-  if (!validPass) {
-    return res.status(400).send({ Status: 'failed', Message: 'Email or password is incorrect' })
-  }
-
-  const token = jwt.sign({ _id: user._id }, 'WEAREPENNSTATE')
-  return res.header('rr-a', token).send({
-    status: 'success',
-    userId: token,
-    FName: user.FName,
-    LName: user.LName,
-    name: `${user.FName} ${user.LName}`
-  })
 })
 
 module.exports = router
