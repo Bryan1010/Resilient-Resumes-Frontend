@@ -9,6 +9,10 @@ const Sentry = require('@sentry/node')
 const config = require('../nuxt.config.js')
 config.dev = !(process.env.NODE_ENV === 'production')
 
+require('dotenv').config({
+  path: '../variables.env'
+})
+
 // Importing Routes
 const authRoute = require('./routes/auth')
 
@@ -49,7 +53,7 @@ async function start() {
   app.use(nuxt.render)
 
   // Listen the server
-  app.listen(1212, host)
+  app.listen(port, host)
   consola.ready({
     message: `Server listening on http://${host}:${port}`,
     badge: true
