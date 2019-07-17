@@ -99,10 +99,6 @@ module.exports = {
     }
   },
 
-  db: {
-    connStr: 'mongodb://test:mamass1@ds139037.mlab.com:39037/rr-vue'
-  },
-
   env: {
     baseUrl: process.env.BASE_URL,
     statusCodes: {
