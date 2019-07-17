@@ -3,6 +3,7 @@ const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 const mongoose = require('mongoose')
 const app = express()
+const Sentry = require('@sentry/node')
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
@@ -16,6 +17,12 @@ async function start() {
   const nuxt = new Nuxt(config)
 
   const { host, port } = nuxt.options.server
+
+  // Startnig Sentry
+  Sentry.init({ dsn: 'https://a97633e001c24357993675e5cce33aa3@sentry.io/1506607' })
+
+  // The request handler must be the first middleware on the app
+  app.use(Sentry.Handlers.requestHandler())
 
   // Build only in dev mode
   if (config.dev) {
