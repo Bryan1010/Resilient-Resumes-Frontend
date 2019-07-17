@@ -1,51 +1,34 @@
 <template>
-  <v-container>
-    <Navbar />
-    <v-layout align-start justify-start column fill-height>
-      <v-flex x12 md6>
-        <h1 class="display-4 mt-5 pt-5 ml-5 pl-5 font-weight-thin white--text">
-          Welcome
-        </h1>
-        <br>
-      </v-flex>
-    </v-layout>
-    <v-spacer />
-    <v-spacer />
-    <v-layout align-center justify-center column>
-      <v-spacer />
-      <v-flex>
-        <p class="headline white--text font-weight-thin ">
-          <br>
-          Resilient Resumes is an application designed to help you create your resume.
-          <br>
-          You will receive customize feedback based on your input.
-          <br>
-          With this feedback you can refine your information for the most Resilient Resume possible.
-          <br>
-          Click start to begin.
-        </p>
-        <Profile />
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <div>
+    <div v-if="$store.state.auth">
+      <p>
+        You are authenticated. You can see the
+        <NuxtLink to="/secret">
+          secret page
+        </NuxtLink>!
+      </p>
+      <button @click="logout">
+        Logout
+      </button>
+    </div>
+    <p v-else>
+      Please
+    </p>
+    <Login />
+  </div>
 </template>
 
 <script>
-import Navbar from '../components/Navbar'
-import Profile from '../components/Profile'
-export default {
-  components: { Navbar, Profile },
-  data() {
-    return {
+import Login from '../components/Login'
+const Cookie = process.client ? require('js-cookie') : undefined
 
+export default {
+  components: { Login },
+  methods: {
+    logout() {
+      Cookie.remove('auth')
+      this.$store.commit('setAuth', null)
     }
   }
-
 }
 </script>
-
-<style>
-#app > div{
-    background-color: #093162;
- }
-</style>
