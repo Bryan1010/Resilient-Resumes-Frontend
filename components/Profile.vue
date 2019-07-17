@@ -89,6 +89,14 @@ export default {
     return {
       title: '',
       content: '',
+      phone: '',
+      zip: '',
+      state: '',
+      city: '',
+      address: '',
+      email: '',
+      lname: '',
+      fname: '',
       due: null,
       inputRules: [v => v.length >= 3 || 'Minimum Length is 3 characters'],
       loading: false
