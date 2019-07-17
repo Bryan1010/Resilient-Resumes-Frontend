@@ -11,7 +11,15 @@
       <v-card-text>
         <v-form ref="form" class="px-3">
           <v-text-field v-model="Email" label="Email" :rules="emailRules" prepend-icon="email" />
-          <v-text-field v-model="Password" label="Password" :rules="passwordRules" prepend-icon="vpn_key" />
+          <v-text-field
+            v-model="Password"
+            label="Password"
+            :append-icon="showPassword ? 'visibility' : 'visibility_off'"
+            :type="showPassword ? 'text' : 'password'"
+            :rules="passwordRules"
+            prepend-icon="vpn_key"
+            @click:append="showPassword = !showPassword"
+          />
 
           <v-spacer />
 
@@ -27,12 +35,13 @@
 const Cookie = process.client ? require('js-cookie') : undefined
 
 export default {
-  middleware: 'notAuthenticated',
+  // middleware: 'notAuthenticated',
 
   data() {
     return {
       Email: '',
       Password: '',
+      showPassword: false,
       emailRules: [
         v => !!v || 'E-mail is required',
         v => /.+@.+/.test(v) || 'E-mail must be valid'
