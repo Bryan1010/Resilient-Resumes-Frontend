@@ -9,9 +9,7 @@ const Sentry = require('@sentry/node')
 const config = require('../nuxt.config.js')
 config.dev = !(process.env.NODE_ENV === 'production')
 
-require('dotenv').config({
-  path: '../variables.env'
-})
+require('dotenv').config()
 
 // Importing Routes
 const authRoute = require('./routes/auth')
@@ -37,7 +35,7 @@ async function start() {
   }
 
   // Connect to DB
-  mongoose.connect(config.db.connStr, { useNewUrlParser: true })
+  mongoose.connect(process.env.MONGO_DB_CONN_STRING, { useNewUrlParser: true })
   mongoose.Promise = global.Promise
   mongoose.connection.on('error', (err) => {
     // eslint-disable-next-line no-console
