@@ -34,13 +34,16 @@ async function start() {
     await nuxt.ready()
   }
 
+  consola.info('Connecting To DB')
   // Connect to DB
   mongoose.connect(process.env.MONGO_DB_CONN_STRING, { useNewUrlParser: true })
   mongoose.Promise = global.Promise
   mongoose.connection.on('error', (err) => {
     // eslint-disable-next-line no-console
     console.error(`DB Connection Error 🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`)
+    consola.error(new Error(`DB Connection Error 🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`))
   })
+  consola.success('Finished connecting to DB')
 
   // Express middleware
   app.use(express.json())
