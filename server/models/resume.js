@@ -50,6 +50,12 @@ const schoolSchema = new Schema({
   Gpa: Schema.SchemaTypes.Double
 })
 
+// Skill Schema
+const skillSchema = new Schema({
+  Name: String,
+  Level: Number
+})
+
 const resumeSchema = new Schema({
   User: {
     type: Schema.ObjectId,
@@ -66,16 +72,16 @@ const resumeSchema = new Schema({
   Activities: [activitiesSchema],
   Experiences: [experienceSchema],
   Name: {
-    FName: String,
+    FName: [String],
     LName: String,
     Suffix: String
   },
   RelevantCourses: [relevantCourseSchema],
   Schools: [schoolSchema],
   Skills: {
-    Frameworks: Array,
-    Languages: Array,
-    OS: Array
+    Frameworks: [skillSchema],
+    Languages: [skillSchema],
+    OS: [skillSchema]
   },
   Websites: {
     Github: String,
