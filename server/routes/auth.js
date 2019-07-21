@@ -52,13 +52,13 @@ router.post('/login', async (req, res) => {
     // Check if the user exists
     const user = await User.findOne({ Email: req.body.Email })
     if (!user) {
-      return res.status(400).send({ Status: process.env.API_STATUS_FAILED, Message: 'Email or password is incorrect' })
+      return res.status(200).send({ Status: process.env.API_STATUS_FAILED, Message: 'Email or password is incorrect' })
     }
 
     // check if password is correct
     const validPass = await bcrypt.compare(req.body.Password, user.Password)
     if (!validPass) {
-      return res.status(400).send({ Status: process.env.API_STATUS_FAILED, Message: 'Email or password is incorrect' })
+      return res.status(200).send({ Status: process.env.API_STATUS_FAILED, Message: 'Email or password is incorrect' })
     }
 
     const token = jwt.sign({ _id: user._id }, process.env.JWT_TOKEN_PRIVATE_KEY)
@@ -67,7 +67,9 @@ router.post('/login', async (req, res) => {
       userId: token,
       FName: user.FName,
       LName: user.LName,
-      name: `${user.FName} ${user.LName}`
+      name: `${user.FName} ${user.LName}`,
+      gravatar: user.gravatar,
+      email: user.Email
     })
   } catch (ex) {
     return res.status(500).send({ Status: process.env.API_STATUS_ERROR, Message: 'Server Error. Please retry later' })
