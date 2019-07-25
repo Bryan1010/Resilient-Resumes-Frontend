@@ -6,7 +6,9 @@
       <v-spacer />
       <v-layout align-end justify-start column fill-height>
         <v-flex class="mt-3">
-          <Login />
+          <nuxt-link to="/login">
+            <span>Login</span>
+          </nuxt-link>
         </v-flex>
       </v-layout>
     </v-toolbar>
@@ -14,12 +16,22 @@
 </template>
 
 <script>
-import Login from './Login'
+// import Login from './Login'
+const Cookie = process.client ? require('js-cookie') : undefined
+
 export default {
-  components: { Login },
+  components: {
+    // Login
+  },
   data() {
     return {
 
+    }
+  },
+  methods: {
+    logout() {
+      Cookie.remove('auth')
+      this.$store.commit('setAuth', null)
     }
   }
 }
