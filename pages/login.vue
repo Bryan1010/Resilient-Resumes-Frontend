@@ -7,22 +7,7 @@
             <v-flex xs12 sm8 md4>
               <v-card class="elevation-12" @keydown.enter="postLogin">
                 <v-toolbar dark color="primary">
-                  <v-toolbar-title>Login form</v-toolbar-title>
-                  <v-spacer />
-                  <v-tooltip bottom>
-                    <v-btn
-                      slot="activator"
-                      icon
-                      large
-                      target="_blank"
-                      @click="postLogin"
-                    >
-                      <v-icon large>
-                        code
-                      </v-icon>
-                    </v-btn>
-                    <span>Source</span>
-                  </v-tooltip>
+                  <v-toolbar-title>Login</v-toolbar-title>
                 </v-toolbar>
                 <v-card-text>
                   <v-form ref="form">
@@ -96,23 +81,12 @@ export default {
 
         if (token.status >= 200 && token.status < 300 &&
           token.data.status === 'success') {
-        //   const FirstName = token.data.FName
-        //   // const LastName = token.data.LName
-        //   const email = token.data.email
-        //   const id = token.data.userId
-        //   const gravatar = token.data.gravatar
-
           this.$store.commit('login/setRRAuth', token.data)
 
           Cookie.set('auth', token.data.userId)
           // eslint-disable-next-line no-console
           console.log(token.data.LName)
-          // const auth = {
-          //   accessToken: token
-          // }
-          // this.$store.commit('login/setAuth', auth) // mutating to store for client rendering
-          // Cookie.set('auth', auth) // saving token in cookie for server rendering
-          this.$router.push('/dashboard')
+          this.$router.push('/dashboard/')
           // eslint-disable-next-line no-console
           console.log('authenticated')
         }
