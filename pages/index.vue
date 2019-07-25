@@ -1,7 +1,6 @@
 <template>
   <div>
     <v-container>
-      <Navbar />
       <v-layout align-start justify-start column fill-height>
         <v-flex lg12 md8 xs5>
           <h1 class="display-4 font-weight-thin white--text">
@@ -27,7 +26,6 @@
             <br>
             Click start to begin.
           </p>
-          <Profile />
         </v-flex>
       </v-layout>
     </v-container>
@@ -39,7 +37,10 @@
 const Cookie = process.client ? require('js-cookie') : undefined
 
 export default {
-  // components: { Login },
+  layout: 'home',
+  components: {
+    // Login,
+  },
   methods: {
     logout() {
       Cookie.remove('auth')
