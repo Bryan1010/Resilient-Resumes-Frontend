@@ -41,10 +41,12 @@ const schoolSchema = new Schema({
   City: String,
   State: String,
   Country: String,
-  Majors: [{
-    DegreeType: String,
-    Name: String
-  }],
+  // Majors: [{
+  //   DegreeType: String,
+  //   Name: String
+  // }],
+  // TODO: Once Everybody else is comfortable with the array of major, switch it back
+  Major: String,
   Minors: [String],
   Graduation: Date,
   Gpa: Schema.SchemaTypes.Double
@@ -72,7 +74,7 @@ const resumeSchema = new Schema({
   Activities: [activitiesSchema],
   Experiences: [experienceSchema],
   Name: {
-    FName: [String],
+    FName: String,
     LName: String,
     Suffix: String
   },
