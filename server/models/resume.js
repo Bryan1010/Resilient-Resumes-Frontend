@@ -49,7 +49,7 @@ const schoolSchema = new Schema({
   Major: String,
   Minors: [String],
   Graduation: Date,
-  Gpa: Schema.SchemaTypes.Double
+  Gpa: Number
 })
 
 // Skill Schema
