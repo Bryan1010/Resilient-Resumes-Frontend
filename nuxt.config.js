@@ -100,7 +100,7 @@ module.exports = {
   },
 
   env: {
-    baseUrl: process.env.BASE_URL,
+    baseUrl: process.env.BASE_URL || 'http://localhost:1212',
     statusCodes: {
       error: 'error',
       failed: 'failed',
