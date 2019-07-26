@@ -61,7 +61,7 @@ router.post('/login', async (req, res) => {
       return res.status(200).send({ Status: process.env.API_STATUS_FAILED, Message: 'Email or password is incorrect' })
     }
 
-    const token = jwt.sign({ _id: user._id }, process.env.JWT_TOKEN_PRIVATE_KEY)
+    const token = jwt.sign({ _id: user._id, Name: { FName: user.FName, LName: user.LName, Suffix: user.Suffix } }, process.env.JWT_TOKEN_PRIVATE_KEY)
     return res.header('rr-a', token).send({
       status: 'success',
       userId: token,
@@ -81,12 +81,11 @@ router.post('/reauth', async (req, res) => {
     // eslint-disable-next-line no-console
     console.log('reauth')
     const decryptedId = jwt.verify(req.body._id, process.env.JWT_TOKEN_PRIVATE_KEY)
-    // eslint-disable-next-line no-console
     const user = await User.findById(decryptedId._id)
 
     return res.send({
       status: 'success',
-      userId: decryptedId._id,
+      userId: req.body._id,
       FName: user.FName,
       LName: user.LName,
       name: `${user.FName} ${user.LName}`,
