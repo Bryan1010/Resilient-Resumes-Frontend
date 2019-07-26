@@ -1,8 +1,10 @@
 <template>
-  <v-card height="350px">
+  <v-app dark>
     <v-navigation-drawer
       v-model="drawer"
       permanent
+      fixed
+      app
     >
       <v-toolbar flat class="transparent">
         <v-list class="pa-0">
@@ -36,7 +38,12 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-  </v-card>
+    <v-content>
+      <v-container>
+        <nuxt />
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 <script>
 import { mapGetters } from 'vuex'
