@@ -13,6 +13,7 @@ require('dotenv').config()
 
 // Importing Routes
 const authRoute = require('./routes/auth')
+const resumeRoute = require('./routes/resume')
 
 async function start() {
   // Init Nuxt.js
@@ -49,6 +50,7 @@ async function start() {
   app.use(express.json())
   // Route Middleware
   app.use('/api/user', authRoute)
+  app.use('/resume', resumeRoute)
 
   // Give nuxt middleware to express
   app.use(nuxt.render)
