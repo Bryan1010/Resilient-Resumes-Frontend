@@ -2,11 +2,25 @@ const router = require('express').Router()
 const jwt = require('jsonwebtoken')
 const Resume = require('../models/Resume')
 
-// router.get('/resume/all', async (req, res) => {
-//   const token = jwt.verify(req.body._id, process.env.JWT_TOKEN_PRIVATE_KEY)
+router.get('/all', async (req, res) => {
+  const token = jwt.verify(req.body._id, process.env.JWT_TOKEN_PRIVATE_KEY)
 
-//   const dbResumes = await Resume.find()
-// })
+  const dbResumes = await Resume.find({ User: token._id })
+  res.send(dbResumes)
+})
+
+router.get('/all/card', async (req, res) => {
+  const token = jwt.verify(req.body._id, process.env.JWT_TOKEN_PRIVATE_KEY)
+
+  const dbResumes = await Resume.find(
+    { User: token._id },
+    { PositionApplyingFor: true, ObjectiveStatement: true, _id: true }
+  )
+
+  res.send({
+    dbResumes
+  })
+})
 
 router.post('/create', async (req, res) => {
   const token = jwt.verify(req.body._id, process.env.JWT_TOKEN_PRIVATE_KEY)
