@@ -76,4 +76,25 @@ router.post('/login', async (req, res) => {
   }
 })
 
+router.post('/reauth', async (req, res) => {
+  try {
+    // eslint-disable-next-line no-console
+    console.log('reauth')
+    const decryptedId = jwt.verify(req.body._id, process.env.JWT_TOKEN_PRIVATE_KEY)
+    // eslint-disable-next-line no-console
+    const user = await User.findById(decryptedId._id)
+
+    return res.send({
+      status: 'success',
+      userId: decryptedId._id,
+      FName: user.FName,
+      LName: user.LName,
+      name: `${user.FName} ${user.LName}`,
+      gravatar: user.gravatar,
+      email: user.Email
+    })
+  } catch (err) {
+  }
+})
+
 module.exports = router
