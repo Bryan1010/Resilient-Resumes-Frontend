@@ -62,16 +62,27 @@ export default {
           Email: this.Email,
           Password: this.Password
         })
+
+        if (token.status >= 200 && token.status < 300 &&
+          token.data.status === 'success') {
+          const FirstName = token.data.FName
+          const LastName = token.data.LName
+          const email = token.data.email
+          const id = token.data.userId
+
+          this.$store.commit('login/setRRAuth', id, FirstName, LastName, email)
+
+          Cookie.set('auth', id)
+        }
+
         // eslint-disable-next-line no-console
-        console.log(token)
-        setTimeout(() => { // we simulate the async request with timeout.
-          const auth = {
-            accessToken: token
-          }
-          this.$store.commit('login/setAuth', auth) // mutating to store for client rendering
-          Cookie.set('auth', auth) // saving token in cookie for server rendering
-          this.$router.push('/')
-        }, 1000)
+        console.log(token.data.LName)
+        // const auth = {
+        //   accessToken: token
+        // }
+        // this.$store.commit('login/setAuth', auth) // mutating to store for client rendering
+        // Cookie.set('auth', auth) // saving token in cookie for server rendering
+        this.$router.push('/dashboard')
       // eslint-disable-next-line brace-style
       }
       // eslint-disable-next-line no-console
