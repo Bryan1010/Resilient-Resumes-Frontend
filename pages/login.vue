@@ -1,6 +1,13 @@
 <template>
   <div id="app">
     <v-app id="inspire">
+      <v-alert
+        v-if="loginIncorrect"
+        type="error"
+        :value="errorMessage"
+      >
+        {{ errorMessage }}
+      </v-alert>
       <v-content>
         <v-container fluid fill-height>
           <v-layout align-center justify-center>
@@ -67,28 +74,39 @@ export default {
         v => !!v || 'Please provide a password',
         v => v.length >= 6 || 'Password must be at least 6 characters'
       ],
-      loading: false
+      loading: false,
+      errorMessage: ''
 
+    }
+  },
+  computed: {
+    loginIncorrect: function () {
+      return this.errorMessage.length > 0
     }
   },
   methods: {
     async postLogin() {
       if (this.$refs.form.validate()) {
+        this.loading = true
         const token = await this.$axios.post('/api/user/login', {
           Email: this.Email,
           Password: this.Password
         })
 
-        if (token.status >= 200 && token.status < 300 &&
-          token.data.status === 'success') {
-          this.$store.commit('login/setRRAuth', token.data)
+        if (token.status >= 200 && token.status < 300) {
+          if (token.data.status === 'success') {
+            this.$store.commit('login/setRRAuth', token.data)
 
-          Cookie.set('auth', token.data.userId)
-          // eslint-disable-next-line no-console
-          console.log(token.data.LName)
-          this.$router.push('/dashboard/')
-          // eslint-disable-next-line no-console
-          console.log('authenticated')
+            Cookie.set('auth', token.data.userId)
+            // eslint-disable-next-line no-console
+            console.log(token.data.LName)
+            this.$router.push('/dashboard/')
+          } else if (token.data.status === 'fail') {
+            // eslint-disable-next-line no-console
+            console.log(token.data.message)
+            this.errorMessage = token.data.message
+          }
+          this.loading = false
         }
       } else {
         // eslint-disable-next-line no-console
@@ -98,3 +116,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.v-alert .v-alert__icon.v-icon, .v-alert__dismissible .v-icon{
+    color:#fff;
+}
+</style>
