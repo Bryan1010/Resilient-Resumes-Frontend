@@ -1,5 +1,12 @@
 <template>
   <v-container grid-list-md>
+    <v-layout>
+      <v-spacer />
+      <v-btn to="/">
+        <v-icon>note_add</v-icon>
+        New resume
+      </v-btn>
+    </v-layout>
     <v-layout wrap>
       <v-flex v-for="resume in resumes.length" :key="resume" xs6>
         <ResumeCard
