@@ -89,6 +89,10 @@ const resumeSchema = new Schema({
     Github: String,
     LinkedIn: String,
     PersonalWebsite: String
+  },
+  CreatedOn: {
+    type: Date,
+    default: Date.now
   }
 })
 
