@@ -8,9 +8,9 @@
       </v-btn>
     </v-layout>
     <v-layout wrap>
-      <v-flex v-for="resume in resumes.length" :key="resume" xs6>
+      <v-flex v-for="resume in resumes.length " :key="resume " xs6>
         <ResumeCard
-          :resume="resumes[resume]"
+          :resume="resumes[resume - 1]"
         />
       </v-flex>
     </v-layout>
