@@ -50,7 +50,7 @@ async function start() {
   app.use(express.json())
   // Route Middleware
   app.use('/api/user', authRoute)
-  app.use('/resume', resumeRoute)
+  app.use('/api/resume', resumeRoute)
 
   // Give nuxt middleware to express
   app.use(nuxt.render)

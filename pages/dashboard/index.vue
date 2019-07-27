@@ -31,7 +31,7 @@ export default {
   },
   mounted() {
     axios
-      .get('/resume/all/card',
+      .get('/api/resume/all/card',
         {
           params: {
             _id: this.$store.state.login.auth
