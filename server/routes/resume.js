@@ -45,7 +45,7 @@ router.get('/all/card', async (req, res) => {
   const dbResumes = await Resume.find(
     { User: token._id },
     { PositionApplyingFor: true, ObjectiveStatement: true, _id: true }
-  )
+  ).sort({ CreatedOn: -1 })
 
   res.send({
     dbResumes
