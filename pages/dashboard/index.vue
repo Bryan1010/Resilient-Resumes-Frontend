@@ -12,7 +12,7 @@
 
 <script>
 import axios from 'axios'
-import ResumeCard from '../../components/resume/ResumeCards'
+import ResumeCard from '../../components/resume/ResumeCard'
 
 export default {
   layout: 'dashboard',
