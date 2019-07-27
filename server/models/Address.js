@@ -35,6 +35,10 @@ const addressSchema = new Schema({
   Country: {
     type: String,
     trim: true
+  },
+  CreatedOn: {
+    type: Date,
+    default: Date.now
   }
 })
 
