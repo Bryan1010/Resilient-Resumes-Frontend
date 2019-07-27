@@ -72,15 +72,15 @@ const resumeSchema = new Schema({
   PositionApplyingFor: String,
   Achievements: [achievementSchema],
   Activities: [activitiesSchema],
-  Experiences: [experienceSchema],
+  Experience: [experienceSchema],
   Name: {
     FName: String,
     LName: String,
     Suffix: String
   },
-  RelevantCourses: [relevantCourseSchema],
-  Schools: [schoolSchema],
-  Skills: {
+  RelevantCourse: [relevantCourseSchema],
+  School: [schoolSchema],
+  Skill: {
     Frameworks: [skillSchema],
     Languages: [skillSchema],
     OS: [skillSchema]
