@@ -52,7 +52,7 @@ export default {
     return {
       drawer: true,
       items: [
-        { title: 'Home', icon: 'dashboard', link: '/dasboard' },
+        { title: 'Home', icon: 'dashboard', link: '/dashboard' },
         { title: 'About', icon: 'question_answer', link: '/resume/new' }
       ],
       mini: true,
