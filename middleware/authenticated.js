@@ -5,14 +5,14 @@ export default function ({ store, redirect, req }) {
   // If the user is not authenticated
   let auth = null
   if (req) {
-  // eslint-disable-next-line no-console
-    console.log(req.headers.cookie)
     if (typeof req.headers.cookie === 'string' && req.headers.cookie !== '') {
       auth = CookieParser.parse(req.headers.cookie)
-      setUserState(auth, store)
+      // eslint-disable-next-line no-console
+      // console.log(auth.auth)
+      setUserState(auth.auth, store)
     }
   }
   if (store.state.login.auth === null && auth === null) {
-    if (auth.auth === null) { return redirect('/login') }
+    return redirect('/login')
   }
 }

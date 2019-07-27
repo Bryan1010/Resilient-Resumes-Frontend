@@ -1,6 +1,9 @@
-export default function ({ store, redirect }) {
+import CookieParser from 'cookieparser'
+
+export default function ({ store, redirect, req }) {
   // If the user is authenticated redirect to home page
-  if (store.state.auth) {
-    return redirect('/')
+  const auth = CookieParser.parse(req.headers.cookie)
+  if (store.state.login.auth) {
+    if (auth.auth !== null) { return redirect('/') }
   }
 }
