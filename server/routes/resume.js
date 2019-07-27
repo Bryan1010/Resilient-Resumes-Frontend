@@ -3,15 +3,22 @@ const jwt = require('jsonwebtoken')
 const Resume = require('../models/Resume')
 
 router.get('/all', async (req, res) => {
-  const token = jwt.verify(req.body._id, process.env.JWT_TOKEN_PRIVATE_KEY)
+  let _id = ''
+  if (req.body._id) { _id = req.body._id }
+  if (req.query._id) { _id = req.query._id }
+
+  const token = jwt.verify(_id, process.env.JWT_TOKEN_PRIVATE_KEY)
 
   const dbResumes = await Resume.find({ User: token._id })
   res.send(dbResumes)
 })
 
 router.get('/all/card', async (req, res) => {
-  const token = jwt.verify(req.body._id, process.env.JWT_TOKEN_PRIVATE_KEY)
+  let _id = ''
+  if (req.body._id) { _id = req.body._id }
+  if (req.query._id) { _id = req.query._id }
 
+  const token = jwt.verify(_id, process.env.JWT_TOKEN_PRIVATE_KEY)
   const dbResumes = await Resume.find(
     { User: token._id },
     { PositionApplyingFor: true, ObjectiveStatement: true, _id: true }
@@ -33,8 +40,7 @@ router.post('/create', async (req, res) => {
   try {
     // eslint-disable-next-line no-unused-vars
     const savedResume = await resumeToSave.save()
-    // eslint-disable-next-line no-console
-    console.log(savedResume)
+
     res.send({ user: resumeToSave._id })
   } catch (err) {
     res.status(400).send(err)
