@@ -1,6 +1,6 @@
 <template dark="false">
   <div id="profile">
-    <v-card light>
+    <v-card light @keydown.enter="postCreateAccount">
       <v-container>
         <v-layout align-start justify-end column fill-height>
           <h1 class="px-5 primary--text">
@@ -31,6 +31,11 @@
 
                 :rules="inputRules"
               />
+              <v-text-field
+                v-model="suffix"
+                label="Suffix"
+                name="suffix"
+              />
             </v-layout>
             <v-text-field
               v-model="email"
@@ -39,11 +44,18 @@
               :rules="emailRules"
             />
             <v-text-field
-              v-model="address"
-              label="Street Address"
+              v-model="line1"
+              label="Address Line 1"
               name="address"
               prepend-icon="home"
+              type="street"
               :rules="inputRules"
+            />
+            <v-text-field
+              v-model="line2"
+              label="Address Line 2"
+              name="address2"
+              prepend-icon="home"
             />
             <v-text-field v-model="city" label="City" name="city" :rules="inputRules" />
             <v-layout align-start justify-start row fill-height>
@@ -88,7 +100,11 @@
             </v-layout>
             <v-spacer />
 
-            <v-btn flat class="primary mx-0 mt-3" router to="/welcome">
+            <v-btn
+              flat
+              class="primary mx-0 mt-3"
+              @click="postCreateAccount"
+            >
               Create Profile
             </v-btn>
           </v-form>
@@ -103,12 +119,15 @@ template{
 }
 </style>
 <script>
+const Cookie = process.client ? require('js-cookie') : undefined
+
 export default {
   data() {
     return {
       title: '',
       content: '',
-      address: '',
+      line1: '',
+      line2: '',
       email: '',
       phone: '',
       site1: '',
@@ -116,6 +135,7 @@ export default {
       site3: '',
       fname: '',
       lname: '',
+      suffix: '',
       password: '',
       password1: '',
       city: '',
@@ -137,6 +157,42 @@ export default {
       loading: false
     }
   },
-  methods: {}
+  methods: {
+    async postCreateAccount() {
+      if (this.$refs.form.validate()) {
+        this.loading = true
+        const token = await this.$axios.post('/api/user/register', {
+          Email: this.email,
+          Password: this.password,
+          FName: this.fname,
+          LName: this.lname,
+          Suffix: this.suffix,
+          Phone: this.phone,
+          Address: {
+            Line1: this.line1,
+            Line2: this.line2,
+            City: this.city,
+            State: this.state,
+            Zip: this.zip,
+            Country: this.Country
+          }
+
+        })
+
+        if (token.status >= 200 && token.status < 300) {
+          if (token.data.status === 'success') {
+            this.$store.commit('login/setRRAuth', token.data)
+
+            Cookie.set('auth', token.data.userId)
+            this.$router.push('/dashboard/')
+          } else if (token.data.status === 'fail') {
+            this.errorMessage = token.data.message
+          }
+        }
+
+        this.loading = false
+      }
+    }
+  }
 }
 </script>
