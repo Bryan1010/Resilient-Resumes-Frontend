@@ -19,11 +19,10 @@
         <v-tooltip top>
           <template v-slot:activator="{ on }">
             <v-text-field
-              v-model="content"
+              v-model="objectiveStatement"
               label="Enter your objective statement."
               name="objective"
               prepend-icon="work"
-              :rules="inputRules"
               v-on="on"
             />
           </template>
@@ -31,11 +30,10 @@
         </v-tooltip>
 
         <v-text-field
-          v-model="content"
+          v-model="position"
           label="Enter the title of the position you are applying for"
           name="position"
           prepend-icon="work"
-          :rules="inputRules"
         />
       </v-form>
     </v-card-text>
@@ -46,7 +44,8 @@
 export default {
   data() {
     return {
-
+      objectiveStatement: '',
+      position: ''
     }
   },
   methods: {

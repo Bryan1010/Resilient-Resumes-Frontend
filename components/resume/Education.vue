@@ -1,17 +1,16 @@
 <template>
-  <v-dialog max-width="800px">
-    <v-btn slot="activator" medium outline color="primary">
-      Next
-    </v-btn>
-
-    <v-card>
-      <v-layout align-center justify-end row reverse>
-        <v-card-title>
-          <h1 class="display-2 primary--text">
-            Education
-          </h1>
-        </v-card-title>
-      </v-layout>
+  <v-layout
+    wrap
+    align-center
+    row
+    reverse
+  >
+    <v-card v-for="i in SchoolQty" :key="i" xs12>
+      <v-card-title>
+        <h1 class="display-2 primary--text">
+          Education
+        </h1>
+      </v-card-title>
       <v-card-text>
         <v-layout align-center justify-end row>
           <p class="display-1 tertiary--text font-weight-thin my-5">
@@ -27,11 +26,10 @@
       <v-card-text>
         <v-form id="form" ref="form">
           <v-text-field
-            v-model="number"
+            v-model="SchoolQty"
             label="How many schools would you like on your resume?"
             name="schoolnum"
             prepend-icon="school"
-            :rules="inputRules"
           />
 
           <v-text-field
@@ -39,7 +37,6 @@
             label="What is the School name?"
             name="schoolname"
             prepend-icon="school"
-            :rules="inputRules"
           />
 
           <v-text-field
@@ -47,7 +44,6 @@
             label="What is the School City?"
             name="schoolcity"
             prepend-icon="school"
-            :rules="inputRules"
           />
 
           <v-text-field
@@ -55,7 +51,6 @@
             label="What is the School State?"
             name="schoolstate"
             prepend-icon="school"
-            :rules="inputRules"
           />
 
           <v-text-field
@@ -63,7 +58,6 @@
             label="What is the School State?"
             name="schoolstate"
             prepend-icon="school"
-            :rules="inputRules"
           />
 
           <v-text-field
@@ -71,7 +65,6 @@
             label="What was the degree program for this school?"
             name="schoolstate"
             prepend-icon="school"
-            :rules="inputRules"
           />
 
           <v-combobox
@@ -87,17 +80,20 @@
           label="What was the degree program for this school?"
           name="schoolstate"
           prepend-icon="school"
-          :rules="inputRules"
         />
       </v-card-text>
     </v-card>
-  </v-dialog>
+  </v-layout>
 </template>
 
 <script>
 export default {
   data() {
     return {
+      SchoolQty: 2,
+      schoolstate: '',
+      schoolcity: '',
+      schoolname: '',
       select: 'Degree Program',
       items: [
         'PHD',
