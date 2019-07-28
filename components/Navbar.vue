@@ -57,7 +57,7 @@ export default {
   },
   computed: {
     isLoggedIn: function () {
-      return this.$store.state.login.auth !== ''
+      return this.$store.state.login.auth !== '' && this.$store.state.login.auth !== null
     }
   },
   methods: {
