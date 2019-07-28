@@ -25,14 +25,21 @@ export const mutations = {
     state.auth = auth
   },
   setRRAuth(state, authObj) {
-    // eslint-disable-next-line no-console
-    console.log(authObj.userId + 'asas')
-    state.auth = authObj.userId
-    state.authenticated.access_token = authObj.userId
-    state.authenticated.FirstName = authObj.FName
-    state.authenticated.LastName = authObj.LName
-    state.authenticated.email = authObj.email
-    state.authenticated.gravatar = authObj.gravatar
+    if (authObj === null) {
+      state.auth = ''
+      state.authenticated.access_token = ''
+      state.authenticated.FirstName = ''
+      state.authenticated.LastName = ''
+      state.authenticated.email = ''
+      state.authenticated.gravatar = ''
+    } else {
+      state.auth = authObj.userId
+      state.authenticated.access_token = authObj.userId
+      state.authenticated.FirstName = authObj.FName
+      state.authenticated.LastName = authObj.LName
+      state.authenticated.email = authObj.email
+      state.authenticated.gravatar = authObj.gravatar
+    }
   },
   auth_request(state) {
     state.status = 'loading'

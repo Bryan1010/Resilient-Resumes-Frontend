@@ -4,13 +4,40 @@
       <img class="mt-5" src="~/assets/ResilientResumes.png" height="85">
 
       <v-spacer />
-      <v-layout align-end justify-start column fill-height>
-        <v-flex class="mt-3">
-          <nuxt-link to="/login">
-            <span>Login</span>
-          </nuxt-link>
-        </v-flex>
-      </v-layout>
+      <!-- <v-layout align-end justify-start column fill-height> -->
+      <v-toolbar-items v-if="!isLoggedIn">
+        <!-- <v-flex class="mt-3"> -->
+        <v-btn
+          to="/login"
+        >
+          Login
+        </v-btn>
+        <v-btn
+          text
+          to="/createAccount"
+        >
+          SignUp
+        </v-btn>
+        <!-- </v-flex> -->
+      </v-toolbar-items>
+
+      <v-toolbar-items v-else>
+        <!-- <v-flex class="mt-3"> -->
+        <v-btn
+          @click="logout"
+        >
+          Logout
+        </v-btn>
+
+        <v-btn
+          text
+          to="/dashboard"
+        >
+          Dashboard
+        </v-btn>
+        <!-- </v-flex> -->
+      </v-toolbar-items>
+      <!-- </v-layout> -->
     </v-toolbar>
   </nav>
 </template>
@@ -28,10 +55,15 @@ export default {
 
     }
   },
+  computed: {
+    isLoggedIn: function () {
+      return this.$store.state.login.auth !== ''
+    }
+  },
   methods: {
     logout() {
       Cookie.remove('auth')
-      this.$store.commit('setAuth', null)
+      this.$store.commit('login/setRRAuth', null)
     }
   }
 }
