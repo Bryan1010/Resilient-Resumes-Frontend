@@ -70,9 +70,12 @@ module.exports = {
    */
   vuetify: {
     theme: {
-      primary: colors.blue.darken2,
+      primary: '#093162',
+      secondary: '#FFFFFF',
+      tertiary: '#007dff',
+      // primary: colors.blue.darken2,
       accent: colors.grey.darken3,
-      secondary: colors.amber.darken3,
+      // secondary: colors.amber.darken3,
       info: colors.teal.lighten1,
       warning: colors.amber.base,
       error: colors.deepOrange.accent4,
@@ -93,7 +96,7 @@ module.exports = {
    ** Sentry IO configuration (online logging)
    */
   sentry: {
-    dsn: 'https://a97633e001c24357993675e5cce33aa3@sentry.io/1506607',
+    dsn: process.env.SENTRYDSN || 'https://a97633e001c24357993675e5cce33aa3@sentry.io/1506607',
     config: {
 
     }
@@ -109,7 +112,7 @@ module.exports = {
   },
 
   server: {
-    port: 1212 // default: 3000
+    port: process.env.PORT || 1212 // default: 3000
   },
 
   statusCodes: {
