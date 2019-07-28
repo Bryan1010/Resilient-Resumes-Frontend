@@ -62,7 +62,7 @@ module.exports = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'http://localhost:1212'
+    baseURL: 'http://localhost:' + process.env.PORT
   },
   /*
    ** vuetify module configuration
@@ -103,7 +103,7 @@ module.exports = {
   },
 
   env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:1212',
+    baseUrl: process.env.BASE_URL || 'http://localhost:' + process.env.PORT,
     statusCodes: {
       error: 'error',
       failed: 'failed',
@@ -112,7 +112,7 @@ module.exports = {
   },
 
   server: {
-    port: process.env.PORT || 1212 // default: 3000
+    port: process.env.PORT || 8000 // default: 3000
   },
 
   statusCodes: {
