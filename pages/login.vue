@@ -68,7 +68,7 @@ export default {
       showPassword: false,
       emailRules: [
         v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid'
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid'
       ],
       passwordRules: [
         v => !!v || 'Please provide a password',
