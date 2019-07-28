@@ -12,8 +12,8 @@
         <v-container fluid fill-height>
           <v-layout align-center justify-center>
             <v-flex xs12 sm8 md4>
-              <v-card class="elevation-12" @keydown.enter="postLogin">
-                <v-toolbar dark color="primary">
+              <v-card light class="elevation-12" @keydown.enter="postLogin">
+                <v-toolbar color="primary">
                   <v-toolbar-title>Login</v-toolbar-title>
                 </v-toolbar>
                 <v-card-text>
@@ -38,6 +38,12 @@
                   </v-form>
                 </v-card-text>
                 <v-card-actions>
+                  <v-btn
+                    color="primary"
+                    to="createAccount"
+                  >
+                    Signup
+                  </v-btn>
                   <v-spacer />
                   <v-btn
                     color="primary"
