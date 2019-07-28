@@ -47,7 +47,7 @@ export default {
   },
   computed: {
     editResumeLink: function () {
-      return 'resume/' + this.resume._id
+      return 'dashboard/resume/' + this.resume._id
     }
   },
   methods: {
@@ -59,16 +59,31 @@ export default {
           }
         }
       ).then((response) => {
-        axios.get('https://resilientresume-func.azurewebsites.net/api/resilientresume',
+        const dbaddress = {
+          Primary: 1,
+          Address: { Line1: '', Line2: '', City: '', State: '', Zip: '', Country: '' }
+        }
+        const functionData = new FormData()
+        functionData.set('user', response.data.user)
+        functionData.set('resume', response.data.resume)
+
+        functionData.set('address', dbaddress
+        )
+        axios.post('https://resilientresumes-functions.azurewebsites.net/api/resilientresume',
           {
             responseType: 'blob',
-            params: {
-              user: response.data.user,
-              resume: response.data.resume,
-              docRequest: true
-            }
+            headers: { 'Content-Type': 'multipart/form-data' },
+            user: response.data.user,
+            resume: response.data.resume,
+            address: JSON.stringify(dbaddress)
+
           }
         )
+          .catch(function (response) {
+            // handle error
+            // eslint-disable-next-line no-console
+            console.log(response)
+          })
       })
     }
   }
