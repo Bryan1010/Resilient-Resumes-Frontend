@@ -77,13 +77,13 @@
                 v-model="password"
                 label="Set Password"
                 prepend-icon="lock_open"
-                :rules="inputRules"
+                :rules="passwordRules"
               />
               <v-text-field
                 v-model="password1"
                 label="Confirm Password"
                 prepend-icon="lock"
-                :rules="inputRules"
+                :rules="passwordMatchRules"
               />
             </v-layout>
             <v-spacer />
@@ -128,6 +128,10 @@ export default {
       passwordRules: [
         v => !!v || 'Please provide a password',
         v => v.length >= 6 || 'Password must be at least 6 characters'
+      ],
+      passwordMatchRules: [
+        v => !!v || 'Please type your password again',
+        v => v === this.password || 'Your passwords do not match'
       ],
       inputRules: [v => v.length >= 3 || 'Minimum Length is 3 characters'],
       loading: false
