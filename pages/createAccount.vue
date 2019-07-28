@@ -32,7 +32,12 @@
                 :rules="inputRules"
               />
             </v-layout>
-            <v-text-field v-model="email" label="Email" prepend-icon="email" />
+            <v-text-field
+              v-model="email"
+              label="Email"
+              prepend-icon="email"
+              :rules="emailRules"
+            />
             <v-text-field
               v-model="address"
               label="Street Address"
@@ -116,7 +121,14 @@ export default {
       city: '',
       state: '',
       zip: '',
-
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid'
+      ],
+      passwordRules: [
+        v => !!v || 'Please provide a password',
+        v => v.length >= 6 || 'Password must be at least 6 characters'
+      ],
       inputRules: [v => v.length >= 3 || 'Minimum Length is 3 characters'],
       loading: false
     }
