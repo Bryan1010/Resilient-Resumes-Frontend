@@ -1,63 +1,61 @@
 <template>
   <div id="app">
-    <v-app id="inspire">
-      <v-alert
-        v-if="loginIncorrect"
-        type="error"
-        :value="errorMessage"
-      >
-        {{ errorMessage }}
-      </v-alert>
-      <v-content>
-        <v-container fluid fill-height>
-          <v-layout align-center justify-center>
-            <v-flex xs12 sm8 md4>
-              <v-card light class="elevation-12" @keydown.enter="postLogin">
-                <v-toolbar color="primary">
-                  <v-toolbar-title>Login</v-toolbar-title>
-                </v-toolbar>
-                <v-card-text>
-                  <v-form ref="form">
-                    <v-text-field
-                      v-model="Email"
-                      label="Email"
-                      :rules="emailRules"
-                      prepend-icon="person"
-                    />
-                    <v-text-field
-                      id="password"
-                      v-model="Password"
-                      prepend-icon="lock"
-                      name="password"
-                      label="Password"
-                      :type="showPassword ? 'text' : 'password'"
-                      :append-icon="showPassword ? 'visibility' : 'visibility_off'"
-                      :rules="passwordRules"
-                      @click:append="showPassword = !showPassword"
-                    />
-                  </v-form>
-                </v-card-text>
-                <v-card-actions>
-                  <v-btn
-                    color="primary"
-                    to="createAccount"
-                  >
-                    Signup
-                  </v-btn>
-                  <v-spacer />
-                  <v-btn
-                    color="primary"
-                    @click="postLogin"
-                  >
-                    Login
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-flex>
-          </v-layout>
-        </v-container>
-      </v-content>
-    </v-app>
+    <v-alert
+      v-if="loginIncorrect"
+      type="error"
+      :value="errorMessage"
+    >
+      {{ errorMessage }}
+    </v-alert>
+    <v-content>
+      <v-container fluid fill-height>
+        <v-layout align-center justify-center>
+          <v-flex xs12 sm8 md4>
+            <v-card light class="elevation-12" @keydown.enter="postLogin">
+              <v-toolbar dark color="primary">
+                <v-toolbar-title>Login</v-toolbar-title>
+              </v-toolbar>
+              <v-card-text>
+                <v-form ref="form">
+                  <v-text-field
+                    v-model="Email"
+                    label="Email"
+                    :rules="emailRules"
+                    prepend-icon="person"
+                  />
+                  <v-text-field
+                    id="password"
+                    v-model="Password"
+                    prepend-icon="lock"
+                    name="password"
+                    label="Password"
+                    :type="showPassword ? 'text' : 'password'"
+                    :append-icon="showPassword ? 'visibility' : 'visibility_off'"
+                    :rules="passwordRules"
+                    @click:append="showPassword = !showPassword"
+                  />
+                </v-form>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn
+                  color="primary"
+                  to="createAccount"
+                >
+                  Signup
+                </v-btn>
+                <v-spacer />
+                <v-btn
+                  color="primary"
+                  @click="postLogin"
+                >
+                  Login
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-content>
   </div>
 </template>
 
