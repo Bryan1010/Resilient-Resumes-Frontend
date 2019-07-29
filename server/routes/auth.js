@@ -30,7 +30,9 @@ router.post('/register', async (req, res) => {
       Suffix: req.body.Suffix,
       Phone: req.body.Phone,
       Email: req.body.Email,
-      Password: hashedPassword
+      Password: hashedPassword,
+      LinkedIn: req.body.LinkedIn,
+      PorfolioWebsite: req.body.PersonalSite
     })
     await user.save()
 

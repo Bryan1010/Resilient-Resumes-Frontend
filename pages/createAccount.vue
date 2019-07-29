@@ -65,12 +65,12 @@
             <v-text-field v-model="phone" label="Phone" name="phone" prepend-icon="phone" :rules="inputRules" />
             <v-tooltip top>
               <template v-slot:activator="{ on }">
-                <v-text-field v-model="site1" label="LinkedIn Profile" name="website1" v-on="on" />
+                <v-text-field v-model="LinkedInLink" label="LinkedIn Profile" name="website1" v-on="on" />
               </template>
               <span>It is highly recommended to include a LinkedIn Profile or personal professional websites.</span>
             </v-tooltip>
-            <v-text-field v-model="site2" label="Portfolio Site" name="website2" />
-            <v-text-field v-model="site3" label="Project Site" name="website3" />
+            <v-text-field v-model="PersonalSite" label="Portfolio Site" name="website2" />
+            <!-- <v-text-field v-model="site3" label="Project Site" name="website3" /> -->
             <v-layout align-start justify-start row fill-height>
               <!--Possible way to set passord
 
@@ -130,8 +130,8 @@ export default {
       line2: '',
       email: '',
       phone: '',
-      site1: '',
-      site2: '',
+      LinkedInLink: '',
+      PersonalSite: '',
       site3: '',
       fname: '',
       lname: '',
@@ -175,7 +175,9 @@ export default {
             State: this.state,
             Zip: this.zip,
             Country: this.Country
-          }
+          },
+          LinkedIn: this.LinkedInLink,
+          PersonalSite: this.PersonalSite
 
         })
 

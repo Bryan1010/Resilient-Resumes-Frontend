@@ -29,6 +29,8 @@ const userSchema = new mongoose.Schema({
     max: 1024,
     min: 6
   },
+  LinkedIn: String,
+  PorfolioWebsite: String,
   CreatedOn: {
     type: Date,
     default: Date.now
