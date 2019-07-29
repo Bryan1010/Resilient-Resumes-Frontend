@@ -16,6 +16,12 @@
             <v-list-tile-content>
               <v-list-tile-title>Hi {{ picture.FirstName }}</v-list-tile-title>
             </v-list-tile-content>
+            <v-spacer />
+            <v-btn
+              @click="logout"
+            >
+              Logout
+            </v-btn>
           </v-list-tile>
         </v-list>
       </v-toolbar>
@@ -45,6 +51,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+const Cookie = process.client ? require('js-cookie') : undefined
 
 export default {
   middleware: 'authenticated',
@@ -62,6 +69,13 @@ export default {
   },
   computed: mapGetters({
     picture: 'login/get'
-  })
+  }),
+  methods: {
+    logout() {
+      Cookie.remove('auth')
+      this.$store.commit('login/logout')
+      this.$router.push('/')
+    }
+  }
 }
 </script>
