@@ -53,18 +53,24 @@ router.get('/all/card', async (req, res) => {
 })
 
 router.post('/create', async (req, res) => {
-  const token = jwt.verify(req.body._id, process.env.JWT_TOKEN_PRIVATE_KEY)
-
-  req.body._id = null
+  let _userId = ''
+  if (req.body._Userid) { _userId = req.body._Userid }
+  // if (req.query._Userid) { _userId = req.query._id }
+  if (_userId === '') {
+    return res.status(400).send(
+      { status: process.env.API_STATUS_FAILED,
+        message: 'Invalid Request, no User ID found' })
+  }
+  const token = jwt.verify(_userId, process.env.JWT_TOKEN_PRIVATE_KEY)
   req.body.User = token._id
-  req.body.Name = token.Name
+  // req.body.Name = token.Name
 
   const resumeToSave = new Resume(req.body)
   try {
     // eslint-disable-next-line no-unused-vars
     const savedResume = await resumeToSave.save()
 
-    res.send({ user: resumeToSave._id })
+    res.send({ resumeID: resumeToSave._id })
   } catch (err) {
     res.status(400).send(err)
   }
