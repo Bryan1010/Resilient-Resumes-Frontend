@@ -1,45 +1,47 @@
 <template>
-  <nav>
-    <v-toolbar extended flat class="transparent" app>
-      <img class="mt-5" src="~/assets/ResilientResumes.png" height="85">
+  <v-toolbar class="primary" app>
+    <img src="~/assets/ResilientResumes.png" width="130px">
 
-      <v-spacer />
-      <!-- <v-layout align-end justify-start column fill-height> -->
-      <v-toolbar-items v-if="!isLoggedIn">
-        <!-- <v-flex class="mt-3"> -->
+    <v-spacer />
+
+    <v-toolbar-items>
+      <template v-if="!isLoggedIn">
         <v-btn
+          class="mr-5"
+          text
+          outline
           to="/login"
         >
           Login
         </v-btn>
         <v-btn
+          outline
           text
           to="/createAccount"
         >
           SignUp
         </v-btn>
-        <!-- </v-flex> -->
-      </v-toolbar-items>
-
-      <v-toolbar-items v-else>
-        <!-- <v-flex class="mt-3"> -->
+      </template>
+      <template v-else>
         <v-btn
+          class="mr-5"
+          outline
+          text
           @click="logout"
         >
           Logout
         </v-btn>
 
         <v-btn
+          outline
           text
           to="/dashboard"
         >
           Dashboard
         </v-btn>
-        <!-- </v-flex> -->
-      </v-toolbar-items>
-      <!-- </v-layout> -->
-    </v-toolbar>
-  </nav>
+      </template>
+    </v-toolbar-items>
+  </v-toolbar>
 </template>
 
 <script>
