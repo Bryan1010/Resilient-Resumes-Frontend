@@ -23,9 +23,27 @@
             Once input is complete, you will receive customize feedback based on your input upon submission.
             <br>
             With this feedback you can refine your information for the most Resilient Resume possible.
-            <br>
-            Click start to begin.
           </p>
+          <template v-if="!isLoggedIn">
+            <p class="headline">
+              Click start to Create an Account.
+            </p>
+            <v-btn
+              class="mr-5"
+              text
+              outline
+              to="/login"
+            >
+              Login
+            </v-btn>
+            <v-btn
+              outline
+              text
+              to="/createAccount"
+            >
+              SignUp
+            </v-btn>
+          </template>
         </v-flex>
       </v-layout>
     </v-container>
@@ -40,6 +58,11 @@ export default {
   layout: 'home',
   components: {
     // Login,
+  },
+  computed: {
+    isLoggedIn: function () {
+      return this.$store.state.login.auth !== '' && this.$store.state.login.auth !== null
+    }
   },
   methods: {
     logout() {
