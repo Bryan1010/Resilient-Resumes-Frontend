@@ -17,7 +17,7 @@
           <!-- Objective component -->
           <v-container lg12 md8 xs4>
             <v-card>
-              <v-card-text>
+              <div>
                 <h3 class="primary--text">
                   An objective statement is a short statement which describes precisely what you are looking for or what you want.
                 </h3>
@@ -29,9 +29,9 @@
                 State the position and the company your applying for. <b><i> For example, an intern at Penn State.</i></b><br>
                 If putting out mass resumes simply state the position your looking to get.
                 Say how your education will help you perform well for the job.
-              </v-card-text>
+              </div>
 
-              <v-card-text>
+              <div>
                 <v-form id="form" ref="form">
                   <v-tooltip top>
                     <template v-slot:activator="{ on }">
@@ -53,7 +53,7 @@
                     prepend-icon="work"
                   />
                 </v-form>
-              </v-card-text>
+              </div>
             </v-card>
           </v-container>
           <!-- End Objective Component -->
@@ -79,7 +79,7 @@
             align-center
             row
           >
-            <v-card-text>
+            <div>
               <h3 class="primary--text">
                 Education
               </h3>
@@ -92,7 +92,7 @@
               <br>Include all schools attented up to high school.
 
               <br>Do your best to fill all boxes.
-            </v-card-text>
+            </div>
             <v-cart-text>
               <v-text-field
                 v-model="SchoolQty"
@@ -102,7 +102,7 @@
               />
             </v-cart-text>
             <v-card v-for="i in Education" :key="i" xs12>
-              <v-card-text>
+              <div>
                 <v-form id="form" ref="form">
                   <v-text-field
                     v-model="i.Name"
@@ -160,7 +160,7 @@
                     prepend-icon="school"
                   />
                 </v-form>
-              </v-card-text>
+              </div>
             </v-card>
           </v-layout>
         </v-card>
@@ -196,17 +196,19 @@
                   </h2>
                 </template>
                 <v-card>
-                  <v-card-text><span class="primary--text">Start with your strongest course, in an interview it will be the first one the interviewer sees.</span></v-card-text>
+                  <div><span class="primary--text">Start with your strongest course, in an interview it will be the first one the interviewer sees.</span></div>
                 </v-card>
                 <v-card>
-                  <v-card-text class="primary--text">
+                  <v-container class="primary--text">
                     <span>Give the course name not the course catalog number, it is more descriptive.</span><br><b><i>Organization of Data versus IST210</i></b>
-                  </v-card-text>
+                    </div>
+                  </v-container>
                 </v-card>
                 <v-card>
-                  <v-card-text class="primary--text">
+                  <v-container class="primary--text">
                     <span>In the description, list the skills you learned from this course and any special projects completed.</span>
-                  </v-card-text>
+                    </div>
+                  </v-container>
                 </v-card>
               </v-expansion-panel-content>
             </v-expansion-panel>
@@ -231,7 +233,7 @@
                 <span>Only count career relevant courses, most interviewers will not care about basketweaving.</span>
               </v-tooltip>
 
-              <v-card-text v-for="i in RelevantCourse" :key="i">
+              <v-container v-for="i in RelevantCourse" :key="i">
                 <v-text-field
                   v-model="i.Name"
                   label="What is the name of the course?"
@@ -245,7 +247,8 @@
                   name="courseDesc"
                   prepend-icon="book"
                 />
-              </v-card-text>
+                </div>
+              </v-container>
             </v-form>
             <v-btn @click="AddCourse()">
               Add Course
@@ -270,7 +273,139 @@
       </v-stepper-step>
       <v-stepper-content step="4">
         <v-card color="white" height="auto" class="px-5">
-          <Experience />
+          <v-container fluid>
+            <h2 class="tertiary--text">
+              Experience is important to showcase your strengths and what you have learned during your college career.
+            </h2>
+
+            <br>
+            <v-expansion-panel>
+              <v-expansion-panel-content class="primary--text">
+                <template v-slot:header>
+                  <h2 class="primary--text">
+                    Experience Tips:
+                  </h2>
+                </template>
+                <v-card>
+                  <div>
+                    <span class="primary--text">Consider listing all experiences including group projects, personal projects or volunteer projects if they showcase skills gained.
+                    </span>
+                  </div>
+                </v-card>
+                <v-card>
+                  <v-container class="primary--text">
+                    <span>Use action words in short, clearly writted phrases to describe experiences.</span>
+                    </div>
+                  </v-container>
+                </v-card>
+                <v-card>
+                  <v-container class="primary--text">
+                    <span>Avoid <i>"I was responsible for"</i>, <i>"My duties included"</i> or any other introductory phrases that deter from the main point.</span>
+                    </div>
+                  </v-container>
+                </v-card>
+                <v-card>
+                  <v-container class="primary--text">
+                    <span>List accomplishments whenever possible rather than just describe duties.</span>
+                    </div>
+                  </v-container>
+                </v-card>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+
+            <br>
+            <!--Need to dynamically populate the fields based on numExp -->
+            <v-form id="form" ref="form" class="px-5">
+              <v-container v-for="i in Experience" :key="i">
+                <!-- <v-text-field
+                  v-model="numExp"
+                  label="How many experiences would you like to list?"
+                  name="numExp"
+                  type="number"
+                /> -->
+                <v-divider v-if="Experience.length > 1" />
+                <v-text-field
+                  v-model="i.Name"
+                  label="What was the name of the organization of your experience?"
+                  name="Expname"
+                  prepend-icon="work"
+                />
+                <v-combobox
+
+                  v-model="i.Type"
+                  :items="ExperienceTypes"
+                  name="exptype"
+                  label="What type was this experience?"
+                />
+                <v-text-field
+                  v-model="i.City"
+                  label="What was city of your experience?"
+                  name="Expcity"
+                />
+
+                <v-text-field
+                  v-model="i.Country"
+                  label="What was the country of your experience?"
+                  name="Expcountry"
+                />
+
+                <v-text-field
+                  v-model="i.Position"
+                  label="What was the position you held in this experience?"
+                  placeholder="Software Engineering Intern"
+                  name="Exppos"
+                />
+                <v-tooltip top>
+                  <template v-slot:activator="{ on }">
+                    <v-textarea
+                      v-model="i.Description"
+
+                      label="How would you describe this experience?"
+                      name="Expdesc"
+                      v-on="on"
+                    />
+                  </template>
+                  <span>Be sure to be direct with each sentence. Use action words not filler words. </span>
+                </v-tooltip>
+                <v-text-field
+                  v-model="i.Project"
+
+                  label="What was the name of the project with this experience?"
+                  name="ProjName"
+                />
+                <v-textarea
+                  v-model="i.ProjectDescription"
+
+                  label="How would you describe this project Description?"
+                  name="Projdesc"
+                />
+
+                <v-textarea
+                  v-model="i.ProjectOutcome"
+
+                  label="How would you describe this project and the outcome?"
+                  name="Projdesc"
+                />
+
+                <v-text-field
+                  v-model="i.StartDate"
+                  name="startdate"
+                  label="What was your start date of this experience?"
+                  type="date"
+                />
+                <v-text-field
+                  v-model="i.EndDate"
+                  name="enddate"
+                  label="What was your end date of this experience?"
+                  type="date"
+                />
+                </div>
+                <v-btn @click="AddExperience">
+                  Add One More
+                </v-btn>
+              </v-container>
+            </v-form>
+          </v-container>
         </v-card>
 
         <v-btn color="secondary" class="primary--text" @click="e6 = 3">
@@ -290,7 +425,135 @@
       </v-stepper-step>
       <v-stepper-content step="5">
         <v-card color="white" height="auto" class="px-5">
-          <Skills />
+          <v-container fluid>
+            <h2 class="tertiary--text">
+              Technical skills are vital to showcase what frameworks, languages and workflows you are familiar with.
+            </h2>
+            <br>
+            <v-expansion-panel>
+              <v-expansion-panel-content class="primary--text">
+                <template v-slot:header>
+                  <h2 class="primary--text">
+                    Technical Skills Tips:
+                  </h2>
+                </template>
+                <v-card>
+                  <div>
+                    <span class="primary--text">List the skills you have utilized not only in school but in the workplace or in a research capacity.</span>
+                  </div>
+                </v-card>
+                <v-card>
+                  <v-container class="primary--text">
+                    <span>The skills don't have to be the best buzzwords, be honest and do not focus on latest technologies unless you are familiar with them</span>
+                    </div>
+                  </v-container>
+                </v-card>
+                <v-card>
+                  <v-container class="primary--text">
+                    <span>Be sure to list your level of familiarity. </span>
+                    </div>
+                  </v-container>
+                </v-card>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+
+            <br>
+
+            <v-form id="form" ref="form" class="px-5">
+              <!-- <v-text-field
+                v-model="numSkills"
+                label="How many skills would you like to list?"
+                name="numSkills"
+                type="number"
+              /> -->
+
+              <h3 class="primary--text">
+                Languages
+              </h3>
+              <v-container
+                v-for="i in Skill.Languages"
+                :key="i"
+              >
+                <v-text-field
+
+                  v-model="i.Name"
+                  label="What's the Language Name?"
+
+                  name="skill"
+                />
+                <v-tooltip top>
+                  <template v-slot:activator="{ on }">
+                    <v-combobox
+
+                      v-model="i.Level"
+                      :items="SkillsLevel"
+                      name="skillLevel"
+                      label="What is your level of knowledge for this skill?"
+                    />
+                  </template>
+                  <span>Select beginner if you just learned the skill in a class, intermediate if you have done a project in it and advanced if you are considered a resource in this area. </span>
+                </v-tooltip>
+                </div>
+              </v-container>
+              <h3 class="primary--text">
+                Frameworks
+              </h3>
+              <v-container
+                v-for="i in Skill.Frameworks"
+                :key="i"
+              >
+                <v-text-field
+
+                  v-model="i.Name"
+                  label="What's the Language Name?"
+
+                  name="skill"
+                />
+                <v-tooltip top>
+                  <template v-slot:activator="{ on }">
+                    <v-combobox
+
+                      v-model="i.Level"
+                      :items="SkillsLevel"
+                      name="skillLevel"
+                      label="What is your level of knowledge for this skill?"
+                    />
+                  </template>
+                  <span>Select beginner if you just learned the skill in a class, intermediate if you have done a project in it and advanced if you are considered a resource in this area. </span>
+                </v-tooltip>
+                </div>
+
+                <h3 class="primary--text">
+                  OS
+                </h3>
+                <v-container
+                  v-for="i in Skill.OS"
+                  :key="i"
+                >
+                  <v-text-field
+
+                    v-model="i.Name"
+                    label="What's the Language Name?"
+
+                    name="skill"
+                  />
+                  <v-tooltip top>
+                    <template v-slot:activator="{ on }">
+                      <v-combobox
+
+                        v-model="i.Level"
+                        :items="SkillsLevel"
+                        name="skillLevel"
+                        label="What is your level of knowledge for this skill?"
+                      />
+                    </template>
+                    <span>Select beginner if you just learned the skill in a class, intermediate if you have done a project in it and advanced if you are considered a resource in this area. </span>
+                  </v-tooltip>
+                  </div>
+                </v-container>
+              </v-container>
+            </v-form>
+          </v-container>
         </v-card>
 
         <v-btn color="secondary" class="primary--text" @click="e6 = 4">
@@ -310,7 +573,65 @@
       </v-stepper-step>
       <v-stepper-content step="6">
         <v-card color="white" height="auto" class="px-5">
-          <Honors />
+          <v-container fluid>
+            <h2 class="tertiary--text">
+              Honors and Achievements are important to show what you have earned during your college career.
+            </h2>
+            <br>
+            <v-expansion-panel>
+              <v-expansion-panel-content class="primary--text">
+                <template v-slot:header>
+                  <h2 class="primary--text">
+                    Honors and Achievement Tips:
+                  </h2>
+                </template>
+                <v-card>
+                  <v-container>
+                    <span class="primary--text">Before attempting to fill in your honors and achievement, look back to all your certificates you have earned thus far in college.
+                    </span>
+                  </v-container>
+                </v-card>
+                <v-card>
+                  <v-container class="primary--text">
+                    <span>Have a short description ready for each honor and achievement, it's important for employers to understand the importance of the honor</span>
+                  </v-container>
+                </v-card>
+                <v-card>
+                  <v-container class="primary--text">
+                    <span>Do not forget about out of the classroom honors and achievements.<br> Be sure to list any organizational or volunteer honors given.</span>
+                  </v-container>
+                </v-card>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+            <br>
+
+            <v-form id="form" ref="form">
+              <v-container v-for="i in Achievements" :key="i">
+                <v-text-field
+
+                  v-model="i.Name"
+                  label="What is the name of the honor or achievement?"
+
+                  name="honor"
+                />
+                <v-tooltip top>
+                  <template v-slot:activator="{ on }">
+                    <v-textarea
+                      v-model="i.Description"
+
+                      label="How would you describe this honor or achievement?"
+                      name="Honordesc"
+                      v-on="on"
+                    />
+                  </template>
+                  <span>Be sure to be direct with each sentence. Share the parameters to earn this honor and why you earned it. </span>
+                </v-tooltip>
+              </v-container>
+              <v-btn @click="AddAchievement()">
+                Add Achievement
+              </v-btn>
+            </v-form>
+          </v-container>
         </v-card>
 
         <v-btn color="secondary" class="primary--text" @click="e6 = 5">
@@ -330,7 +651,66 @@
       </v-stepper-step>
       <v-stepper-content step="7">
         <v-card color="white" height="auto" class="px-5">
-          <Activities />
+          <v-container fluid>
+            <h2 class="tertiary--text">
+              Activities showcase to an employer your ability to be a well-rounded potential employee.
+            </h2>
+            <br>
+            <v-expansion-panel>
+              <v-expansion-panel-content class="primary--text">
+                <template v-slot:header>
+                  <h2 class="primary--text">
+                    Activities Tips:
+                  </h2>
+                </template>
+                <v-card>
+                  <v-card-text>
+                    <span class="primary--text">All organizational memberships are important to highlight in this section.
+                    </span>
+                  </v-card-text>
+                </v-card>
+                <v-card>
+                  <v-card-text class="primary--text">
+                    <span>Be sure to remember to include on and off campus activities.</span>
+                  </v-card-text>
+                </v-card>
+                <v-card>
+                  <v-card-text class="primary--text">
+                    <span>If you served at a leadership level, be sure to mention in the first sentence of your description.</span>
+                  </v-card-text>
+                </v-card>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+            <br>
+
+            <v-form id="form" ref="form">
+              <v-container
+                v-for="i in Activities"
+                :key="i"
+                fluid
+              >
+                <v-text-field
+
+                  v-model="i.Name"
+                  label="What is the name of the activity"
+
+                  name="activity"
+                />
+                <v-tooltip top>
+                  <template v-slot:activator="{ on }">
+                    <v-textarea
+                      v-model="i.Description"
+
+                      label="How would you describe this activity?"
+                      name="Actdesc"
+                      v-on="on"
+                    />
+                  </template>
+                  <span>Be sure to describe any leadership positions you served. Also, describe the impact this organization had on your community. </span>
+                </v-tooltip>
+              </v-container>
+            </v-form>
+          </v-container>
         </v-card>
 
         <v-btn color="secondary" class="primary--text" @click="e6 = 6">
@@ -347,20 +727,20 @@
 
 // import Education from '../../../components/resume/Education'
 // import Relcourse from '../../../components/resume/Relcourse'
-import Experience from '../../../components/resume/Experience'
-import Skills from '../../../components/resume/Skills'
-import Honors from '../../../components/resume/Honors'
-import Activities from '../../../components/resume/Activities'
+// import Experience from '../../../components/resume/Experience'
+// import Skills from '../../../components/resume/Skills'
+// import Honors from '../../../components/resume/Honors'
+// import Activities from '../../../components/resume/Activities'
 
 export default {
   layout: 'dashboard',
   components: {
     // Education,
     // Relcourse,
-    Experience,
-    Skills,
-    Honors,
-    Activities
+    // Experience,
+    // Skills,
+    // Honors,
+    // Activities
   },
   data() {
     return {
@@ -409,6 +789,13 @@ export default {
         ProjectOutcome: '',
         Type: ''
       }],
+      ExperienceTypes: [
+        'Professional',
+        'Educational',
+        'Research',
+        'Personal',
+        'Volunteer'
+      ],
       RelevantCourse: [{
         Name: '',
         Description: ''
@@ -426,7 +813,13 @@ export default {
           Name: '',
           Level: 1
         }]
-      }
+      },
+      SkillsLevel: [
+        'Learning',
+        'Beginner',
+        'Intermediate',
+        'Advanced'
+      ]
     }
   },
   methods: {
@@ -469,6 +862,48 @@ export default {
     },
     AddCourse() {
       this.RelevantCourse.push({
+        Name: '',
+        Description: ''
+      })
+    },
+    AddExperience() {
+      this.Experience.push({
+        City: '',
+        State: '',
+        Country: '',
+        Description: '',
+        StartDate: Date,
+        EndDate: '', // It's a string because it can be the PRESENT. We need to check that if it's a date or a string before Displaying
+        Name: '',
+        Position: '',
+        Project: '',
+        ProjectDescription: '',
+        ProjectOutcome: '',
+        Type: ''
+      })
+    },
+    AddSkill(subsetName) {
+      if (subsetName === 'Frameworks') {
+        this.Skill.Frameworks.push(
+          {
+            Name: '',
+            Level: 1
+          }
+        )
+      } else if (subsetName === 'Languages') {
+        this.Skill.Languages.push({
+          Name: '',
+          Level: 1
+        })
+      } else if (subsetName === 'OS') {
+        this.Skill.OS.push({
+          Name: '',
+          Level: 1
+        })
+      }
+    },
+    AddAchievement(subsetName) {
+      this.Achievements.push({
         Name: '',
         Description: ''
       })
