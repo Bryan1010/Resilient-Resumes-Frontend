@@ -15,7 +15,10 @@
       <v-stepper-content step="1">
         <v-card color="white" height="auto" class="px-5">
           <v-container lg12 md8 xs4>
-            <Objective />
+            <Objective
+              :statement="ObjectiveStatement"
+              :position="PositionApplyingFor"
+            />
           </v-container>
         </v-card>
         <v-btn color="primary" router to="/welcome">
@@ -159,6 +162,7 @@ import Experience from '../../../components/resume/Experience'
 import Skills from '../../../components/resume/Skills'
 import Honors from '../../../components/resume/Honors'
 import Activities from '../../../components/resume/Activities'
+
 export default {
   layout: 'dashboard',
   components: {
@@ -173,7 +177,49 @@ export default {
   data() {
     return {
       e6: 1,
-      MaxStep: 2
+      MaxStep: 2,
+      ObjectiveStatement: '',
+      PositionApplyingFor: '',
+      Achievements: [{
+        Name: '',
+        Description: ''
+      }],
+      Activities: [{
+        Name: '',
+        Description: ''
+      }],
+      Experience: [{
+        City: '',
+        State: '',
+        Country: '',
+        Description: '',
+        StartDate: Date,
+        EndDate: '', // It's a string because it can be the PRESENT. We need to check that if it's a date or a string before Displaying
+        Name: '',
+        Position: '',
+        Project: '',
+        ProjectDescription: '',
+        ProjectOutcome: '',
+        Type: ''
+      }],
+      RelevantCourse: [{
+        Name: '',
+        Description: ''
+      }],
+      Skill: {
+        Languages: [{
+          Name: '',
+          Level: 1
+        }],
+        Frameworks: [{
+          Name: '',
+          Level: 1
+        }],
+        OS: [{
+          Name: '',
+          Level: 1
+        }]
+      }
     }
   },
   methods: {
@@ -183,6 +229,21 @@ export default {
       } else {
         this.e6 = n + 1
       }
+    },
+    async submitResume() {
+      const resumeID = await this.$axios.post('/api', {
+        _Userid: this.$store.state.login.auth,
+        ObjectiveStatement: this.ObjectiveStatement,
+        PositionApplyingFor: this.PositionApplyingFor,
+        Achievements: this.Achievements,
+        Activities: this.Activities,
+        Experience: this.Experience,
+        RelevantCourse: this.RelevantCourse,
+        Skill: this.Skill
+
+      })
+
+      return resumeID
     }
   }
 }
