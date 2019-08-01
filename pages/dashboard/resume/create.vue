@@ -716,11 +716,11 @@
         <v-btn color="secondary" class="primary--text" @click="e6 = 6">
           Previous
         </v-btn>
-        <v-btn color="tertiary" class="white--text">
-          Submit for Feedback
-        </v-btn>
       </v-stepper-content>
     </v-stepper>
+    <v-btn color="tertiary" class="white--text" @click="submitResume">
+      Submit for Feedback
+    </v-btn>
   </v-container>
 </template>
 <script>
@@ -831,31 +831,96 @@ export default {
       }
     },
     async submitResume() {
-      const resumeID = await this.$axios.post('/api', {
-        _Userid: this.$store.state.login.auth,
-        ObjectiveStatement: this.ObjectiveStatement,
-        PositionApplyingFor: this.PositionApplyingFor,
-        Achievements: this.Achievements,
-        Activities: this.Activities,
-        Experience: this.Experience,
-        RelevantCourse: this.RelevantCourse,
-        Skill: this.Skill
+      const skillFramework = this.Skill.Frameworks.map((item) => {
+        const container = {}
 
+        container.Name = item.Name
+        if (item.Level === 'Learning') {
+          container.Level = 0
+        } else if (item.Level === 'Beginner') {
+          container.Level = 1
+        } else if (item.Level === 'Intermediate') {
+          container.Level = 2
+        } else if (item.Level === 'Advanced') {
+          container.Level = 3
+        } else {
+          container.Level = 0
+        }
+
+        return container
       })
+      const skillLanguages = this.Skill.Languages.map((item) => {
+        const container = {}
+
+        container.Name = item.Name
+        if (item.Level === 'Learning') {
+          container.Level = 0
+        } else if (item.Level === 'Beginner') {
+          container.Level = 1
+        } else if (item.Level === 'Intermediate') {
+          container.Level = 2
+        } else if (item.Level === 'Advanced') {
+          container.Level = 3
+        } else {
+          container.Level = 0
+        }
+
+        return container
+      })
+      const skillOS = this.Skill.OS.map((item) => {
+        const container = {}
+
+        container.Name = item.Name
+        if (item.Level === 'Learning') {
+          container.Level = 0
+        } else if (item.Level === 'Beginner') {
+          container.Level = 1
+        } else if (item.Level === 'Intermediate') {
+          container.Level = 2
+        } else if (item.Level === 'Advanced') {
+          container.Level = 3
+        } else {
+          container.Level = 0
+        }
+
+        return container
+      })
+      const resumeID = await this.$axios.post('/api/resume/create',
+        {
+          _Userid: this.$store.state.login.auth,
+          ObjectiveStatement: this.ObjectiveStatement,
+          PositionApplyingFor: this.PositionApplyingFor,
+          Achievements: this.Achievements,
+          Activities: this.Activities,
+          Experience: this.Experience,
+          RelevantCourse: this.RelevantCourse,
+          Skill: {
+            Frameworks: skillFramework,
+            Languages: skillLanguages,
+            OS: skillOS
+          },
+          School: this.Education
+        }
+      )
+
+      if (resumeID.status >= 200 && resumeID.status < 300) {
+        // eslint-disable-next-line no-console
+        console.log(resumeID)
+      }
 
       return resumeID
     },
     AddSchool() {
       this.Education.push(
         {
-          Minor: String,
-          Major: String,
-          Name: String,
-          Gpa: String,
-          Country: String,
-          City: String,
-          State: String,
-          Graduation: String
+          Minor: '',
+          Major: '',
+          Name: '',
+          Gpa: '',
+          Country: '',
+          City: '',
+          State: '',
+          Graduation: ''
         }
       )
       this.SchoolQty++
