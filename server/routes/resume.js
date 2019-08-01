@@ -26,6 +26,7 @@ router.get('/downloadLink/:resumeId', async (req, res) => {
     { FName: 1, LName: 1, Suffix: 1, Email: 1, _id: 0 })
 
   const dbResume = await Resume.findById(resumeId)
+  dbResume['Objective Statement'] = dbResume.ObjectiveStatement
 
   const objToReturn = {
     user: JSON.stringify(dbUser),
