@@ -2,6 +2,10 @@
   <v-card>
     <v-card-title>
       {{ resume.PositionApplyingFor }}
+      <v-spacer />
+      <v-btn :to="{path: `/dashboard/resume/feedback/${resume._id}`}">
+        Feedback
+      </v-btn>
     </v-card-title>
     <v-card-text>
       <p>
@@ -9,13 +13,13 @@
       </p>
     </v-card-text>
     <v-card-actions>
-      <v-btn :to="editResumeLink">
+      <!-- <v-btn :to="editResumeLink">
         <v-icon left>
           edit
         </v-icon>
         Edit
-      </v-btn>
-      <v-btn @click="DownloadResume">
+      </v-btn> -->
+      <v-btn disabled @click="DownloadResume">
         <v-icon left>
           cloud_download
         </v-icon>
@@ -67,18 +71,21 @@ export default {
         functionData.set('user', response.data.user)
         functionData.set('resume', response.data.resume)
 
-        functionData.set('address', dbaddress
+        functionData.set('address', JSON.stringify(dbaddress)
         )
-        axios.post('https://resilientresumes-functions.azurewebsites.net/api/resilientresume',
+        axios(
           {
+            method: 'post',
+            url: 'https://resilientresumes-functions.azurewebsites.net/api/resumeanalysis',
             responseType: 'blob',
-            headers: { 'Content-Type': 'multipart/form-data' },
-            user: response.data.user,
-            resume: response.data.resume,
-            address: JSON.stringify(dbaddress)
+            config: { headers: { 'Content-Type': 'multipart/form-data' } },
+            data: functionData
 
           }
-        )
+        ).then(function (res) {
+          // eslint-disable-next-line no-console
+          console.log(res)
+        })
           .catch(function (response) {
             // handle error
             // eslint-disable-next-line no-console

@@ -522,35 +522,34 @@
                   <span>Select beginner if you just learned the skill in a class, intermediate if you have done a project in it and advanced if you are considered a resource in this area. </span>
                 </v-tooltip>
                 </div>
+              </v-container>
+              <h3 class="primary--text">
+                OS
+              </h3>
+              <v-container
+                v-for="i in Skill.OS"
+                :key="i"
+              >
+                <v-text-field
 
-                <h3 class="primary--text">
-                  OS
-                </h3>
-                <v-container
-                  v-for="i in Skill.OS"
-                  :key="i"
-                >
-                  <v-text-field
+                  v-model="i.Name"
+                  label="What's the Language Name?"
 
-                    v-model="i.Name"
-                    label="What's the Language Name?"
+                  name="skill"
+                />
+                <v-tooltip top>
+                  <template v-slot:activator="{ on }">
+                    <v-combobox
 
-                    name="skill"
-                  />
-                  <v-tooltip top>
-                    <template v-slot:activator="{ on }">
-                      <v-combobox
-
-                        v-model="i.Level"
-                        :items="SkillsLevel"
-                        name="skillLevel"
-                        label="What is your level of knowledge for this skill?"
-                      />
-                    </template>
-                    <span>Select beginner if you just learned the skill in a class, intermediate if you have done a project in it and advanced if you are considered a resource in this area. </span>
-                  </v-tooltip>
-                  </div>
-                </v-container>
+                      v-model="i.Level"
+                      :items="SkillsLevel"
+                      name="skillLevel"
+                      label="What is your level of knowledge for this skill?"
+                    />
+                  </template>
+                  <span>Select beginner if you just learned the skill in a class, intermediate if you have done a project in it and advanced if you are considered a resource in this area. </span>
+                </v-tooltip>
+                </div>
               </v-container>
             </v-form>
           </v-container>
@@ -885,6 +884,27 @@ export default {
 
         return container
       })
+
+      if (this.Activities.length === 1 && this.Activities.Name === '') {
+        this.Activities = []
+      }
+
+      if (this.Achievements.length === 1 && this.Achievements.Name === '') {
+        this.Achievements = []
+      }
+
+      if (this.Experience.length === 1 && this.Experience.Name === '') {
+        this.Experience = []
+      }
+
+      if (this.RelevantCourse.length === 1 && this.RelevantCourse.Name === '') {
+        this.RelevantCourse = []
+      }
+
+      if (this.Education.length === 1 && this.Education.Name === '') {
+        this.Education = []
+      }
+
       const resumeID = await this.$axios.post('/api/resume/create',
         {
           _Userid: this.$store.state.login.auth,
@@ -907,6 +927,9 @@ export default {
         // eslint-disable-next-line no-console
         console.log(resumeID)
       }
+      const resume = resumeID.data.resumeID
+
+      this.$router.push(`/dashboard/resume/feedback/${resume}`)
 
       return resumeID
     },

@@ -115,6 +115,156 @@
         </v-container>
       </v-card-text>
     </v-card>
+
+    <v-card>
+      <v-card-title>
+        <h2 class="primary--text">
+          Skills
+        </h2>
+        <v-spacer />
+        <h2 class="primary--text">
+          <b>Grade:</b> {{ getGrade(feedback.Skill_Rating) }}
+        </h2>
+      </v-card-title>
+      <v-card-text>
+        <p class="primary--text">
+          <b>Feedback:</b> {{ feedback.Ski_Final }}
+        </p>
+        <v-divider />
+        <v-container>
+          <p class="primary--text">
+            Frameworks
+          </p>
+          <ul v-for="(i, index) in resume.Skill.Frameworks" :key="index">
+            <li>
+              Name: {{ i.Name }}
+            </li>
+            <li>
+              Type: {{ GetSkillLevel( i.Level ) }}
+            </li>
+            <v-divider v-if="index > 0" />
+            </li>
+          </ul>
+          <v-divider />
+
+          <p class="primary--text">
+            Languages
+          </p>
+          <ul v-for="(i, index) in resume.Skill.Languages" :key="index">
+            <li>
+              Name: {{ i.Name }}
+            </li>
+            <li>
+              Type: {{ GetSkillLevel( i.Level ) }}
+            </li>
+            <v-divider v-if="index > 0" />
+            </li>
+          </ul>
+          <v-divider />
+
+          <p class="primary--text">
+            OS
+          </p>
+          <ul v-for="(i, index) in resume.Skill.OS" :key="index">
+            <li>
+              Name: {{ i.Name }}
+            </li>
+            <li>
+              Type: {{ GetSkillLevel( i.Level ) }}
+            </li>
+            <v-divider v-if="index > 0" />
+            </li>
+          </ul>
+        </v-container>
+      </v-card-text>
+    </v-card>
+
+    <v-card>
+      <v-card-title>
+        <h2 class="primary--text">
+          Activities
+        </h2>
+        <v-spacer />
+        <h2 class="primary--text">
+          <b>Grade:</b> {{ getGrade(feedback.Act_Rating) }}
+        </h2>
+      </v-card-title>
+      <v-card-text>
+        <p class="primary--text">
+          <b>Feedback:</b> {{ feedback.Act_Final }}
+        </p>
+        <v-divider />
+        <v-container v-for="(i, index) in resume.Activities" :key="index">
+          <v-divider v-if="index > 0" />
+          <ul>
+            <li>
+              Name: {{ i.Name }}
+            </li>
+            <li v-if="i.Description">
+              Graduation Date: {{ i.Description }}
+            </li>
+          </ul>
+        </v-container>
+      </v-card-text>
+    </v-card>
+
+    <v-card>
+      <v-card-title>
+        <h2 class="primary--text">
+          Activities
+        </h2>
+        <v-spacer />
+        <h2 class="primary--text">
+          <b>Grade:</b> {{ getGrade(feedback.Act_Rating) }}
+        </h2>
+      </v-card-title>
+      <v-card-text>
+        <p class="primary--text">
+          <b>Feedback:</b> {{ feedback.Act_Final }}
+        </p>
+        <v-divider />
+        <v-container v-for="(i, index) in resume.Activities" :key="index">
+          <v-divider v-if="index > 0" />
+          <ul>
+            <li>
+              Name: {{ i.Name }}
+            </li>
+            <li v-if="i.Description">
+              Description: {{ i.Description }}
+            </li>
+          </ul>
+        </v-container>
+      </v-card-text>
+    </v-card>
+
+    <v-card>
+      <v-card-title>
+        <h2 class="primary--text">
+          Achievements
+        </h2>
+        <v-spacer />
+        <h2 class="primary--text">
+          <b>Grade:</b> {{ getGrade(feedback.Award_Rating) }}
+        </h2>
+      </v-card-title>
+      <v-card-text>
+        <p class="primary--text">
+          <b>Feedback:</b> {{ feedback.Award_Final }}
+        </p>
+        <v-divider />
+        <v-container v-for="(i, index) in resume.Activities" :key="index">
+          <v-divider v-if="index > 0" />
+          <ul>
+            <li>
+              Name: {{ i.Name }}
+            </li>
+            <li v-if="i.Description">
+              Description: {{ i.Description }}
+            </li>
+          </ul>
+        </v-container>
+      </v-card-text>
+    </v-card>
   </v-container>
 </template>
 
@@ -373,6 +523,15 @@ export default {
       } else if (percentage > 60) {
         return percentage + '% D'
       } else return percentage + '% F'
+    },
+    GetSkillLevel(val) {
+      const skillLevel = [
+        'Learning',
+        'Beginner',
+        'Intermediate',
+        'Advanced'
+      ]
+      return skillLevel[val]
     }
 
   }

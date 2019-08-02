@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const jwt = require('jsonwebtoken')
+// const axios = require('axios')
 const Resume = require('../models/Resume')
 const User = require('../models/User')
 
@@ -93,13 +94,14 @@ router.post('/save', (req, res) => {
   const token = jwt.verify(_userId, process.env.JWT_TOKEN_PRIVATE_KEY)
 
   // if no resumeid is passed, it's a treat as new resume
+  const resume = null
   if (resumeID === '') {
-    const resume = null
-
     const currentUser = new User().findById(token._id,
       {
         Phone: 1,
         Email: 1,
+        LinkedIn: 1,
+        PorfolioWebsite: 1,
         _id: 0
       }
     )
@@ -124,6 +126,55 @@ router.post('/save', (req, res) => {
     }
   } else {
     const resume = new Resume().findById(resumeID)
+  }
+})
+
+router.post('/:resumeId/getFeedback', async (req, res) => {
+  try {
+    const resumeId = req.params.resumeId
+    let _id = ''
+    if (req.body._Userid) { _id = req.body._Userid }
+    if (req.query._Userid) { _id = req.query._Userid }
+
+    const token = jwt.verify(_id, process.env.JWT_TOKEN_PRIVATE_KEY)
+
+    const dbUser = await User.findById(token._id)
+
+    const dbResume = await Resume.findOne({ _id: resumeId, User: token._id })
+
+    // eslint-disable-next-line prefer-const
+    let AiResume = dbResume
+
+    AiResume.Name.FName = dbUser.FName
+    AiResume.Name.LName = dbUser.LName
+    AiResume.Name.Suffix = dbUser.Suffix
+
+    if (!AiResume.Name.Suffix) {
+      AiResume.Name.Suffix = ''
+    }
+    AiResume['Objective Statement'] = AiResume.ObjectiveStatement
+
+    // eslint-disable-next-line no-console
+    console.log(AiResume)
+
+    // const functionData = new FormData()
+
+    // functionData.set('resume', JSON.stringify(AiResume))
+
+    // // eslint-disable-next-line no-console
+    // console.log(functionData)
+
+    // const returnVal = await axios({
+    //   method: 'post',
+    //   url: 'https://resilientresumes-functions.azurewebsites.net/api/resumeanalysis',
+    //   config: { headers: { 'Content-Type': 'multipart/form-data' } },
+    //   data: { resume: JSON.stringify(AiResume) }
+    // })
+
+    return res.send(AiResume)
+  } catch (ex) {
+    // eslint-disable-next-line no-console
+    console.log(ex)
   }
 })
 

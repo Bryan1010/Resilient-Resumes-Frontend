@@ -41,6 +41,14 @@ export const mutations = {
       state.authenticated.gravatar = authObj.gravatar
     }
   },
+  logout(state) {
+    state.auth = ''
+    state.authenticated.access_token = ''
+    state.authenticated.FirstName = ''
+    state.authenticated.LastName = ''
+    state.authenticated.email = ''
+    state.authenticated.gravatar = ''
+  },
   auth_request(state) {
     state.status = 'loading'
   }

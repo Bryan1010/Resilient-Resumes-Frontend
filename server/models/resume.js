@@ -47,9 +47,9 @@ const schoolSchema = new Schema({
   // }],
   // TODO: Once Everybody else is comfortable with the array of major, switch it back
   Major: String,
-  Minors: [String],
+  Minor: String,
   Graduation: Date,
-  Gpa: Number
+  Gpa: String
 })
 
 // Skill Schema
@@ -61,14 +61,19 @@ const skillSchema = new Schema({
 const resumeSchema = new Schema({
   User: {
     type: Schema.ObjectId,
-    required: true,
-    ref: 'User'
+    ref: 'User',
+    required: 'You must supply an owner!'
+  },
+  Address: {
+    type: Schema.ObjectId,
+    ref: 'Address'
   },
   ContactInfo: {
     Email: String,
     Phone: String
   },
   ObjectiveStatement: String,
+  'Objective Statement': String,
   PositionApplyingFor: String,
   Achievements: [achievementSchema],
   Activities: [activitiesSchema],
