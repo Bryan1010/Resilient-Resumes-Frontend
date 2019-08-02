@@ -10,7 +10,8 @@
     "dev": "cross-env NODE_ENV=development PORT=8000 nodemon server/index.js --watch server --port 8000",
     "build": "nuxt build",
     "start": "cross-env NODE_ENV=production node server/index.js",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@hapi/joi": "^15.1.0",
