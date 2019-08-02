@@ -44,6 +44,19 @@
               SignUp
             </v-btn>
           </template>
+          <template v-else>
+            <p class="headline">
+              Click Here to go to the dashboard and get started
+            </p>
+            <v-btn
+              class="mr-5"
+              text
+              outline
+              to="/dashboard"
+            >
+              Dashboard
+            </v-btn>
+          </template>
         </v-flex>
       </v-layout>
     </v-container>
