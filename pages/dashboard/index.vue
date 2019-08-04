@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import ResumeCard from '../../components/resume/ResumeCard'
 
 export default {
@@ -31,7 +31,7 @@ export default {
     }
   },
   mounted() {
-    axios
+    this.$axios
       .get('/api/resume/all/card',
         {
           params: {
