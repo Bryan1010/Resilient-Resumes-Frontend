@@ -62,7 +62,7 @@ module.exports = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: process.env.BASE_URL // || 'http://localhost:' + process.env.PORT
+    baseURL: process.env.RR_API // || 'http://localhost:' + process.env.PORT
   },
   /*
    ** vuetify module configuration
