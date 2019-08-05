@@ -382,7 +382,7 @@ export default {
   },
   async mounted() {
     const feedback = {}
-    const resume = await axios.post(`/api/resume/${this.$route.params.id}/getFeedback`,
+    const resume = await axios.post(`https://resilient-resumes-api.herokuapp.com/api/resume/${this.$route.params.id}/getFeedback`,
       {
         _Userid: this.$store.state.login.auth,
         params: {
@@ -396,7 +396,7 @@ export default {
     const functionData = new FormData()
 
     functionData.set('resume', JSON.stringify(resume.data))
-    const azure = await axios(
+    const azure = await this.$axios(
       {
         method: 'post',
         url: 'https://resilientresumes-functions.azurewebsites.net/api/resumeanalysis',
