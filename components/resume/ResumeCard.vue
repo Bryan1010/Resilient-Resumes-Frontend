@@ -19,12 +19,17 @@
         </v-icon>
         Edit
       </v-btn> -->
-      <v-btn disabled @click="DownloadResume">
-        <v-icon left>
-          cloud_download
-        </v-icon>
-        Download Resume
-      </v-btn>
+      <v-tooltip top>
+        <template v-slot:activator="{ on }">
+          <v-btn disabled @click="DownloadResume">
+            <v-icon left>
+              cloud_download
+            </v-icon>
+            Download Resume
+          </v-btn>
+        </template>
+        <span>Coming Soon</span>
+      </v-tooltip>
     </v-card-actions>
   </v-card>
 </template>
