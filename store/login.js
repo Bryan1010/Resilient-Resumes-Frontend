@@ -76,7 +76,7 @@ export const actions = {
           // auth = JSON.parse(parsed.auth)
           // user = await helpers.reauth(auth)
           // eslint-disable-next-line no-console
-          console.log(user.data)
+          // console.log(user.data)
           commit('login/setRRAuth', user.data)
           return user.data
         }
