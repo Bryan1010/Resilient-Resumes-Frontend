@@ -20,13 +20,13 @@
             <br>
             As you navigate through, you will receive ideas and inspiration to help you create a Resilient Resume.
             <br>
-            Once input is complete, you will receive customize feedback based on your input upon submission.
+            Once your input is complete, you will receive customize feedback based on your input upon submission.
             <br>
-            With this feedback you can refine your information for the most Resilient Resume possible.
+            With this feedback, you can refine your information for the most Resilient Resume possible.
           </p>
           <template v-if="!isLoggedIn">
             <p class="headline">
-              Click start to Create an Account.
+              Click "Start" to Create an Account.
             </p>
             <v-btn
               class="mr-5"
@@ -41,7 +41,7 @@
               text
               to="/createAccount"
             >
-              SignUp
+              Start
             </v-btn>
           </template>
           <template v-else>

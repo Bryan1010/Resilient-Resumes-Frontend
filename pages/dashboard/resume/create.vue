@@ -185,7 +185,7 @@
         <v-card color="white" height="auto">
           <v-container fluid>
             <h2 class="tertiary--text">
-              Relevant Courses are the courses that contribute to the advancement of your career.
+              Relevant Courses are the courses that contribute to the advancement of your career growth.
             </h2>
             <br>
             <v-expansion-panel>
