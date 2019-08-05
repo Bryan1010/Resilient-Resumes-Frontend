@@ -68,7 +68,7 @@ export const actions = {
       const parsed = CookieParser.parse(req.headers.cookie)
       try {
         // eslint-disable-next-line no-console
-        console.log(axios)
+        // console.log(axios)
         if (parsed.auth) {
           const user = await axios.post(process.env.RR_API + '/api/user/reauth', {
             _id: parsed.auth
