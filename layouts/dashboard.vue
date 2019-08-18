@@ -24,6 +24,7 @@
 
       <v-divider />
       <v-btn
+        outline
         @click="logout"
       >
         Logout
@@ -79,3 +80,15 @@ export default {
   }
 }
 </script>
+
+<style>
+#app > div{
+    background-color: #093162;
+ }
+
+.v-alert .v-alert__icon.v-icon, .v-alert__dismissible .v-icon{
+    color:#fff;
+}
+
+h1{color: white;}
+</style>

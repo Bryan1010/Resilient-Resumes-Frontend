@@ -40,12 +40,14 @@
                 <v-btn
                   color="primary"
                   to="createAccount"
+                  outline
                 >
                   Signup
                 </v-btn>
                 <v-spacer />
                 <v-btn
                   color="primary"
+                  outline
                   @click="postLogin"
                 >
                   Login

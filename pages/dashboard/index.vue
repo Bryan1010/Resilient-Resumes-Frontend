@@ -3,7 +3,10 @@
     <v-layout>
       <h1>Your Resumes</h1>
       <v-spacer />
-      <v-btn to="/dashboard/resume/create">
+      <v-btn
+        outline
+        to="/dashboard/resume/create"
+      >
         <v-icon>note_add</v-icon>
         New resume
       </v-btn>

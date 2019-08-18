@@ -3,7 +3,10 @@
     <v-card-title>
       {{ resume.PositionApplyingFor }}
       <v-spacer />
-      <v-btn :to="{path: `/dashboard/resume/feedback/${resume._id}`}">
+      <v-btn
+        outline
+        :to="{path: `/dashboard/resume/feedback/${resume._id}`}"
+      >
         Feedback
       </v-btn>
     </v-card-title>
@@ -21,7 +24,11 @@
       </v-btn> -->
       <v-tooltip top>
         <template v-slot:activator="{ on }">
-          <v-btn disabled @click="DownloadResume">
+          <v-btn
+            outline
+            disabled
+            @click="DownloadResume"
+          >
             <v-icon left>
               cloud_download
             </v-icon>

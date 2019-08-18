@@ -102,6 +102,7 @@
 
             <v-btn
               flat
+              outline
               class="primary mx-0 mt-3"
               @click="postCreateAccount"
             >
