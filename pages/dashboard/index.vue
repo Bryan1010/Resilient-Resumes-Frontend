@@ -4,6 +4,7 @@
       <h1>Your Resumes</h1>
       <v-spacer />
       <v-btn
+        dark
         outline
         to="/dashboard/resume/create"
       >
