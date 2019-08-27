@@ -42,7 +42,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import moment from 'moment'
 const jsDownload = require('js-file-download')
 
@@ -70,7 +69,7 @@ export default {
   },
   methods: {
     DownloadResume: function () {
-      axios.get(`/api/resume/downloadLink/${this.resume._id}`,
+      await this.$axios.get(`/api/resume/downloadLink/${this.resume._id}`,
         {
           params: {
             _id: this.$store.state.login.auth
@@ -114,7 +113,7 @@ export default {
           element.Graduation = moment(element.StartDate).format('MMMM, YYYY')
         })
 
-        axios(
+        this.$axios.post(
           {
             method: 'post',
             url: 'https://resilientresumes-functions.azurewebsites.net/api/ResilientResumeBody',
