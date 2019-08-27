@@ -160,6 +160,7 @@ export default {
   },
   methods: {
     async postCreateAccount() {
+      this.$nuxt.$loading.start()
       if (this.$refs.form.validate()) {
         this.loading = true
         const token = await this.$axios.post('/api/user/register', {
@@ -192,9 +193,9 @@ export default {
             this.errorMessage = token.data.message
           }
         }
-
         this.loading = false
       }
+      this.$nuxt.$loading.finish()
     }
   }
 }
