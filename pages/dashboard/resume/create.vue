@@ -13,9 +13,9 @@
       </v-stepper-step>
 
       <v-stepper-content step="1">
-        <v-card color="white" height="auto" class="px-5">
+        <v-card color="white" height="auto">
           <!-- Objective component -->
-          <v-container lg12 md8 xs4>
+          <v-container fluid>
             <v-card>
               <div>
                 <h3 class="primary--text">
@@ -73,7 +73,7 @@
       </v-stepper-step>
 
       <v-stepper-content step="2">
-        <v-card color="white" height="auto" class="px-5">
+        <v-card color="white" height="auto">
           <v-layout
             wrap
             align-center
@@ -93,74 +93,72 @@
 
               <br>Do your best to fill all boxes.
             </div>
-            <v-cart-text>
+            <v-card-text>
               <v-text-field
                 v-model="SchoolQty"
                 label="How many schools would you like on your resume?"
                 name="schoolnum"
                 prepend-icon="school"
               />
-            </v-cart-text>
-            <v-card v-for="i in Education" :key="i" xs12>
-              <div>
-                <v-form id="form" ref="form">
-                  <v-text-field
-                    v-model="i.Name"
-                    label="What is the School name?"
-                    name="schoolname"
-                    prepend-icon="school"
-                  />
+            </v-card-text>
+            <v-card>
+              <v-form v-for="i in Education" id="form" :key="i" ref="form">
+                <v-text-field
+                  v-model="i.Name"
+                  label="What is the School name?"
+                  name="schoolname"
+                  prepend-icon="school"
+                />
 
-                  <v-text-field
-                    v-model="i.City"
-                    label="What is the School City?"
-                    name="schoolcity"
-                    prepend-icon="school"
-                  />
+                <v-text-field
+                  v-model="i.City"
+                  label="What is the School City?"
+                  name="schoolcity"
+                  prepend-icon="school"
+                />
 
-                  <v-text-field
-                    v-model="i.State"
-                    label="What is the School State?"
-                    name="schoolstate"
-                    prepend-icon="school"
-                  />
+                <v-text-field
+                  v-model="i.State"
+                  label="What is the School State?"
+                  name="schoolstate"
+                  prepend-icon="school"
+                />
 
-                  <v-text-field
-                    v-model="i.Country"
-                    label="What is the School Country?"
-                    name="schoolstate"
-                    prepend-icon="school"
-                  />
+                <v-text-field
+                  v-model="i.Country"
+                  label="What is the School Country?"
+                  name="schoolstate"
+                  prepend-icon="school"
+                />
 
-                  <v-text-field
-                    v-model="i.Major"
-                    label="What was the Major for this school?"
-                    name="schoolstate"
-                    prepend-icon="school"
-                  />
+                <v-text-field
+                  v-model="i.Major"
+                  label="What was the Major for this school?"
+                  name="schoolstate"
+                  prepend-icon="school"
+                />
 
-                  <v-text-field
-                    v-model="i.Minor"
-                    label="What was the Minor for this school?"
-                    name="schoolstate"
-                    prepend-icon="school"
-                  />
+                <v-text-field
+                  v-model="i.Minor"
+                  label="What was the Minor for this school?"
+                  name="schoolstate"
+                  prepend-icon="school"
+                />
 
-                  <v-combobox
-                    v-model="i.DegreeType"
-                    :items="DegreeTypes"
-                    name="degreetype"
-                    label="Select your degree for this school"
-                  />
+                <v-combobox
+                  v-model="i.DegreeType"
+                  :items="DegreeTypes"
+                  name="degreetype"
+                  label="Select your degree for this school"
+                />
 
-                  <v-text-field
-                    v-model="i.Gpa"
-                    label="GPA"
-                    name="schoolstate"
-                    prepend-icon="school"
-                  />
-                </v-form>
-              </div>
+                <v-text-field
+                  v-model="i.Gpa"
+                  label="GPA"
+                  name="schoolstate"
+                  prepend-icon="school"
+                />
+              </v-form>
             </v-card>
           </v-layout>
         </v-card>
@@ -1000,3 +998,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.layout.wrap .v-card.v-sheet{
+  width: 100%;
+}
+</style>
