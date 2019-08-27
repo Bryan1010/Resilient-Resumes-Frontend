@@ -26,7 +26,7 @@
         <template v-slot:activator="{ on }">
           <v-btn
             outline
-            disabled
+
             @click="DownloadResume"
           >
             <v-icon left>
@@ -43,6 +43,8 @@
 
 <script>
 import axios from 'axios'
+import moment from 'moment'
+const jsDownload = require('js-file-download')
 
 export default {
   props: {
@@ -83,20 +85,46 @@ export default {
         functionData.set('user', response.data.user)
         functionData.set('resume', response.data.resume)
 
-        functionData.set('address', JSON.stringify(dbaddress)
-        )
+        functionData.set('address', JSON.stringify(dbaddress))
+
+        const address = JSON.parse(response.data.address)
+        const resume = JSON.parse(response.data.resume)
+        const wordData = {
+          resume: resume,
+          user: JSON.parse(response.data.user),
+          address: {
+            Primary: 1,
+            Address: {
+              Line1: address.Line1,
+              Line2: address.Line2,
+              City: address.City,
+              State: address.State,
+              Zip: address.Zip,
+              Country: 'USA'
+            }
+          }
+        }
+
+        wordData.resume.Experience.forEach((element) => {
+          element.StartDate = moment(element.StartDate).format('MMMM, YYYY')
+          element.EndDate = moment(element.EndDate).format('MMMM, YYYY')
+        })
+
+        wordData.resume.School.forEach((element) => {
+          element.Graduation = moment(element.StartDate).format('MMMM, YYYY')
+        })
+
         axios(
           {
             method: 'post',
-            url: 'https://resilientresumes-functions.azurewebsites.net/api/resumeanalysis',
+            url: 'https://resilientresumes-functions.azurewebsites.net/api/ResilientResumeBody',
             responseType: 'blob',
-            config: { headers: { 'Content-Type': 'multipart/form-data' } },
-            data: functionData
+            config: { headers: { 'Content-Type': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' } },
+            data: wordData
 
           }
         ).then(function (res) {
-          // eslint-disable-next-line no-console
-          console.log(res)
+          jsDownload(res.data, 'resume.docx')
         })
           .catch(function (response) {
             // handle error
