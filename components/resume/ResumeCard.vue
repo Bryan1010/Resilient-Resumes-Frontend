@@ -68,7 +68,7 @@ export default {
     }
   },
   methods: {
-    DownloadResume: function () {
+    DownloadResume: async function () {
       await this.$axios.get(`/api/resume/downloadLink/${this.resume._id}`,
         {
           params: {
