@@ -43,6 +43,7 @@
 
 <script>
 import moment from 'moment'
+// import axios from 'axios'
 const jsDownload = require('js-file-download')
 
 export default {
@@ -75,7 +76,7 @@ export default {
             _id: this.$store.state.login.auth
           }
         }
-      ).then((response) => {
+      ).then(async (response) => {
         const dbaddress = {
           Primary: 1,
           Address: { Line1: '', Line2: '', City: '', State: '', Zip: '', Country: '' }
@@ -113,7 +114,7 @@ export default {
           element.Graduation = moment(element.StartDate).format('MMMM, YYYY')
         })
 
-        this.$axios.post(
+        const wordDoc = await this.$axios(
           {
             method: 'post',
             url: 'https://resilientresumes-functions.azurewebsites.net/api/ResilientResumeBody',
@@ -122,14 +123,18 @@ export default {
             data: wordData
 
           }
-        ).then(function (res) {
-          jsDownload(res.data, 'resume.docx')
-        })
-          .catch(function (response) {
-            // handle error
-            // eslint-disable-next-line no-console
-            console.log(response)
-          })
+        )
+        // eslint-disable-next-line no-console
+        // console.log(wordDoc)
+        jsDownload(wordDoc.data, 'resume.docx')
+        // .then(function (res) {
+        //   jsDownload(res.data, 'resume.docx')
+        // })
+        //   .catch(function (response) {
+        //     // handle error
+        //     // eslint-disable-next-line no-console
+        //     console.log(response)
+        //   })
       })
     }
   }
