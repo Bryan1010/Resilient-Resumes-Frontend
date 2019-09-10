@@ -1,9 +1,9 @@
 <template>
   <v-container>
-    <h1 class="primary--text">
+    <h1>
       Resume Feedback
     </h1>
-    <h2 class="primary--text">
+    <h2>
       Overall Score:
       <span v-if="feedback.Overall_Rating > 0">
         {{ getGrade(feedback.Overall_Rating) }}
