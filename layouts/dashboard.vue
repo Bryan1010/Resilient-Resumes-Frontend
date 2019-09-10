@@ -90,5 +90,5 @@ export default {
     color:#fff;
 }
 
-h1{color: white;}
+h1, h1 + h2{color: white;}
 </style>
